@@ -1,4 +1,4 @@
-"""SignatureProject URL Configuration
+"""streaming URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,8 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from SignatureProject.views import HomeView 
+# from SSoundMusic.views import UserCreateView, UserCreateDoneTV 
+
+from django.conf.urls.static import static #photo 앱 추가 
+from django.conf import settings #photo 앱 추가
+
 
 urlpatterns = [
+    # path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts/register/', UserCreateView.as_view(), name='register'),
+    # path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
+    path('', HomeView.as_view(), name='home'),
     path('admin/', admin.site.urls),
-    path('streaming/', include('streaming.urls')),
-]
+    path('photo/',include('photo.urls', namespace='photo')), #photo 앱 추가 
+    path('streaming/',include('streaming.urls',namespace="streaming")), #스트리밍앱 추가 
+
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) #추가 
+
