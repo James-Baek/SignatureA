@@ -1,0 +1,36 @@
+{% load socialaccount %}
+<body>
+ 
+    <h1>시그니처 사운드</h1>
+    {% if user.is_authenticated %}
+    {{ user.username }}
+ 
+    {% for account in user.socialaccount_set.all %}
+
+    <span>가입 일시 : {{ account.date_joined }}</span>
+     {% comment %} show avatar from url {% endcomment %}
+     <h2 style="text-transform:capitalize;">{{ account.provider }} 계정 정보</h2>
+ 
+     <p><img width="50" height="50" src="{{ account.get_avatar_url }}"/></p>
+ 
+     <p>UID: <a href="{{ account.extra_data.link }}">{{ account.uid }}</a></p>
+ 
+     <p>Username: {{ account.get_profile_url }}</p>
+      <p>First Name: {{ account.extra_data.properties.nickname }}</p>
+      <p>Last Name: {{ account.extra_data.last_name }}</p>
+ 
+      <p>Dashboard Link:
+      <a href="{{ account.extra_data.link }}">{{ account.extra_data.link }}</a></p>
+      {% empty %}
+      <p>you haven't any social account please</p>
+    {% endfor %}
+ 
+ 
+    {% endif %}
+    <h2><a href="/accounts/login">로그인</a></h2>
+    {% load static %}
+    <h2><a href="{% provider_login_url 'kakao' %}"><img src="{% static 'img/kakao_logo.png'%}"></a></h2>
+    <h2><a href="/accounts/logout">로그아웃</a></h2>
+    <h2><a href="/accounts/signup">회원가입</a></h2>
+ 
+</body>

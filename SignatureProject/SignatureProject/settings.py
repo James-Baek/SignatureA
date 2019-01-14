@@ -37,7 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', 
+    'allauth', 
+    'allauth.account', 
+    'allauth.socialaccount', 
+    'allauth.socialaccount.providers.kakao', 
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     'streaming.apps.StreamingConfig',
+    'api',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -130,5 +140,23 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Login 
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+LOGIN_REDIRECT_URL = "/"
+ACCOUNT_AUTHENTICATED_LOGOUT_REDIRECTS = True
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+AUTHENTICATION_BACKENDS = (
+
+    # Needed to login by username in Django admin, regardless of `allauth` 
+    'django.contrib.auth.backends.ModelBackend',
+ 
+    # `allauth` specific authentication methods, such as login by e-mail 
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+SITE_ID = 1
