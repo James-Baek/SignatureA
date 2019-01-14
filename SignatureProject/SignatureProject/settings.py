@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'streaming.apps.StreamingConfig',
     'photo.apps.PhotoConfig',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -129,7 +130,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')] 
 
 MEDIA_URL = '/media/' # 추가
-MEDIA_ROOT = os.path.join(BASE_DIR,'meida') #추가  
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') #추가  
 
 #Login_url = '/accounts/login/'
 #Logout_url = '/accounts/logout/'

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from SignatureProject.views import HomeView 
+from SignatureProject.views import HomeView
 # from SSoundMusic.views import UserCreateView, UserCreateDoneTV 
 
 from django.conf.urls.static import static #photo 앱 추가 
