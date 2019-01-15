@@ -17,7 +17,7 @@ class TMusic_Source(models.Model):
     music_w = models.CharField('작사가',max_length=30)  
     music_m = models.CharField('작곡가',max_length=30)      
     music_r = models.CharField('편곡가',max_length=30)
-    agency = models.CharField('기획사',max_lenth=30) 
+    agency = models.CharField('기획사',max_length=30) 
     music_len = models.IntegerField('음원총길이')
     sound_type = models.CharField('음질종류',max_length=10)
     lyrics = models.CharField('가사',max_length=254)  # charField 인가 Int인가 
@@ -75,7 +75,7 @@ class TUser_Basic(models.Model):
     profile = models.CharField('프로필이미지',max_length=100)
     coin = models.IntegerField('총보유코인')
     nation = models.IntegerField('국적코드')
-    pw2 = models.CharField('패스워드2')
+    pw2 = models.CharField('패스워드2',max_length=40)
     update =models.DateTimeField('수정일',auto_now_add=True)
     entdate = models.DateTimeField('가입일자',auto_now_add=True)
     user_type = models.IntegerField('회원구분')
@@ -92,8 +92,8 @@ class TUser_Atist(models.Model):
     music_type = models.IntegerField('장르코드')
     gender = models.IntegerField('성별')
     faceph = models.CharField('얼굴 사진',max_length=50)
-    area = models.CharField('출생 지역')
-    etc = models.CharField('특징')
+    area = models.CharField('출생 지역',max_length=20)
+    etc = models.CharField('특징',max_length=254)
 
     def __str__(self): 
         return self.email
@@ -111,7 +111,7 @@ class TUser_Company(models.Model):
 class TCode_Master(models.Model): 
     major_id = models.IntegerField('그룹코드id')
     minor_id = models.IntegerField('세부코드id')
-    totamt = models.CharField('코드레이블') # ??  
+    totamt = models.IntegerField('코드레이블') # ??  
 
 
 
