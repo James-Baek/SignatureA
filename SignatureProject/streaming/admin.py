@@ -11,6 +11,11 @@ class BasicAdmin(admin.ModelAdmin):
 class ArtistAdmin(admin.ModelAdmin):
     list_display = ['email']
 
+
+class TableCode(admin.ModelAdmin): 
+    list_display = ['major_id','minor_id','code_label','explain']
+
 admin.site.register(TMusic_Source,MusicRegisterAdmin)
 admin.site.register(TUser_Basic,BasicAdmin)
 admin.site.register(TUser_Atist,ArtistAdmin)
+admin.site.register(TCode_Master,TableCode)
