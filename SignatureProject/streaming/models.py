@@ -40,6 +40,7 @@ class TMusic_Stake(models.Model):
 
 # 보유 음원 지분 테이블 
 class TMusic_StakePer(models.Model): 
+class TMusic_StakePer(models.Model): 
     INDEX_MSP = models.IntegerField('Index')
     ownmail = models.ForeignKey('TMusic_Stake',on_delete=models.CASCADE)
     music_id = models.ForeignKey('TMusic_Source',on_delete=models.CASCADE)
