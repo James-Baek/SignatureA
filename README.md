@@ -46,6 +46,9 @@ webpack으로 번들해서 그 파일을 불러 올 것.
 To do 1/10. 
 메인 vue-menu-bar 불러오기 
 
+### vue.js + django 통합  rest_framework 형식으로 만들기 
+
+
 
 
 

@@ -13,7 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+from django.contrib import admin 
+from django.views.generic import *
+from .routers import router
+
+from django.contrib.auth.models import User
+from rest_framework import routers, serializers, viewsets  # rest_frame_work 설정 
 from django.urls import path, include
 from SignatureProject.views import HomeView
 # from SSoundMusic.views import UserCreateView, UserCreateDoneTV 
@@ -22,11 +27,13 @@ from django.conf.urls.static import static #photo 앱 추가
 from django.conf import settings #photo 앱 추가
 
 
+
 urlpatterns = [
     # path('accounts/', include('django.contrib.auth.urls')),
     # path('accounts/register/', UserCreateView.as_view(), name='register'),
     # path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
     path('', HomeView.as_view(), name='home'),
+    path('api/',include(router.urls)),
     path('admin/', admin.site.urls),
     path('photo/',include('photo.urls', namespace='photo')), #photo 앱 추가 
     path('streaming/',include('streaming.urls',namespace="streaming")), #스트리밍앱 추가 
