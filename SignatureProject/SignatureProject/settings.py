@@ -86,9 +86,13 @@ DATABASES = {
         'USER' :'root',
         'PASSWORD':'block1428',
         'HOST' :'localhost',
-        'POST' :'3306',
-    }
+        'PORT' :'3306',
+    },
 }
+
+
+
+
 
 
 # Password validation

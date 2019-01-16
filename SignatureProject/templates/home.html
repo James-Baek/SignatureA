@@ -26,6 +26,7 @@
 
     <!-- Theme CSS -->
     <link href="/static/css/landing.min.css" rel="stylesheet">
+   
     <!-- <link href="/static/css/landing.css" rel="stylesheet"> -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -133,6 +134,8 @@
     </section>
 
     <!-- Portfolio Grid Section -->
+<!-- Music search 기능 구현하기 -->
+
     <section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
@@ -154,9 +157,10 @@
                 </div>
                 </div>
 
-                
+<br/><br/>
+               
+<!-- 포트폴리오 모달창 서치 기능 -->
 
-<!-- 
             <div class="row">
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -165,11 +169,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/roundicons.jpg" class="img-responsive" alt="">
+                        <img src="../media/photo/2019/01/방탄.jpg" width=400px height=100px class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Round Icons</h4>
-                        <p class="text-muted">Graphic Design</p>
+                        <h4>1집 앨범</h4>
+                        <!-- <p class="text-muted">바로 들으러 가기</p> -->
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -179,11 +183,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/startup-framework.jpg" class="img-responsive" alt="">
+                        <img src="../media/photo/2019/01/방탄2.jpg" width=400px height=100px class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Startup Framework</h4>
-                        <p class="text-muted">Website Design</p>
+                        <!-- <p class="text-muted">Website Design</p> -->
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -193,11 +197,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/treehouse.jpg" class="img-responsive" alt="">
+                        <img src="../media/photo/2019/01/방탄.jpg" width=400px height=100px class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Treehouse</h4>
-                        <p class="text-muted">Website Design</p>
+                        <!-- <p class="text-muted">Website Design</p> -->
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -207,7 +211,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/golden.jpg" class="img-responsive" alt="">
+                        <img src="../media/photo/2019/01/방탄4.jpg" width=300px height=100px class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Golden</h4>
@@ -221,7 +225,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/escape.jpg" class="img-responsive" alt="">
+                        <img src="../media/photo/2019/01/방탄.jpg" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Escape</h4>
@@ -235,7 +239,7 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/dreams.jpg" class="img-responsive" alt="">
+                        <img src="../media/photo/2019/01/방탄2.jpg" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Dreams</h4>
@@ -244,7 +248,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section> 
 
 
     <!-- Clients Aside -->
@@ -440,9 +444,38 @@
     </div>
 
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- footer-->
 
+    <div id="footer"> 
+            <p class="jb-x-large">Thank you for listening </p>
+            <br/><br/><br/>
+            <a class="page-scroll" href="{% url 'login'}">로그인</a>
+        
+        </div>
+
+        <style>
+         .jb-x-large { 
+            font-size: 50px; 
+            text-align : center;
+
+        } 
+        
+        </style>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <!-- {% load static %}
+    <script src="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}"></script>
+    <script src="{% static 'js/todo/build.js'%}"></script> -->
 </body>
 
 </html>

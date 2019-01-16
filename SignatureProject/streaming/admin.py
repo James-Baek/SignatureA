@@ -3,7 +3,7 @@ from streaming.models import *
 # Register your models here.
 
 class MusicRegisterAdmin(admin.ModelAdmin): 
-    list_display = ['artist_id','music_id','hash']
+    list_display = ['artist_id','music_id','hash','music_title']
 
 class BasicAdmin(admin.ModelAdmin): 
     list_display = ['nname','profile','coin']
@@ -13,7 +13,9 @@ class ArtistAdmin(admin.ModelAdmin):
 
 
 class TableCode(admin.ModelAdmin): 
-    list_display = ['major_id','minor_id','code_label','explain']
+    list_display = ['major_id','minor_id','code_label']
+
+
 
 admin.site.register(TMusic_Source,MusicRegisterAdmin)
 admin.site.register(TUser_Basic,BasicAdmin)

@@ -25,12 +25,10 @@ class TMusic_Source(models.Model):
     play_cnt = models.IntegerField('총 재생수',null=True,blank=True)
     music_price = models.IntegerField('음원가격',null=True,blank=True)
     total_income = models.IntegerField('총 음원수입',null=True,blank=True)
-    album_ph = models.ImageField('앨범사진',max_length=30,null=True,blank=True,upload_to='music/%Y/%M')
+    album_ph = models.ImageField('앨범사진',max_length=30,null=True,blank=True,upload_to='music/%Y')
     hash = models.CharField('음원 IPFS해쉬값',max_length=100,null=True,blank=True) 
 
 
-    def __str__(self): 
-        return self.title
 
 # 음원 지분 테이블 
 class TMusic_Stake(models.Model): 
@@ -71,9 +69,8 @@ class TMusic_Coin(models.Model):
 class TUser_Basic(models.Model):    
     email = models.EmailField(max_length=254)
     pw = models.CharField('패스워드',max_length=40)
-    authority_code = models.ForeignKey('TCode_Master',on_delete=models.CASCADE)
     nname = models.CharField('닉네임',max_length=30)
-    profile = models.FileField('프로필이미지',max_length=100,null=True,blank=True,upload_to='profile/%Y/%M/%D')
+    profile = models.FileField('프로필이미지',max_length=100,null=True,blank=True,upload_to='profile/%Y')
     coin = models.IntegerField('총보유코인',null=True,blank=True)
     nation = models.IntegerField('국적코드',null=True,blank=True)
     pw2 = models.CharField('패스워드2',max_length=40)
@@ -87,17 +84,14 @@ class TUser_Atist(models.Model):
     artist_id = models.IntegerField('아티스트 id')
     email = models.ForeignKey('TUser_Basic',on_delete=models.CASCADE)
     user_password = models.CharField('패스워드',max_length=40)
-    authority_code = models.ForeignKey('TCode_Master',on_delete=models.CASCADE)
     name = models.CharField("이름",max_length=30)
     company_id = models.ForeignKey('TUser_Company',on_delete=models.CASCADE,blank=True,null=True)
     music_type = models.IntegerField('장르코드',null=True,blank=True)
-    gender = models.IntegerField('성별')
-    faceph = models.CharField('얼굴 사진',max_length=50,null=True,blank=True)
+    gender = models.CharField('성별',max_length=4)
+    faceph = models.ImageField('아티스트 사진',max_length=50,null=True,blank=True,upload_to='artist/%Y')
     area = models.CharField('출생 지역',max_length=20,null=True,blank=True)
     etc = models.CharField('특징',max_length=254,null=True,blank=True)
 
-    def __str__(self): 
-        return self.email
 
 
 # 기업회원 테이블 
@@ -110,11 +104,7 @@ class TUser_Company(models.Model):
 
 # 코드 테이블 
 class TCode_Master(models.Model): 
-    major_id = models.IntegerField('그룹코드id',primary_key=True)
-    minor_id = models.IntegerField('세부코드id',null=True,blank=True)
-    code_label = models.IntegerField('코드레이블',null=True,blank=True) 
-    explain = models.CharField('코드 설명',null=True,blank=True,max_length=50)
-
-
-
-
+    major_id = models.IntegerField('그룹코드id') 
+    minor_id = models.IntegerField('세부코드id',primary_key=True)
+    code_label = models.CharField('코드레이블',null=True,blank=True,max_length=10) 
+   
