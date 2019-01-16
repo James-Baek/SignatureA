@@ -15,7 +15,7 @@ class TMusic_Stake_Serializer(serializers.ModelSerializer):
 
 class TMusic_StakePer_Serializer(serializers.ModelSerializer): 
     class Meta: 
-        model = Serializer
+        model = TMusic_StakePer
         fields = '__all__'
 
 

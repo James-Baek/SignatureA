@@ -4,6 +4,7 @@ from django import forms
 from django.db import models
 from django.contrib.auth.models import User #login/ logout 
 from datetime import date,datetime,time
+
 # Create your models here.
 
 # 음원 테이블 
@@ -40,7 +41,6 @@ class TMusic_Stake(models.Model):
 
 # 보유 음원 지분 테이블 
 class TMusic_StakePer(models.Model): 
-class TMusic_StakePer(models.Model): 
     INDEX_MSP = models.IntegerField('Index')
     ownmail = models.ForeignKey('TMusic_Stake',on_delete=models.CASCADE)
     music_id = models.ForeignKey('TMusic_Source',on_delete=models.CASCADE)
@@ -65,8 +65,7 @@ class TMusic_Coin(models.Model):
     models.DateTimeField('코인 사용시간',auto_now_add=True)
 
 
-
-# 기본회원 테이블 
+# 기본 회원 
 class TUser_Basic(models.Model):    
     email = models.EmailField(max_length=254)
     pw = models.CharField('패스워드',max_length=40)
@@ -94,7 +93,6 @@ class TUser_Atist(models.Model):
     etc = models.CharField('특징',max_length=254,null=True,blank=True)
 
 
-
 # 기업회원 테이블 
 class TUser_Company(models.Model):
     company_id = models.IntegerField('회사 id') 
@@ -102,6 +100,7 @@ class TUser_Company(models.Model):
     company = models.IntegerField()  #pk 설정 
     company_name = models.IntegerField()
     compnay_representation = models.IntegerField() 
+
 
 # 코드 테이블 
 class TCode_Master(models.Model): 

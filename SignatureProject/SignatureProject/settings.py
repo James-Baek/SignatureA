@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'streaming.apps.StreamingConfig',
     'photo.apps.PhotoConfig',
+    'users.apps.UsersConfig',
     'django.contrib.sites',
     'rest_framework',
+    
 ]
 
 REST_FRAMEWORK = {

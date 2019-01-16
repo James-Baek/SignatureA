@@ -1,5 +1,6 @@
 from django.contrib import admin
 from streaming.models import * 
+from users.models import * 
 # Register your models here.
 
 class MusicRegisterAdmin(admin.ModelAdmin): 
