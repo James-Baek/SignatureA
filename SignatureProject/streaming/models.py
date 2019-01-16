@@ -33,7 +33,7 @@ class TMusic_Source(models.Model):
 
 # 음원 지분 테이블 
 class TMusic_Stake(models.Model): 
-    INDEX_MS = models.IntegerField('Index')
+    index_ms = models.IntegerField('Index')
     music_id = models.ForeignKey('TMusic_Source',on_delete=models.CASCADE)
     ownmail = models.EmailField('보유자 이메일',max_length=254)
     per = models.IntegerField('지분수')
@@ -41,7 +41,7 @@ class TMusic_Stake(models.Model):
 
 # 보유 음원 지분 테이블 
 class TMusic_StakePer(models.Model): 
-    INDEX_MSP = models.IntegerField('Index')
+    index_msp = models.IntegerField('Index')
     ownmail = models.ForeignKey('TMusic_Stake',on_delete=models.CASCADE)
     music_id = models.ForeignKey('TMusic_Source',on_delete=models.CASCADE)
     per = models.IntegerField('보유 지분수')
@@ -58,7 +58,7 @@ class TMusic_SourceRank(models.Model):
 
 #음원 코인 테이블 
 class TMusic_Coin(models.Model): 
-    INDEX_Coin = models.IntegerField('INDEX')
+    index_coin = models.IntegerField('INDEX')
     email = models.ForeignKey('TUser_Atist',on_delete=models.CASCADE)
     music_id = models.ForeignKey('TMusic_Source',on_delete=models.CASCADE)
     amt = models.BigIntegerField('금액')
