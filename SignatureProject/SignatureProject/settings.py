@@ -47,14 +47,8 @@ INSTALLED_APPS = [
 ]
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
-
-
 
 
 MIDDLEWARE = [
@@ -149,3 +143,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media') #추가
 #Login_url = '/accounts/login/'
 #Logout_url = '/accounts/logout/'
 LOGIN_REDIRECT_URL ='/' #추가 
+# AUTH_USER_MODEL = 'users.User'
