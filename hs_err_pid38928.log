@@ -1,0 +1,123 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 266338304 bytes for Failed to commit area from 0x00000000c0000000 to 0x00000000cfe00000 of length 266338304.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3331), pid=38928, tid=0x0000000000004914
+#
+# JRE version:  (8.0_181-b13) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.181-b13 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000025e2800):  JavaThread "Unknown thread" [_thread_in_vm, id=18708, stack(0x00000000024e0000,0x00000000025e0000)]
+
+Stack: [0x00000000024e0000,0x00000000025e0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00000000025e2800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=18708, stack(0x00000000024e0000,0x00000000025e0000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000000025e0250] Heap_lock - owner thread: 0x00000000025e2800
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6af9a0000 - 0x00007ff6af9d7000 	C:\Program Files\Java\jdk1.8.0_181\bin\java.exe
+0x00007ff8e8070000 - 0x00007ff8e825d000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff8e5780000 - 0x00007ff8e5833000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff8e4440000 - 0x00007ff8e46d3000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff8e7740000 - 0x00007ff8e77e3000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff8e77f0000 - 0x00007ff8e788e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff8e7910000 - 0x00007ff8e79ae000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff8e7eb0000 - 0x00007ff8e7fd2000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff8e7c00000 - 0x00007ff8e7d97000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff8e46e0000 - 0x00007ff8e4700000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff8e7040000 - 0x00007ff8e7069000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff8e42a0000 - 0x00007ff8e443a000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff8e49b0000 - 0x00007ff8e4a50000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff8e41a0000 - 0x00007ff8e429c000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff8c7c10000 - 0x00007ff8c7e89000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17763.253_none_05b2388e0721fece\COMCTL32.dll
+0x00007ff8e7070000 - 0x00007ff8e739d000 	C:\WINDOWS\System32\combase.dll
+0x00007ff8e4720000 - 0x00007ff8e479e000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff8e7bd0000 - 0x00007ff8e7bfe000 	C:\WINDOWS\System32\IMM32.DLL
+0x00000000650e0000 - 0x00000000651b2000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\msvcr100.dll
+0x0000000064830000 - 0x00000000650d2000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\server\jvm.dll
+0x00007ff8e7bc0000 - 0x00007ff8e7bc8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff8cfd50000 - 0x00007ff8cfd59000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff8e5970000 - 0x00007ff8e59dd000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff8e0970000 - 0x00007ff8e0994000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff8d0070000 - 0x00007ff8d007a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff8e0940000 - 0x00007ff8e096d000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ff8e5250000 - 0x00007ff8e529a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x0000000066450000 - 0x000000006645f000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\verify.dll
+0x0000000066420000 - 0x0000000066449000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\java.dll
+0x0000000065980000 - 0x0000000065996000 	C:\Program Files\Java\jdk1.8.0_181\jre\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Declipse.application=org.eclipse.jdt.ls.core.id1 -Dosgi.bundles.defaultStartLevel=4 -Declipse.product=org.eclipse.jdt.ls.core.product -Xverify:none -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication 
+java_command: C:\Users\a\.vscode\extensions\redhat.java-0.36.0\server\plugins\org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar -configuration C:\Users\a\.vscode\extensions\redhat.java-0.36.0\server\config_win -data c:\Users\a\AppData\Roaming\Code\User\workspaceStorage\ca77011256f6384bdf692bb584a46e77\redhat.java\jdt_ws
+java_class_path (initial): C:\Users\a\.vscode\extensions\redhat.java-0.36.0\server\plugins\org.eclipse.equinox.launcher_1.5.200.v20180922-1751.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_181
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Geth;C:\Users\a\AppData\Roaming\npm;C:\Program Files (x86)\PuTTY\;C:\Users\a\AppData\Local\Programs\Python\Python36\Scripts\;C:\Users\a\AppData\Local\Programs\Python\Python36\;C:\Users\a\AppData\Local\Microsoft\WindowsApps;C:\Users\a\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Users\a\AppData\Roaming\npm;C:\Program Files\MariaDB 10.2\bin;
+USERNAME=a
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 17763 (10.0.17763.1)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16633036k(3204096k free), swap 25849036k(260076k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.181-b13) for windows-amd64 JRE (1.8.0_181-b13), built on Jul  7 2018 04:01:33 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Thu Jan 17 16:56:51 2019
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

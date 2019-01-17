@@ -448,19 +448,30 @@
     <!-- footer-->
 
     <div id="footer"> 
-            <p class="jb-x-large">Thank you for listening </p>
+            <p class="jb-x-large">Thank you for listening <br/>이용하기 위해 가입해주세요</p>
             <br/><br/><br/>
-            <a class="page-scroll" href="{% url 'login'}">로그인</a>
+
+
+
+        <div class="create">
+            <a href="{% url 'login'}">로그인</a>
+            <button type="button" class="g-opacity-transition signupModule__signupCta sc-button sc-button-large signupButton sc-button-cta" tabindex="0" title="Create a SSound account">Create account</button>
         
+        </div>
         </div>
 
         <style>
          .jb-x-large { 
-            font-size: 50px; 
+            font-size: 40px; 
+            text-align : center;
+         }
+         
+         .create {
+             font-size: 30px; 
             text-align : center;
 
-        } 
-        
+         }   
+            
         </style>
 
 

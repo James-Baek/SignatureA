@@ -2,16 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Signature Music</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Signature Music">
-
-    <meta name="keywords" content="vuejs,django,crudapp,restapi,search">
+    <meta name="keywords" content="vuejs,django,crud,restapi,search">
     <!-- bootstap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- boostrap css -->
     <link rel="stylesheet" type="text/css" href="../../../static/css/music.scss">
+    <!--awesome icon-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- 구글 우분투 폰트-->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
+    
+    <title>Signature Music</title>
   </head>
 
   <body>
@@ -23,33 +26,47 @@
           </h1>
           &emsp;
           <div class="form-inline my-2 my-lg-0" style="margin-left: 71%;">
-            <input class="form-control mr-sm-2" type="text" placeholder="Music or Artist Search" v-model="search_term" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" v-on:click.prevent="getArticles()">Music Search</button>
+            <input class="form-control mr-sm-2" type="text" placeholder="Music or Artist Enter" v-model="search_term" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" v-on:click.prevent="getMusics()">Music Search</button>
           </div>
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Head</th>
-                <th scope="col">Action</th>
-                <!-- <th scope="col">a</th>
-                <th scope="col">b</th>
-                <th scope="col">c</th> -->
+                <th scope="col">Music id</th>
+                <th scope="col">title</th>
+                <th scope="col">곡정보</th>
+                <!-- <th scope="col">genre</th> -->
+                <th scope="col">작곡가</th>
+                <!-- <th scope="col">agency</th> -->
+                <th scope="col">듣기</th>
+                <th scope="col">내 음악</th>
+                <th scope="col">가격</th>
+                <!-- <th scope="col">이미지</th> -->
+                <!-- <th scope="col">해쉬값</th> -->
+    
               </tr>
             </thead>
             <tbody>
-              <tr v-for="article in articles">
-                <th scope="row">${article.article_id}</th>
-                <td>${article.article_heading}</td>
-                <td>
-                  <button class="btn btn-info" v-on:click="getArticle(article.article_id)">Edit</button>
-                  <button class="btn btn-danger" v-on:click="deleteArticle(article.article_id)">Delete</button>
+              <tr v-for="music in musics">
+                <th scope="row">${music.music_id}</th>
+                <td>${music.music_title}</td>
+                <td>${music.music_thumbnail}</td>
+                <td>${music.music_w}</td>
+                <td><i class="fa fa-play"></i></td>
+                <td><i class="fa fa-download"></i></td>
+               
+                <td></td>
+                <!-- <td>${music.music_img}</td> -->
+                <!-- <td>${music.hash}</td> -->
+                  <!-- <button class="btn btn-info" v-on:click="getMusic(music.music_id)">Edit</button> -->
+                  <!-- <button class="btn btn-danger" v-on:click="deleteMusic(music.music_id)">Delete</button> -->
                 </td>
               </tr>
             </tbody>
           </table>
-          <!-- Add Article Modal -->
-          <div class="modal fade" id="addArticleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+       
+          <!-- Add Article Modal 모달창 나중에 
+          <div class="modal fade" id="addMusicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -58,25 +75,25 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <form v-on:submit.prevent="addArticle()">
+                <form v-on:submit.prevent="addMusic()">
                 <div class="modal-body">
                     <div class="form-group">
-                      <label for="article_heading">Music Heading</label>
+                      <label for="music_heading">Music Heading</label>
                       <input
                         type="text"
                         class="form-control"
-                        id="article_heading"
-                        placeholder="Enter Article Heading"
-                        v-model="newArticle.article_heading"
+                        id="music_heading"
+                        placeholder="Enter Music Heading"
+                        v-model="newArticle.music_heading"
                         required="required" >
                     </div>
                     <div class="form-group">
-                      <label for="article_body">Music Body</label>
+                      <label for="music_body">Music Body</label>
                       <textarea
                         class="form-control"
-                        id="article_body"
-                        placeholder="Enter Article Body"
-                        v-model="newArticle.article_body"
+                        id="music_body"
+                        placeholder="Enter Music Body"
+                        v-model="newMusic.music_body"
                         required="required"
                         rows="3"></textarea>
                     </div>
@@ -89,9 +106,10 @@
               </div>
             </div>
             <div class="loading" v-if="loading===true">Loading&#8230;</div>
-          </div>
+          </div> -->
           <!-- End of add article modal -->
           <!-- Edit Article Modal -->
+<!--           
           <div class="modal fade" id="editArticleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -132,11 +150,13 @@
               </div>
             </div>
             <div class="loading" v-if="loading===true">Loading&#8230;</div>
-          </div>
+          </div> -->
           <!-- End of edit article modal -->
 
-        </div>
-      </div>
+
+          
+        <!-- </div>
+      </div> -->
       <div class="loading" v-if="loading===true">Loading&#8230;</div>
 
     </div>
@@ -152,88 +172,37 @@
   <script type="text/javascript">
     Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
     new Vue({
-      el: '#starting',
-      delimiters: ['${','}'],
-      data: {
-        articles: [],
-        loading: true,
-        currentArticle: {},
-        message: null,
-        newArticle: { 'article_heading': null, 'article_body': null },
-        search_term: '',
-      },
-      mounted: function() {
-        this.getArticles();
-      },
-      methods: {
-        getArticles: function() {
-          let api_url = '/api/article/';
-          if(this.search_term!==''||this.search_term!==null) {
-            api_url = `/api/article/?search=${this.search_term}`
-          }
-          this.loading = true;
-          this.$http.get(api_url)
-              .then((response) => {
-                this.articles = response.data;
-                this.loading = false;
-              })
-              .catch((err) => {
-                this.loading = false;
-                console.log(err);
-              })
+        el: '#starting',
+        delimiters: ['${','}'],
+        data: {
+            musics: [],
+            loading: true,
+            search_term:'',
         },
-        getArticle: function(id) {
-          this.loading = true;
-          this.$http.get(`/api/article/${id}/`)
-              .then((response) => {
-                this.currentArticle = response.data;
-                $("#editArticleModal").modal('show');
-                this.loading = false;
-              })
-              .catch((err) => {
-                this.loading = false;
-                console.log(err);
-              })
+        mounted: function() {
+            this.getMusics();
         },
-        addArticle: function() {
-          this.loading = true;
-          this.$http.post('/api/article/',this.newArticle)
-              .then((response) => {
-                this.loading = true;
-                this.getArticles();
-              })
-              .catch((err) => {
-                this.loading = true;
-                console.log(err);
-              })
-        },
-        updateArticle: function() {
-          this.loading = true;
-          this.$http.put(`/api/article/${this.currentArticle.article_id}/`, this.currentArticle)
-              .then((response) => {
-                this.loading = false;
-                this.currentArticle = response.data;
-                this.getArticles();
-              })
-              .catch((err) => {
-                this.loading = false;
-                console.log(err);
-              })
-        },
-        deleteArticle: function(id) {
-          this.loading = true;
-          this.$http.delete(`/api/article/${id}/`)
-              .then((response) => {
-                this.loading = false;
-                this.getArticles();
-              })
-              .catch((err) => {
-                this.loading = false;
-                console.log(err);
-              })
+        methods: {
+            getMusics: function() {
+                let api_url = '/api/article/'; 
+                if(this.search_term!==''||this.search_term!=null) {
+                    api_url= `/api/streaming/?search=${this.search_term}`
+                }
+                this.loading=true; 
+                this.$http.get(api_url)
+                    .then((response) => {
+                        this.musics = response.data;
+                        this.loading = false; 
+                    })
+                    .catch((err) => {
+                        this.loading= false; 
+                        console.log(err);
+                    })
+            }
         }
-      }
-    });
+    })
+
+
   </script>
   </body>
 </html>
