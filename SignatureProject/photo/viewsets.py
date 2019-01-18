@@ -12,7 +12,7 @@ class AlbumViewSet(viewsets.ModelViewSet):
 
 class PhotoViewSet(viewsets.ModelViewSet):
     queryset = Photo.objects.all() 
-    serializer_class = AlbumSerializer
+    serializer_class = PhotoSerializer
     filter_backends = (filters.SearchFilter,)
     filter_fields = ('album', 'title', 'image','description')
 

@@ -50,9 +50,12 @@
               <tr v-for="music in musics">
                 <th scope="row">${music.music_id}</th>
                 <td>${music.music_title}</td>
-                <td>${music.music_thumbnail}</td>
+                <td>${music.photo_image}</td>
                 <td>${music.music_w}</td>
-                <td><i class="fa fa-play"></i></td>
+                <td>
+                <a href="{% url 'streaming:play'%}"> <i class="fa fa-play">
+                </i>
+                </td>
                 <td><i class="fa fa-download"></i></td>
                
                 <td></td>
