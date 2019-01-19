@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'streaming.apps.StreamingConfig',
+    'user.apps.UserConfig',
+    'main.apps.MainConfig',
 ]
 
 MIDDLEWARE = [
@@ -76,14 +78,14 @@ WSGI_APPLICATION = 'SignatureProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE' :'django.db.backends.mysql', 
-        'NAME' :'mysql',
-        'USER' :'root',
-        'PASSWORD':'block1428',
-        'HOST' :'localhost',
-        'POST' :'3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE' :'django.db.backends.mysql', 
+        # 'NAME' :'mysql',
+        # 'USER' :'root',
+        # 'PASSWORD':'block1428',
+        # 'HOST' :'localhost',
+        # 'POST' :'3306',
     }
 }
 
@@ -103,6 +105,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+
+        'OPTION': {'user_attributes': ('email')},
     },
 ]
 
@@ -132,3 +139,16 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/user/login/'
+
+AUTH_USER_MODEL = 'user.User'
+
+
+# 세션 유지 시간 15초
+SESSION_COOKIE_AGE = 300
+
+EMAIL_HOST = 'smtp.naver.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'signaturesound@naver.com'
+EMAIL_HOST_PASSWORD = 'block1428'
+EMAIL_USE_TLS = True
