@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}<title>로그인</title>{% endblock %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+
+{% else %}
+
+<section class="container">
+
+        <div class="half2 bg">
+            {% load static %}
+            <img id="login_img" src="{% static 'img/signup.png'%}">
+        </div>
+    
+        <article class="half">
+               <h1>signature sound</h1>
+               <div class="tabs">
+                      <span class="tab signin active"><a href="#signin">로그인</a></span>
+                      <span class="tab signup"><a href="#signup">회원가입</a></span>
+               </div>
+               <div class="content">
+                      <div class="signin-cont cont">
+                             <form action="/user/login/" method="POST">
+                              {% csrf_token %}
+                                    <input type="text" name="username" id="id_login" class="inpt" required placeholder="email">
+                                    <label for="email">Your email</label>
+                                    <input type="password" name="password" id="id_password" class="inpt" required placeholder="password">
+                                    <label for="password">Your password</label>
+                                    <input type="checkbox" id="remember" class="checkbox" checked>
+                                    <label for="remember">아이디 저장</label>
+                                    <div class="submit-wrap">
+                                           <a href="/" class="more">비밀번호를 찾기</a>
+                                           <input type="submit" value="확인" class="submit">
+                                    </div>
+                                    {% for error in field.errors %}
+                                    <label class="control-label" for="{{ field.id_for_label }}">{{ error }}</label>
+                                {% endfor %}
+                             </form>
+                             <div class="socialaccount_ballot cont" >
+
+                            </div>
+                      </div>
+                      <div class="signup-cont cont">
+                              <form action="/user/signup/" method="post" enctype="multipart/form-data" >
+                                {% csrf_token %}
+                                    <input type="email" name="email" id="email" class="inpt" required="required" placeholder="email">
+                                    <label for="name">Your email</label>
+                                    <input type="password" name="password1" id="password1" class="inpt" required="required" placeholder="password">
+                                    <label for="password">password 재확인</label>
+                                    <input type="password" name="password2" id="password2" class="inpt" required="required" placeholder="password(재확인)">
+                                    <div class="submit-wrap">
+                                           <input type="submit" value="회원가입" class="submit">
+                                           <a href="#" class="more">가입약관</a>
+                                    </div>
+                                    {% for error in field.errors %}
+                                    <label class="control-label" for="{{ field.id_for_label }}">{{ error }}</label>
+                                    {% endfor %}
+                             </form>
+                    </div>
+    
+               </div>
+    
+          </article>
+    
+    </section>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script type="text/javascript">
+    $('.tabs .tab').click(function(){
+        if ($(this).hasClass('signin')) {
+            $('.tabs .tab').removeClass('active');
+            $(this).addClass('active');
+            $('.cont').hide();
+            $('.signin-cont').show();
+            $('.socialaccount_ballot').show();
+        } 
+        if ($(this).hasClass('signup')) {
+            $('.tabs .tab').removeClass('active');
+            $(this).addClass('active');
+            $('.cont').hide();
+            $('.signup-cont').show();
+        }
+    });
+    
+    </script>
+
+
+<!-- <div class="panel panel-default registration">
+    <div class="panel-heading">
+        로그인하기
+    </div>
+    <div class="panel-body">
+        <form action="." method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group {% if field.errors|length > 0 %}has-error{%endif %}">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    <input name="{{ field.html_name }}" id="{{ field.id_for_lable }}" class="form-control" type="{{ field.field.widget.input_type }}" value="{{ field.value|default_if_none:'' }}">
+                    {% for error in field.errors %}
+                        <label class="control-label" for="{{ field.id_for_label }}">{{ error }}</label>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="form-actions">
+                    <button class="btn btn-primary btn-large" type="submit">로그인하기</button>
+            </div>
+            <a href="/user/resend_verify_email/">
+                <div class="link-below-button">인증이메일 재발송</div>
+            </a>
+        </form>
+    </div>
+</div> -->
+
+{% endif %}
+
+{% endblock content %}

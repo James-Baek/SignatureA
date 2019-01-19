@@ -4,6 +4,7 @@ from django import forms
 from datetime import date,datetime,time
 # Create your models here.
 from django.utils import timezone
+from user.models import User
 # from users.models import User
 
 
@@ -72,20 +73,6 @@ class TMusic_Coin(models.Model):
 #     minor_id = models.IntegerField('세부코드id',primary_key=True)
 #     code_label = models.CharField('코드레이블',null=True,blank=True,max_length=10) 
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

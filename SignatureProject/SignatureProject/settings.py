@@ -40,10 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'streaming.apps.StreamingConfig',
     'photo.apps.PhotoConfig',
-    'users.apps.UsersConfig',
+    
     'django.contrib.sites',
     'rest_framework',
-    
+    'user.apps.UserConfig',
+    'main.apps.MainConfig',
 ]
 
 REST_FRAMEWORK = {
@@ -114,6 +115,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+
+        'OPTION': {'user_attributes': ('email')},
+    },
 ]
 
 
@@ -140,7 +146,18 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 MEDIA_URL = '/media/' # 추가
 MEDIA_ROOT = os.path.join(BASE_DIR,'media') #추가  
 
-#Login_url = '/accounts/login/'
-#Logout_url = '/accounts/logout/'
-LOGIN_REDIRECT_URL ='/' #추가 
-# AUTH_USER_MODEL = 'users.User'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/user/login/'
+
+AUTH_USER_MODEL = 'user.User'
+
+
+# 세션 유지 시간 15초
+SESSION_COOKIE_AGE = 300
+
+EMAIL_HOST = 'smtp.naver.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'signaturesound@naver.com'
+EMAIL_HOST_PASSWORD = 'block1428'
+EMAIL_USE_TLS = True

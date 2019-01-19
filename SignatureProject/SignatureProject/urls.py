@@ -27,6 +27,7 @@ from django.conf.urls.static import static #photo 앱 추가
 from django.conf import settings #photo 앱 추가
 
 
+from . import views
 
 urlpatterns = [
     # path('accounts/', include('django.contrib.auth.urls')),
@@ -37,6 +38,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('photo/',include('photo.urls', namespace='photo')), #photo 앱 추가 
     path('streaming/',include('streaming.urls',namespace="streaming")), #스트리밍앱 추가 
+    path('user/', include('user.urls')),
+    path('main/', include('main.urls')),
 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) #추가 
+
+ 
 
