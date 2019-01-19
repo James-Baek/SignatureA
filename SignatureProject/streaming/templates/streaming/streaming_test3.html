@@ -8,21 +8,16 @@
 </head>
 <body>
     <div id="app">
-        <h1>Photo Test!</h1>
-        <img v-bind:src="photos.imate_test2"/>
-        <td>${photos.id}</td>
-       <td> ${photos.title}</td>
-        <td>${photos.description}</td>
-        <td>${photos.upload_date}</td>
-         <!-- <div 
-            v-for="photo in photos"
-            class="albums"
+        <h1>Bitcoin Price Index</h1>
+         <div 
+            v-for="currency in info"
+            class="currency"
          >
-         ${photo.title}
+         ${currency.description}
          <span class="lighten">
             <span v-html="currency.symbol"></span>   ${currency.rate_float | currencydecimal}
 
-         </span> -->
+         </span>
     </div>
    
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
@@ -33,15 +28,26 @@
             delimiters: ['${','}'],
             data() {
                 return {
-                    photos:[],
-                    
+                    info:null,
+                    loading:true,
+                    errored:false
                 }
-            },         
+            },
+            filters: {
+                currencydecimal (value) {
+                    return value.toFixed(5)
+                }
+            },
             mounted() {
                 axios
-                    .get('http://127.0.0.1:8000/api/photo/')
-                    .then(response => (this.photos=response.data[3]))
-                   
+                    .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                    .then(response => (this.info=response.data.bpi))
+                    .catch(error => {
+                        console.log(error)
+                        this.errored = true
+                    })
+                    .finally(() => this.loading = false)
+                    
                         }
         })
     

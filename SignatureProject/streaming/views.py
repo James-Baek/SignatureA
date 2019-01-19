@@ -34,3 +34,6 @@ class MusicMain(TemplateView):
 class StreamingDetail(TemplateView): 
     template_name='streaming/streaming_detail.html'
     
+
+class StreamingTest(TemplateView):
+    template_name='streaming/streaming_test2.html'

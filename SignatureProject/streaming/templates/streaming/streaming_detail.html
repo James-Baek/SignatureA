@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Signature Music">
+    <meta name="keywords" content="vuejs,django,crud,restapi,search">
+    <!-- bootstap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/music.scss">
+    <!--awesome icon-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- 구글 우분투 폰트-->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+    
+    <title>Signature Music</title>
+  </head>
+
+  <body>
+    <div id="starting">
+      <div class="container">
+        <div class="row">
+          <h1>SSound Music 
+          <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#addArticleModal">Upload Music</button>
+          </h1>
+          &emsp;
+          <div class="form-inline my-2 my-lg-0" style="margin-left: 71%;">
+            <input class="form-control mr-sm-2" type="text" placeholder="Music or Artist Enter" v-model="search_term" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" v-on:click.prevent="getMusics()">Music Search</button>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Music id</th>
+                <th scope="col">title</th>
+                <th scope="col">곡정보</th>
+                <!-- <th scope="col">genre</th> -->
+                <th scope="col">작곡가</th>
+                <!-- <th scope="col">agency</th> -->
+                <th scope="col">듣기</th>
+                <th scope="col">내 음악</th>
+                <th scope="col">가격</th>
+                <!-- <th scope="col">이미지</th> -->
+                <!-- <th scope="col">해쉬값</th> -->
+    
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="music in musics">
+                <th scope="row">${music.music_id}</th>
+                <td>${music.music_title}</td>
+                <td><a href="{% url 'photo:photo_detail' 1 %}"> <i class="fa fa-play"> </i> </td>
+                <td>${music.music_w}</td>
+                <td>
+                <a href="{% url 'streaming:play'%}"> <i class="fa fa-play">
+                </i>
+                </td>
+                <td><i class="fa fa-download"></i></td>
+                <td>${music.music_price}</td>
+                <!-- <td>${music.music_img}</td> -->
+                <!-- <td>${music.hash}</td> -->
+                  <!-- <button class="btn btn-info" v-on:click="getMusic(music.music_id)">Edit</button> -->
+                  <!-- <button class="btn btn-danger" v-on:click="deleteMusic(music.music_id)">Delete</button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+       
+          <!-- Add Article Modal 모달창 나중에 
+          <div class="modal fade" id="addMusicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">ADD ARTICLE</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form v-on:submit.prevent="addMusic()">
+                <div class="modal-body">
+                    <div class="form-group">
+                      <label for="music_heading">Music Heading</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="music_heading"
+                        placeholder="Enter Music Heading"
+                        v-model="newArticle.music_heading"
+                        required="required" >
+                    </div>
+                    <div class="form-group">
+                      <label for="music_body">Music Body</label>
+                      <textarea
+                        class="form-control"
+                        id="music_body"
+                        placeholder="Enter Music Body"
+                        v-model="newMusic.music_body"
+                        required="required"
+                        rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary m-progress" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+              </div>
+            </div>
+            <div class="loading" v-if="loading===true">Loading&#8230;</div>
+          </div> -->
+          <!-- End of add article modal -->
+          <!-- Edit Article Modal -->
+<!--           
+          <div class="modal fade" id="editArticleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">EDIT ARTICLE</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form v-on:submit.prevent="updateArticle()">
+                <div class="modal-body">
+                    <div class="form-group">
+                      <label for="article_heading">Article Heading</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="article_heading"
+                        placeholder="Enter Article Heading"
+                        v-model="currentArticle.article_heading"
+                        required="required" >
+                    </div>
+                    <div class="form-group">
+                      <label for="article_body">Article Body</label>
+                      <textarea
+                        class="form-control"
+                        id="article_body"
+                        placeholder="Enter Article Body"
+                        v-model="currentArticle.article_body"
+                        required="required"
+                        rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary m-progress" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+              </div>
+            </div>
+            <div class="loading" v-if="loading===true">Loading&#8230;</div>
+          </div> -->
+          <!-- End of edit article modal -->
+
+
+          
+        <!-- </div>
+      </div> -->
+      <div class="loading" v-if="loading===true">Loading&#8230;</div>
+
+    </div>
+
+  <!-- bootrtap js files -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- vue.js files -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+  <script type="text/javascript">
+    Vue.http.headers.common['X-CSRFToken'] = "{{ csrf_token }}";
+    new Vue({
+        el: '#starting',
+        delimiters: ['${','}'],
+        data: {
+            musics: [],
+            loading: true,
+            search_term:'',
+        },
+        mounted: function() {
+            this.getMusics();
+        },
+        methods: {
+            getMusics: function() {
+                let api_url = '/api/streaming/'; 
+                if(this.search_term!==''||this.search_term!=null) {
+                    api_url= `/api/streaming/?search=${this.search_term}`
+                }
+                this.loading=true; 
+                this.$http.get(api_url)
+                    .then((response) => {
+                        this.musics = response.data;
+                        this.loading = false; 
+                    })
+                    .catch((err) => {
+                        this.loading= false; 
+                        console.log(err);
+                    })
+            }
+        }
+    })
+
+
+  </script>
+  </body>
+</html>
