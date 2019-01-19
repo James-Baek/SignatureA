@@ -47,7 +47,6 @@ class UserVerificationView(TemplateView):
     token_generator = default_token_generator
 
     def get(self, request, *args, **kwargs):
-        print(kwargs)
         pk = kwargs.get('pk')
         token = kwargs.get('token')
         if self.is_valid_token(pk, token):
