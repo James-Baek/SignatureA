@@ -9,7 +9,7 @@ from user.models import User
 
 
 # 음원 테이블 
-class TMusic_Source(models.Model):
+class (models.Model):
     music_id = models.IntegerField('음원ID') #자동적으로 id가 생성됨. 
     # artist_id = models.ForeignKey('User', on_delete=models.CASCADE) # fk 지정방법? 
     album_id = models.IntegerField('앨범ID')

@@ -13,5 +13,8 @@ urlpatterns = [
     path('play',MusicStreaming.as_view(),name='play'),
     path('search',SearchFormView.as_view(),name='search'),
     path('photo/',include('photo.urls',namespace="photo")), #photo urls 추가하기 
-    path('test/',StreamingTest.as_view(),name="test"),
+    path('test2/',streaming_test2.as_view(),name="test2"),
+    path('test3/',streaming_test3.as_view(),name="test3"),
+    path('test4/',streaming_test4.as_view(),name="test4"),
+    path('test5/',streaming_test5.as_view(),name="test5"),
 ]
