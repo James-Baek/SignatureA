@@ -56,20 +56,27 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{% url 'streaming:index'%}">스트리밍</a>
+                        <a class="page-scroll" href="{% url 'streaming:test3'%}">스트리밍</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'photo:index'%}">앨범</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">마이크로페이먼트</a>
+                        <a class="page-scroll" href="#portfolio">저작권경매</a>
                     </li>
                     <li>
+                            <a class="page-scroll" href="/user/signup">회원가입</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li>
+                        <a class="page-scroll" href="/user/logout">로그아웃</a>
+                    </li>
+                    {% endif %}
+
+                    <li>
+                        <a href="/user/login/">로그인</a>
+                    </li>
                     
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="{% url 'login'}">로그인</a>
-                    </li>
                                 
                     
 
@@ -455,11 +462,10 @@
 
 
         <div class="create">
-            <a href="{% url 'login'}">로그인</a>
             <button type="button" class="g-opacity-transition signupModule__signupCta sc-button sc-button-large signupButton sc-button-cta" tabindex="0" title="Create a SSound account">Create account</button>
         
         </div>
-        </div>
+  
 
         <style>
          .jb-x-large { 
@@ -493,10 +499,8 @@
 
 </html>
 =======
-<html>
-    <head>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    </head>
+
+   
     <body>
             {% block header %}
             {% if request.user.is_authenticated %}
@@ -518,13 +522,13 @@
                     </ul>
             </div>
             {% endif %}
-            <nav class="navbar navbar-default">
+            <!-- <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand" href="/article/">게시글 목록</a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right"> -->
                             <li class="">
                                 {% if not request.user.is_authenticated %}
                                 <a href="/user/signup/">가입하기</a>

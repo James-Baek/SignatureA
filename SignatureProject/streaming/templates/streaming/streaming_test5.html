@@ -9,8 +9,9 @@
 <body>
     <div id="app">
        <td> ${albums} </td> <br/>
-    <td>${albums[0].music_w}</td> <br/>
-    <td><img :src="image"></td>
+    <td>${albums[0].hash}</td> <br/>
+    <!-- <td><img :src="image"></td> -->
+    <td><img :src="image1"></td>
     ${Date()}
 
     </div>
@@ -27,7 +28,7 @@ new Vue({
   data () {
     return {
       albums: null,
-      image:"https://t1.daumcdn.net/cfile/tistory/235C963F55CB4DE727",
+      image:"../../../media/photo/2019/01/jackson.jpg",
       image1:"https://lastfm-img2.akamaized.net/i/u/300x300/ad656836a06e4267858d105ddd13fe04.png"
     }
   },

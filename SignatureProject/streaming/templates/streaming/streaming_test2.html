@@ -43,7 +43,7 @@
                 </section>
             
                 <transition-group tag="main" name="card">
-                    <article v-for="(album, index) in musics" :key="index" class="card" >
+                    <article v-for="(album, index) in albums" :key="index" class="card" >
                         <a :href="album.url" target="_blank">
                             <div class="image" v-for="image in album.image" v-if="image.size == 'extralarge'">
                                 <img v-if="image['#text'] !== ''" :src="image['#text']" :alt="album.name" v-on:load="isLoaded()" v-bind:class="{ active: isActive }">
@@ -72,23 +72,46 @@
             data: {
                 albums: [],  //빈값으로 설정 
                 delimiters: ['${','}'],
-                // isActive: false, 
-                // maxPlayCount:0, 
+                isActive: false, 
+                maxPlayCount:0, 
                 gridGap:30, 
                 gridMin:175,
                 griditems:0
             },
-        mounted() {
-            axios.get('http://127.0.0.1:8000/api/streaming/')
-                 .then(response => (this.albums = response.data))
+            mounted() {
+        axios.get('http://127.0.0.1:8000/api/streaming/')
+            .then(response => (this.albums = response.data.topalbums.album, this.maxPlayCount = response.data.topalbums.album[0].playcount));
+    },
+    methods: {
+        isLoaded: function() {
+            this.isActive = true;
+        },
+        m_percentage: function(value) {
+            return parseInt((value * 100) / app.$data.maxPlayCount);
+        },
+        changeGridGap: function() {
+            document.querySelector('main').style.setProperty('--grid-gap', this.gridGap + 'px');
+        },
+        changeGridMin: function() {
+            document.querySelector('main').style.setProperty('--grid-min', this.gridMin + 'px');
+        },
+        changeGridItems: function() {
+            var gridItemSetting = this.gridItems;
+            if (this.gridItems == 0) {
+                gridItemSetting = 'auto-fill';
+            }
+            document.querySelector('main').style.setProperty('--grid-items', gridItemSetting);
         }
-        
+    },
+    computed: {
+    },
+    filters: {
+        percentage: function(value) {
+            return parseInt((value * 100) / app.$data.maxPlayCount);
+        }
+    }
+});
 
-
-
-
-        })
-    
     </script>
 </body>
 
