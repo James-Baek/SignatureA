@@ -29,7 +29,7 @@ class Photo(models.Model):
     album = models.ForeignKey(Album,on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     image = ThumbnailImageField(upload_to='photo/%Y/%m')
-    image_test = models.ImageField(upload_to='null',blank=True,null=True)
+    # image_test = models.ImageField(upload_to='null',blank=True,null=True)
     image_test2 = models.URLField(blank=True,null=True)
     description = models.TextField('photo Description',blank=True)
     upload_date = models.DateTimeField('Upload Date',auto_now_add=True)

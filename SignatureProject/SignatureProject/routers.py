@@ -6,4 +6,4 @@ router = routers.DefaultRouter()
 
 router.register('photo',PhotoViewSet)
 router.register('streaming',TMusic_Source_Serializer_ViewSet)
-router.register('streaming/stake',TMusic_Stake_Serializer_ViewSet)
+# router.register('streaming/stake',TMusic_Stake_Serializer_ViewSet)

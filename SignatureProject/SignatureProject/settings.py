@@ -159,5 +159,5 @@ SESSION_COOKIE_AGE = 300
 EMAIL_HOST = 'smtp.naver.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'signaturesound@naver.com'
-EMAIL_HOST_PASSWORD = 'block1428'
+EMAIL_HOST_PASSWORD = 'ajfzoa123'
 EMAIL_USE_TLS = True
