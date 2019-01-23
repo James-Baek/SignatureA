@@ -4,7 +4,7 @@ from .models import *
 class TMusic_Source_Serializer(serializers.ModelSerializer):
     class Meta: 
         model = TMusic_Source
-        fields= '__all__'
+        fields = '__all__'
         # depth=1
 
 # class Artist_Serializer(serializers.ModelSerializer):

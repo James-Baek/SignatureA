@@ -4,7 +4,7 @@ from django import forms
 from datetime import date,datetime,time
 # Create your models here.
 from django.utils import timezone
-import uuid 
+# import uuid 
 # from user.models import User
 # from users.models import User
 
@@ -13,7 +13,7 @@ import uuid
 
 
 class TMusic_Source(models.Model):
-    music_id = models.IntegerField('음원ID') #자동적으로 id가 생성됨. 
+    music_id = models.IntegerField('음원ID',primary_key=True) #자동적으로 id가 생성됨. 
     # artist_id = models.ForeignKey('User', on_delete=models.CASCADE) # fk 지정방법? 
     album_id = models.IntegerField('앨범ID')
     # thumbnail = models.URLField('썸네일 이미지',max_length=200,null=True,blank=True)
@@ -54,6 +54,7 @@ class TMusic_Source(models.Model):
     # total_income = models.IntegerField('총 음원수입',null=True,blank=True)
     # album_ph = models.ImageField('앨범사진',max_length=30,null=True,blank=True,upload_to=None)
     # hash = modelss.URLField('음원 IPFS해쉬값',max_length=200,null=True,blank=True) 
+    
     class Meta: 
         ordering = ['music_id']
 
