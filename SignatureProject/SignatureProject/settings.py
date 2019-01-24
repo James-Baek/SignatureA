@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID=1
 
 # Application definition
 
@@ -38,9 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'streaming.apps.StreamingConfig',
+    'photo.apps.PhotoConfig',
+    
+    'django.contrib.sites',
+    'rest_framework',
     'user.apps.UserConfig',
     'main.apps.MainConfig',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,17 +88,16 @@ WSGI_APPLICATION = 'SignatureProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE' :'django.db.backends.mysql', 
-        # 'NAME' :'mysql',
-        # 'USER' :'root',
-        # 'PASSWORD':'block1428',
-        # 'HOST' :'localhost',
-        # 'POST' :'3306',
-    }
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE' :'django.db.backends.mysql', 
+        'NAME' :'mysql',
+        'USER' :'root',
+        'PASSWORD':'block1428',
+        'HOST' :'localhost',
+        'PORT' :'3306',
+    },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -132,10 +141,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')] 
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-# Login 
+MEDIA_URL = '/media/' # 추가
+MEDIA_ROOT = os.path.join(BASE_DIR,'media') #추가  
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
@@ -150,5 +159,5 @@ SESSION_COOKIE_AGE = 300
 EMAIL_HOST = 'smtp.naver.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'signaturesound@naver.com'
-EMAIL_HOST_PASSWORD = 'block1428'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True

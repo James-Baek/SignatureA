@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>4-single-file-component</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-</head>
-<body>
-    <div class="heading">
-        {% load static %}
-        <img src="{% static 'img/logo.png'%}" width="5%" height="5%">
-    </div>
-    
-    <div id="app"></div>
-    {% load static %}
-    <script src="{% static 'js/build.js'%}"></script>
-</body>
-</html>
+<!-- Test HTML -->
+
+<transition-group tag="main" name="card">
+  <article v-for="(album, index) in albums" :key="index" class="card" >
+      <a :href="album.url" target="_blank">
+          <div class="image" v-for="image in album.image" v-if="image.size == 'extralarge'">
+              <img v-if="image['#text'] !== ''" :src="image['#text']" :alt="album.name" v-on:load="isLoaded()" v-bind:class="{ active: isActive }">
+              <img v-else src="https://source.unsplash.com/random/300x300" :alt="album.name" v-on:load="isLoaded()" v-bind:class="{ active: isActive }">
+          </div>
+          <div class="description">
+              <span class="playcount">
+                  <span v-bind:style="{width: m_percentage(album.playcount) + '%'}"></span>
+              </span>
+              <h3 class="title" :data-mbid="album.mbid">{{ album.name }}</h3>
+              <p class="artist">{{ album.artist.name }}</p>
+          </div>
+      </a>
+  </article>
+</transition-group>
+
+</div>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
+    <!-- <div class="heading">
+        {% load static %}
+        <img src="{% static 'img/logo.png'%}" width="100">
+    </div> -->
+    
+    <div id="app">
+    {% load static %}
+    <script src="{% static 'js/player/build.js'%}"></script>
+{% endblock content %}

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS grid + Vue.js</title>
+</head>
+<body>
+        <div id="app">
+
+                <header>
+                        <h1>
+                            <img src="https://blogfiles.pstatic.net/MjAxOTAxMThfMTAz/MDAxNTQ3Nzk0MTEzMjE2.HwyKLDpGYSRZwoobT2Ja4lbZXFnPF-GlpHnW9XJEDVwg.d8ZWLUebTBWTpc1QdEG3lwmirLckMt5Z2itBy0YBpmYg.PNG.tkddn262/logo1.png" alt="SSound" title="SSound">Main Played Albums</h1>
+                        <p>SSound Music</p>
+                    </header>
+            
+                    <section id="controls">
+                        <div>
+                            <h4>SSound </h4>
+                            <p>블록체인 기반의 저작권 음악 사이트 CSS Grid 적용  
+                            </p>
+                            <p>그리드 size, row 컨트롤 가능 사용자에게 편의성 제공</p>
+                            <code>
+                            <span>display:</span> grid;<br>
+                                <span>grid-template-columns:</span> repeat(<strong v-if="gridItems > 0">${gridItems}</strong><strong v-else>auto-fill</strong>, minmax(<strong>${gridMin}px</strong>, 1fr));<br>
+                            <span>grid-gap:</span> <strong>${gridGap}px</strong>;
+                            </code>
+                        </div>
+                <div>
+                    <h4>그리드 갭 <em>&mdash; the size of the gutter</em> <label for="grid-gap">${gridGap}</label></h4>
+                    <input type="range" id="grid-gap" min="10" max="80" step="5" v-model="gridGap" v-on:change="changeGridGap">
+        
+                    <h4>그리드 크기 <em>&mdash; the minimum size of each grid item</em> <label for="grip-min">${gridMin}</label></h4>
+                    <input type="range" id="grid-min" min="100" max="375" step="5" v-model="gridMin" v-on:change="changeGridMin">
+                    
+                    <h4>그리드 화면 개수 <em>&mdash; number of items per row</em>
+                        <label for="grid-items" v-if="gridItems > 0">${gridItems}</label>
+                        <label for="grid-items" v-else>auto-fill</label>
+                    </h4>
+                        <input type="range" id="grid-items" min="0" max="10" step="1" v-model="gridItems" v-on:change="changeGridItems">
+                    </div>
+                </section>
+            
+                <transition-group tag="main" name="card">
+                    <article v-for="(album, index) in albums" :key="index" class="card" >
+                        <a :href="album.url" target="_blank">
+                            <div class="image" v-for="image in album.image" v-if="image.size == 'extralarge'">
+                                <img v-if="image['#text'] !== ''" :src="image['#text']" :alt="album.name" v-on:load="isLoaded()" v-bind:class="{ active: isActive }">
+                                <img v-else src="https://source.unsplash.com/random/300x300" :alt="album.name" v-on:load="isLoaded()" v-bind:class="{ active: isActive }">
+                            </div>
+                            <div class="description">
+                                <span class="playcount">
+                                    <span v-bind:style="{width: m_percentage(album.playcount) + '%'}"></span>
+                                </span>
+                                <h3 class="title" :data-mbid="album.mbid">${album.name}</h3>
+                                <p class="artist">${album.artist.name}</p>
+                            </div>
+                        </a>
+                    </article>
+                </transition-group>
+            
+            </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+
+var app= new Vue({
+    el:'#app',
+    data: {
+        albums: [],
+        delimiters: ['${','}'],
+        isActive: false,
+        maxPlayCount:0,
+        gridGap:30,
+        gridMin:175,
+        griditems:0
+    },
+
+mounted() {
+        axios.get('https://iamketan.com.au/lab/spotify/albums')
+            .then(response => (this.albums = response.data.topalbums.album, this.maxPlayCount = response.data.topalbums.album[0].playcount));
+    },
+    methods: {
+        isLoaded: function() {
+            this.isActive = true;
+        },
+        m_percentage: function(value) {
+            return parseInt((value * 100) / app.$data.maxPlayCount);
+        },
+        changeGridGap: function() {
+            document.querySelector('main').style.setProperty('--grid-gap', this.gridGap + 'px');
+        },
+        changeGridMin: function() {
+            document.querySelector('main').style.setProperty('--grid-min', this.gridMin + 'px');
+        },
+        changeGridItems: function() {
+            var gridItemSetting = this.gridItems;
+            if (this.gridItems == 0) {
+                gridItemSetting = 'auto-fill';
+            }
+            document.querySelector('main').style.setProperty('--grid-items', gridItemSetting);
+        }
+    },
+    computed: {
+    },
+    filters: {
+        percentage: function(value) {
+            return parseInt((value * 100) / app.$data.maxPlayCount);
+        }
+    }
+});
+
+
+
+
+
+
+</script>
+
+
+<style>
+:root {
+  --grid-gap: 30px;
+  --grid-min: 175px;
+  --grid-items: auto-fill;
+}
+* {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5em;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #222129;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: white;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+h1 {
+  font-size: 25px;
+  color: white;
+}
+h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+h4 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+p {
+  margin-bottom: 16px;
+  line-height: 1.5em;
+}
+code {
+  display: block;
+  font-family: monospace;
+  font-size: 14px;
+  color: #1ed760;
+  border-left: 2px solid rgba(25, 20, 20, 0.75);
+  padding-left: 10px;
+}
+code span {
+  color: white;
+}
+code strong {
+  background-color: #191414;
+  padding: 2px;
+}
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px 4%;
+  margin-bottom: 20px;
+  background: #191414;
+}
+@media screen and (max-width: 768px) {
+  header {
+    flex-flow: column;
+  }
+}
+header h1, header p {
+  width: 50%;
+}
+@media screen and (max-width: 768px) {
+  header h1, header p {
+    width: 100%;
+  }
+}
+header p {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.65);
+}
+@media screen and (max-width: 768px) {
+  header p {
+    text-align: left !important;
+    margin-top: 10px;
+    text-indent: 63px;
+  }
+}
+header img {
+  width: 48px;
+  height: 48px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+section#controls {
+  margin: 3% 2%;
+  display: flex;
+}
+section#controls > div {
+  width: 50%;
+  padding: 0 2%;
+}
+section#controls > div input[type="range"] {
+  width: 100%;
+  margin-bottom: 30px;
+}
+section#controls > div label {
+  background: #1ed760;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 2px;
+  float: right;
+}
+section#controls h4 em {
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.4);
+}
+section#controls p {
+  color: rgba(255, 255, 255, 0.70);
+}
+#app main {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-items), minmax(var(--grid-min), 1fr));
+  grid-gap: var(--grid-gap);
+  counter-reset: rank;
+  margin: 4%;
+}
+#app main article {
+  counter-increment: rank;
+  position: relative;
+  background: #2b2a34;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  animation: mouseOut 0.3s ease-in;
+}
+#app main article .image {
+  position: relative;
+  width: 100%;
+}
+#app main article .image:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+#app main article .image:before {
+  content: '•••';
+  font-size: 24px;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+#app main article .image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  opacity: 0;
+}
+#app main article .image img.active {
+  animation: imageFadeIn 0.5s ease-in forwards;
+  animation-delay: 0.5s;
+}
+#app main article .description {
+  padding-bottom: 10px;
+}
+#app main article .description h3, #app main article .description p {
+  padding: 0 10px;
+}
+#app main article .description p.artist {
+  color: #666;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+#app main article .description p.artist:before {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin-bottom: 4px;
+  background: #222129;
+}
+#app main article:before {
+  content: '#' counter(rank);
+  display: block;
+  width: 25px;
+  height: 20px;
+  line-height: 20px;
+  background: rgba(34, 33, 41, 0.75);
+  color: white;
+  position: absolute;
+  z-index: 20;
+  right: 0px;
+  top: 0px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+}
+#app main article .playcount {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+#app main article .playcount span {
+  position: relative;
+  display: block;
+  height: 2px;
+  background: #1ed760;
+}
+#app main article:hover {
+  animation: mouseOver 0.3s ease-in forwards;
+}
+@keyframes mouseOver {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -5px;
+  }
+}
+@keyframes mouseOut {
+  0% {
+    top: -5px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@keyframes imageFadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.card-enter {
+  opacity: 0;
+}
+.card-enter-to {
+  opacity: 1;
+}
+.card-enter-active {
+  transition: opacity 0.3s ease-in;
+}
+
+</style>
+
+
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>이미지 테스트 </title>
+</head>
+<body>
+    <div id="app">
+       <td> ${albums} </td> <br/>
+    <td>${albums[0].hash}</td> <br/>
+    <!-- <td><img :src="image"></td> -->
+    <td><img :src="image1"></td>
+    ${Date()}
+
+    </div>
+    
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+new Vue({
+  el: '#app',
+  delimiters: ['${','}'],
+  data () {
+    return {
+      albums: null,
+      image:"../../../media/photo/2019/01/jackson.jpg",
+      image1:"https://lastfm-img2.akamaized.net/i/u/300x300/ad656836a06e4267858d105ddd13fe04.png"
+    }
+  },
+  mounted () {
+    axios
+      .get('http://127.0.0.1:8000/api/streaming/')
+      .then(response => (this.albums = response.data))
+  }
+})
+
+
+
+
+</script>
+</html>
