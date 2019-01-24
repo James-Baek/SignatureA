@@ -295,12 +295,12 @@
 
 /* Codepen Formatting */
 body {
-    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-image: linear-gradient(135deg,#ffffff 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: rgba(255, 255, 255, 0.7);
     font-family: Raleway, sans-serif;
-    padding: 3rem;
+    /* padding: 3rem; */
 }
 
 .heading {
@@ -327,4 +327,24 @@ body {
 }
 .heading a:visited {
     color: rgba(255, 255, 255, 0.5);
+}
+
+/* notify */
+.notification {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  
+  
+.notification .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: orange;
+    color: white;
 }
