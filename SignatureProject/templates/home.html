@@ -55,7 +55,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{% url 'streaming:index'%}">스트리밍</a>
+                        <a class="page-scroll" href="{% url 'streaming:test3'%}">스트리밍</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'photo:index'%}">앨범</a>
@@ -188,10 +188,10 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="../media/photo/2019/01/방탄2.jpg" width=400px height=100px class="img-responsive" alt="">
+                        <img src="../media/photo/2019/01/방탄.jpg" width=400px height=100px class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Startup Framework</h4>
+                        <h4>1집 앨범</h4>
                         <!-- <p class="text-muted">Website Design</p> -->
                     </div>
                 </div>
@@ -205,7 +205,7 @@
                         <img src="../media/photo/2019/01/방탄.jpg" width=400px height=100px class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Treehouse</h4>
+                        <h4>1집 앨범</h4>
                         <!-- <p class="text-muted">Website Design</p> -->
                     </div>
                 </div>
@@ -219,8 +219,8 @@
                         <img src="../media/photo/2019/01/방탄4.jpg" width=300px height=100px class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4>Golden</h4>
-                        <p class="text-muted">Website Design</p>
+                        <h4>???</h4>
+                        <p class="text-muted">다음 앨범</p>
                     </div>
                 </div>
                 <!-- <div class="col-md-4 col-sm-6 portfolio-item">
@@ -321,7 +321,7 @@
                                 <h2>Project Heading</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <img class="img-responsive img-centered" src="img/portfolio/startup-framework-preview.jpg" alt="">
-                                <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
+                                <p><a href="../media/photo/2019/01/방탄.jpg">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
                                 <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
                             </div>
@@ -458,10 +458,10 @@
 
 
         <div class="create">
-            <a href="{% url 'login'}">로그인</a>
-            <button type="button" class="g-opacity-transition signupModule__signupCta sc-button sc-button-large signupButton sc-button-cta" tabindex="0" title="Create a SSound account">Create account</button>
-        
-        </div>
+
+            <button type="button" class="g-opacity-transition signupModule__signupCta sc-button sc-button-large signupButton sc-button-cta" tabindex="0" href="/user/signup">Create account</button>
+
+          
         </div>
 
         <style>
@@ -495,66 +495,3 @@
 </body>
 
 </html>
-<<<<<<< HEAD
-=======
-<html>
-    <head>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    </head>
-    <body>
-            {% block header %}
-            {% if request.user.is_authenticated %}
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            {% if request.user.is_authenticated %}
-                            <span class="badge badge-pill badge-primary">계정</span> {{ user.email }}
-                            <span class="badge badge-pill badge-primary">닉네임</span> {{ user.nname }}
-                            <span class="badge badge-pill badge-primary">보유 코인</span>{{ user.coin  }}
-                            {% endif %}
-                        </li>
-                        <li class="">
-                            {% if request.user.is_authenticated %}
-                            <a href="/user/logout/">로그아웃</a>
-                            {% endif %}
-                        </li>
-        
-                    </ul>
-            </div>
-            {% endif %}
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/article/">게시글 목록</a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="">
-                                {% if not request.user.is_authenticated %}
-                                <a href="/user/signup/">가입하기</a>
-                                {% endif %}
-                            </li>
-                            <li class="">
-                                {% if request.user.is_authenticated %}
-
-                                {% else %}
-                                <a href="/user/login/">로그인</a>
-                                {% endif %}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            {% if messages %}
-                {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
-                  {{ message }}
-                </div>
-                {% endfor %}
-            {% endif %}
-            {% endblock header %}
-    </body>
-</html>
->>>>>>> ckdgus
-=======
->>>>>>> 90f8eea5e8758c47ce36baff3cefacd17a01cb2b
