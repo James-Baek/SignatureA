@@ -2,17 +2,18 @@ from rest_framework import viewsets, filters
 from .models import *
 from .serializers import * 
 
-class TMusic_Source_Serializer_ViewSet(viewsets.ModelViewSet): 
-    queryset = TMusic_Source.objects.all() 
-    serializer_class = TMusic_Source_Serializer
+class Streaming_Serializer_ViewSet(viewsets.ModelViewSet): 
+    queryset = Streaming.objects.all() 
+    serializer_class = Streaming_Serializer
     filter_backends = (filters.SearchFilter,)
+
+
     # filter_fields = ('music_title','music_img','music_w')
 
 # class Artist_Serializer_ViewSet(viewsets.ModelViewSet): 
 #     queryset = Artist.objects.all() 
 #     serializers_class = Artist_Serializer
 #     filter_backends = (filters.SearchFilter,) 
-
 
 
 # class Artist_Serializer_ViewSet(viewsets.ModelViewSet): 
