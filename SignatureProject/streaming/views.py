@@ -35,5 +35,14 @@ class StreamingDetail(TemplateView):
     template_name='streaming/streaming_detail.html'
     
 
-class StreamingTest(TemplateView):
+class streaming_test2(TemplateView):
     template_name='streaming/streaming_test2.html'
+    
+class streaming_test3(TemplateView): 
+    template_name='streaming/streaming_test3.html'
+
+class streaming_test4(TemplateView):
+    template_name='streaming/streaming_test4.html'
+
+class streaming_test5(TemplateView):
+    template_name='streaming/streaming_test5.html'

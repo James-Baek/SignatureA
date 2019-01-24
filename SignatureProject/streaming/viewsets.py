@@ -6,7 +6,7 @@ class TMusic_Source_Serializer_ViewSet(viewsets.ModelViewSet):
     queryset = TMusic_Source.objects.all() 
     serializer_class = TMusic_Source_Serializer
     filter_backends = (filters.SearchFilter,)
-    filter_fields = ('music_title','music_genre','music_w','music_m')
+    # filter_fields = ('music_title','music_img','music_w')
 
 
 class TMusic_Stake_Serializer_ViewSet(viewsets.ModelViewSet):
