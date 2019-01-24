@@ -55,7 +55,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{% url 'streaming:index'%}">스트리밍</a>
+                        <a class="page-scroll" href="{% url 'streaming:test3'%}">스트리밍</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'photo:index'%}">앨범</a>
@@ -66,18 +66,6 @@
                     <li>
                         <a class="page-scroll" href="/user/signup">회원가입</a>
                     </li>
-<<<<<<< HEAD
-                    {% if request.user.is_authenticated %}                    
-                        <a class="page-scroll" href="/user/logout">로그아웃</a>
-                    {% else %}
-                    <li>
-                        <a class="page-scroll" href="{% url 'user:login'%}">로그인</a>
-                    </li>
-                        {% endif %}
-                    
-                    
-
-=======
                     <li>
                         {% if request.user.is_authenticated %}
                         <a href="/user/logout/">로그아웃</a>
@@ -85,7 +73,6 @@
                         <a class="page-scroll" href="{% url 'user:login'%}">로그인</a>
                         {% endif %}
                     </li>
->>>>>>> fe3aea720a568b6f1624d17b2b1f4eaecfa6dd1e
                                 
                     
 
