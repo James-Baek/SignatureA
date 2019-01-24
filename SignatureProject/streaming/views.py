@@ -46,3 +46,10 @@ class streaming_test4(TemplateView):
 
 class streaming_test5(TemplateView):
     template_name='streaming/streaming_test5.html'
+
+class streaming_sound(TemplateView): 
+    template_name='streaming/streaming_sound.html'
+
+class streaming_upload(TemplateView): 
+    template_name='streaming/streaming_upload.html'
+
