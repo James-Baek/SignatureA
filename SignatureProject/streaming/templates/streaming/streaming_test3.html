@@ -12,15 +12,18 @@
                 <header>
                         <h1>
                             <img src="https://blogfiles.pstatic.net/MjAxOTAxMThfMTAz/MDAxNTQ3Nzk0MTEzMjE2.HwyKLDpGYSRZwoobT2Ja4lbZXFnPF-GlpHnW9XJEDVwg.d8ZWLUebTBWTpc1QdEG3lwmirLckMt5Z2itBy0YBpmYg.PNG.tkddn262/logo1.png" alt="SSound" title="SSound">Main Played Albums</h1>
-                        <p>SSound Music</p>
+                       <a href="{% url 'streaming:play'%}"><p>Music Play</p></a> 
+                       <a href="{% url 'streaming:detail'%}">Detail</a>
+                        <p>ss</p>
+                        
                     </header>
             
                     <section id="controls">
                         <div>
                             <h4>SSound </h4>
-                            <p>블록체인 기반의 저작권 음악 사이트 CSS Grid 적용  
+                            <p>음악 사이트 CSS Grid 적용  
                             </p>
-                            <p>그리드 size, row 컨트롤 가능 사용자에게 편의성 제공</p>
+                            <p>그리드 size, row 컨트롤 </p>
                             <code>
                             <span>display:</span> grid;<br>
                                 <span>grid-template-columns:</span> repeat(<strong v-if="gridItems > 0">${gridItems}</strong><strong v-else>auto-fill</strong>, minmax(<strong>${gridMin}px</strong>, 1fr));<br>
@@ -53,8 +56,8 @@
                                 <span class="playcount">
                                     <span v-bind:style="{width: m_percentage(album.playcount) + '%'}"></span>
                                 </span>
-                                <h3 class="title" :data-mbid="album.mbid">${album.name}</h3>
-                                <p class="artist">${album.artist.name}</p>
+                                <h3 class="title" :data-mbid="album.mbid">{{album.name}}</h3>
+                                <p class="artist">{{album.artist.name}}</p>
                             </div>
                         </a>
                     </article>
@@ -113,6 +116,8 @@ mounted() {
         }
     }
 });
+
+
 
 
 

@@ -3,24 +3,35 @@ from streaming.models import *
 from user.models import * 
 # Register your models here.
 
-class MusicRegisterAdmin(admin.ModelAdmin): 
-    list_display = ['music_id','hash','music_title']
-
-# class BasicAdmin(admin.ModelAdmin): 
-#     list_display = ['nname','profile','coin']
+# class StreamingRegisterAdmin(admin.ModelAdmin): 
+#     list_display = ['music_w']
 
 
-# class ArtistAdmin(admin.ModelAdmin):
-#     list_display = ['email']
+# class ArtistAdmin(admin.ModelAdmin): 
+#     list_display=['name']
+
+# class AlbumAdmin(admin.ModelAdmin): 
+#     list_display=['name']
 
 
-# class TableCode(admin.ModelAdmin): 
-#     list_display = ['major_id','minor_id','code_label']
+# # class BasicAdmin(admin.ModelAdmin): 
+# #     list_display = ['nname','profile','coin']
+
+# # class ArtistAdmin(admin.ModelAdmin):
+# #     list_display = ['mbid']
 
 
-admin.site.register(TMusic_Source,MusicRegisterAdmin)
+# # class AlbumAdmin(admin.ModelAdmin):
+# #     list_display=['mbid']
+# # class TableCode(admin.ModelAdmin): 
+# #     list_display = ['major_id','minor_id','code_label']
 
-# admin.site.register(TUser_Basic,BasicAdmin)
-# admin.site.register(TUser_Atist,ArtistAdmin)
-# admin.site.register(TCode_Master,TableCode)
+
+# admin.site.register(Streaming,StreamingRegisterAdmin)
+# admin.site.register(Artist,ArtistAdmin)
+# admin.site.register(Album,AlbumAdmin)
+
+admin.site.register(Streaming)
+admin.site.register(Album)
+admin.site.register(Artist)
 

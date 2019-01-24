@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+</body>
+<script src="https://connect.soundcloud.com/sdk/sdk-3.3.1.js"></script>
+<script>
+import soundcloud
+
+client = soundcloud.Client(client_id='YOUR_CLIENT_ID',
+                           client_secret='YOUR_CLIENT_SECRET',
+                           redirect_uri='http://example.com/callback')
+
+redirect client.authorize_url()
+</script>
+</html>
