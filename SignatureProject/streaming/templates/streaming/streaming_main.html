@@ -7,14 +7,13 @@
     <title>CSS grid + Vue.js</title>
 </head>
 <body>
-    {% extends 'base.html'}
+    {% extends 'base3.html'}
     {% block content %}
                 <header>
-                        <h1>
-                            <img src="https://blogfiles.pstatic.net/MjAxOTAxMThfMTAz/MDAxNTQ3Nzk0MTEzMjE2.HwyKLDpGYSRZwoobT2Ja4lbZXFnPF-GlpHnW9XJEDVwg.d8ZWLUebTBWTpc1QdEG3lwmirLckMt5Z2itBy0YBpmYg.PNG.tkddn262/logo1.png" alt="SSound" title="SSound">Main Played Albums</h1>
+                 
                        <a href="{% url 'streaming:play'%}"><p>Music Play</p></a> 
                        <a href="{% url 'streaming:detail'%}">Detail</a>
-                        <p></p>
+                        <p></p> -->
                         
                     </header>
             
@@ -31,16 +30,16 @@
                             </code>
                         </div>
                 <div>
-                    <h4>그리드 갭 <em>&mdash; the size of the gutter</em> <label for="grid-gap">${gridGap}</label></h4>
+                    <p>그리드 갭<label for="grid-gap">${gridGap}</label></p>
                     <input type="range" id="grid-gap" min="10" max="80" step="5" v-model="gridGap" v-on:change="changeGridGap">
         
-                    <h4>그리드 크기 <em>&mdash; the minimum size of each grid item</em> <label for="grip-min">${gridMin}</label></h4>
+                    <p>그리드 크기  <label for="grip-min">${gridMin}</label></p>
                     <input type="range" id="grid-min" min="100" max="375" step="5" v-model="gridMin" v-on:change="changeGridMin">
                     
-                    <h4>그리드 화면 개수 <em>&mdash; number of items per row</em>
+                    <p>그리드 화면 개수 
                         <label for="grid-items" v-if="gridItems > 0">${gridItems}</label>
                         <label for="grid-items" v-else>auto-fill</label>
-                    </h4>
+                    </p>
                         <input type="range" id="grid-items" min="0" max="10" step="1" v-model="gridItems" v-on:change="changeGridItems">
                     </div>
                 </section>
