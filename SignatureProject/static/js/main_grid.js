@@ -1,5 +1,5 @@
-var app= new Vue({
-    el:'#app',
+var app= new Vue({ 
+    el:'#app',   // page-content-wrapper 로 하면 일렬로 배열됨.
     data: {
         albums: [],
         delimiters: ['${','}'],
