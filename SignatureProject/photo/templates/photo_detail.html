@@ -1,8 +1,8 @@
 
-{% block title %}album_list.html{% endblock %}
+{% extends 'base.html' %}
 
-{% load staticfiles %} 
-<link rel="stylesheet" href="../../static/css/photo.css">
+{% block title %}앨범 photo 디테일 여기에 player와 photo 설명을 붙인다.{% endblock %}
+
 
 {% block content %}
 <div id="content">
@@ -13,7 +13,7 @@
     <tr>
         <td>
             <a href="{{ object.image.url }}">
-            <img style="max-width:100%" src="{{ object.image.url }}" />
+            <img style="max-width:30%" src="{{ object.image.url }}" />
             </a>
         </td>
 
@@ -33,6 +33,6 @@
 </table>
 
 </div>
-{% endblock %}
+{% endblock content %}
     
     
