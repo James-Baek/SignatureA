@@ -16,7 +16,7 @@
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{% static 'css/left-sidebar.css'%}">
         <link rel="stylesheet" href="{% static 'css/style.css'%}">
-        <link rel="stylesheet" href="{% static 'css/main.css'%}"> <!--grid css -->
+        <link rel="stylesheet" href="{% static 'css/main.css'%}"> 
        
        <!-- main page static script 적용시키기-->
       
@@ -51,19 +51,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"><img src="{% static 'img/playlist-2.png'%}" width="15"> MY ALBUM</a>
+                        <a href="#"><img src="{% static 'img/playlist-2.png'%}" width="15">&nbsp&nbsp&nbsp&nbsp My Album 
                     </li>
                     <li>
-                        <a href="#">음원 등록</a>
-                    </li>
-                    <!-- <li>
-                        <a href="#">차트</a>
+                        <!-- <a href="#">Events</a> -->
                     </li>
                     <li>
-                        <a href="#">Events</a>
-                    </li>
-                    <li>
-                        <a href="#">고객센터</a>
+                        <a href="#">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp고객센터</a>
                     </li> -->
                 </ul>
             </div>
@@ -91,7 +85,7 @@
                                 </form>
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item active">
-                                <a class="nav-link text-light pl-3" href="#">스트리밍 <span class="sr-only">(current)</span></a>
+                                <a class="nav-link text-light pl-3" href="{% url 'streaming:detail'%}">스트리밍 <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                 <a class="nav-link text-light pl-3" href="#">저작권 거래</a>

@@ -11,8 +11,8 @@ var app= new Vue({
     },
 
 mounted() {
-        axios.get('http://127.0.0.1:8000/api/streaming/')
-            .then(response => (this.albums = response.data.albums[0]));
+        axios.get('https://iamketan.com.au/lab/spotify/albums')
+            .then(response => (this.albums = response.data.topalbums.album, this.maxPlayCount = response.data.topalbums.album[0].playcount));
     },
     methods: {
         isLoaded: function() {

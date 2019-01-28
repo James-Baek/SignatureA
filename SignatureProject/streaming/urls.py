@@ -19,4 +19,5 @@ urlpatterns = [
     path('test5/',streaming_test5.as_view(),name="test5"),
     path('sound/',streaming_sound.as_view(),name='sound'),
     path('upload/',streaming_upload.as_view(),name='upload'),
+    path('main/',streaming_main.as_view(),name="main"),
 ]
