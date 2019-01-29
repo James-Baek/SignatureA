@@ -1,7 +1,12 @@
 
 {% extends 'base.html' %}
 
-{% block title %}앨범 photo 디테일 여기에 player와 photo 설명을 붙인다.{% endblock %}
+{% block title %}{% endblock %}
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/photo.css'%}">
+
 
 
 {% block content %}
@@ -13,26 +18,117 @@
     <tr>
         <td>
             <a href="{{ object.image.url }}">
-            <img style="max-width:30%" src="{{ object.image.url }}" />
+            <img style="max-width:100%" src="{{ object.image.url }}" />
             </a>
         </td>
 
         <td>
             <ul>
-                <li>Photo Description</li>
-                {% if object.description %}<p>{{ object.description | linebreaks }}</p>
-                {% else %}<p>(blank></p> {% endif %}
+              
                 <li>Album name</li>
                 <p><a href="{% url 'photo:album_detail' object.album.id %}">
                 {{ object.album.name }}    
                 </a></p> 
-                
+              
             </ul>
         </td>
     </tr>
 </table>
 
-</div>
+<br/>
+
+<section class="description">
+
+        <h2>앨범 Description</h2>
+        {% if object.description %}<p>{{ object.description | linebreaks }}</p>
+        {% else %}<p>(blank></p> {% endif %}
+
+</section>
+
+
+<br/>
+
+<section class="relate">
+    <h3>관련 앨범 사진 </h3>
+    <p><a href="{% url 'photo:album_detail' object.album.id %}">
+    {{ object.album.name }}
+</a></p> 
+</section> 
+
+
 {% endblock content %}
     
-    
+
+<style>
+
+/*album_list.html */
+div.album-list {
+    margin : 200px 120px; 
+}
+
+div.album-list-photo {
+    float : left; 
+    width : 150px;
+    height : 180px;
+}
+
+/* album_detail.html */
+div.album-detail {
+    margin : 30px 10px; 
+}
+
+div.album-detail-photo {
+    float : left; 
+    width : 100px;
+    height : 110px; 
+}
+
+img.thumbnail {
+    float : left; 
+    width : 300px;
+    height : 310px;
+}
+
+div.album-detail-photo > li {
+    font-size : 10px;
+    font-weight : bold;
+    font-style : italic; 
+}
+
+/* photo_detail.html */ 
+table.photo-detail {
+    margin : 30px 50px 0 50px;
+    border : 1px solid #ccc;
+    padding : 20px 20px; 
+}
+
+table.photo-detail td {
+    width : 85%; 
+}
+
+table.photo-detail ul li {
+    font-weight : bold; 
+}
+
+table.photo-detail ul p {
+    font-style : italic; 
+}
+
+/* common */ 
+img.thumbnail {
+    border :3px solid #ccc; 
+}
+
+div.clear_float {
+    clear: both;
+}
+
+section.description {
+    margin : 30px 50px 0 50px;
+
+}
+
+
+
+
+</style>

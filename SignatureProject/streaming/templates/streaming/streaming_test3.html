@@ -14,10 +14,10 @@
   {% block content %}
         <div id="app">
                
-                <header>
+                <!-- <header>
                        
                       </header>
-            
+             -->
                     <section id="controls">
                         <div>
                             <!-- <p>그리드 size, row 컨트롤 </p> -->
@@ -28,14 +28,14 @@
                             </code>
                         </div>
                 <div>
-                    <p>갭  <label for="grid-gap">${gridGap}</label></p>
+                    <p>갭  <label for="grid-gap">%{gridGap}</label></p>
                     <input type="range" id="grid-gap" min="10" max="80" step="5" v-model="gridGap" v-on:change="changeGridGap">
         
-                    <p>크기  <label for="grip-min">${gridMin}</label></p>
+                    <p>크기  <label for="grip-min">%{gridMin}</label></p>
                     <input type="range" id="grid-min" min="100" max="375" step="5" v-model="gridMin" v-on:change="changeGridMin">
                     
                     <p>화면 개수
-                        <label for="grid-items" v-if="gridItems > 0">${gridItems}</label>
+                        <label for="grid-items" v-if="gridItems > 0">%{gridItems}</label>
                         <label for="grid-items" v-else>auto-fill</label>
                     </p>
                         <input type="range" id="grid-items" min="0" max="10" step="1" v-model="gridItems" v-on:change="changeGridItems">
@@ -43,15 +43,38 @@
                 </section>
 
                 <transition-group tag="main" name="card">
-                        <li v-for="(artist,index) in artists" :key="index" class="card">
-                        <img :src=artist.image> - %{index} - <img :src=artist.image1> 
-                        <a :href=artist.url></a>
-                        </li>
-                        <!-- <td><img :src="image"></td> -->
-                        </th>
+                 
+                    <article v-for="(artist,index) of artists" :key="index" class="card">
+                            <a :href="artist.url" target="_blank">              
+                    
+                        <img :src=artist.image>
+                        <img :src=artist.image2>
+                        <img :src=artist.image3>
+                        <img :src=artist.image4>
+                        <img :src=artist.image5>
+                        <img :src=artist.image6>
+                        <img :src=artist.image7>
+                        <img :src=artist.image8>
+                        <img :src=artist.image9>
+                        <img :src=artist.image10>
+                       
+                        
+                        <div class="description">
+                            <h1>%{artist.name}</h1>
+                            <p2>Listen</p2>    
+                            </div>
+                        </a>  
+                    
+                    </article>    
+                        
+                      
+                                <!-- <span class="playcount">
+                                    <span v-bind:style="{width: m_percentage(artist.playcount) + '%'}"></span>
+                                </span>      -->
+                       
                         </transition-group> 
-           
-        </div>
+                    
+  
                         
                 <!-- <transition-group tag="main" name="card">
                     <article v-for="(album, index) in albums" :key="index" class="card" >

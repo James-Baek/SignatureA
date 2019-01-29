@@ -9,9 +9,7 @@
 </head>
 
 <body>
-
-    <div id="app">
-        <div class="container">
+  <!-- <div class="container">
             <div class="row">
                 <table class="table">
                     <thead>
@@ -19,25 +17,21 @@
                         <th scope="col">Music</th>
                         <th scope="col">title</th>
                         <th scope="col">곡정보</th>
-                        <!-- <th scope="col">genre</th> -->
-                        <th scope="col">작곡가</th>
-                        <!-- <th scope="col">agency</th> -->
+                        <th scope="col">작곡가</th>              
                         <th scope="col">듣기</th>
                         <th scope="col">내 음악</th>
                         <th scope="col">가격</th>
-                      </table>
-
-      <div 
-        v-for="test in albums"
-       
-      >
+                      </table> -->
+    <div id="app">
       
-       <td> ${test.url} </td> <br/>
-       <td>${test.mbid}</td>
+
+        <td><img :src="image1"></td>
+       <td> %{test[0].url1} </td> <br/>
+       <td>%{test[1].url2}</td>
     <!-- <td>${albums[0].hash}</td> <br/> -->
     <!-- <td><img :src="image"></td> -->
-    <td><img :src="image1"></td>
-    ${Date()}
+    
+    %{Date()}
                    
   </div>
 

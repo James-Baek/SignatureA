@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'streaming.apps.StreamingConfig',
     'photo.apps.PhotoConfig',
-    
+    # 'disqus',
     'django.contrib.sites',
     'rest_framework',
     'user.apps.UserConfig',
