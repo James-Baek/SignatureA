@@ -20,4 +20,8 @@ urlpatterns = [
     path('sound/',streaming_sound.as_view(),name='sound'),
     path('upload/',streaming_upload.as_view(),name='upload'),
     path('main/',streaming_main.as_view(),name="main"),
+    path('video/',streaming_video.as_view(),name="video"),
+    path('video2/',streaming_video2.as_view(),name="video2"),
+    path('videobackup/',streaming_video_backup.as_view(),name="video_backup")
+
 ]

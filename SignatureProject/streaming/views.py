@@ -51,8 +51,17 @@ class streaming_sound(TemplateView):
     template_name='streaming/streaming_sound.html'
 
 class streaming_upload(TemplateView): 
-    template_name='streaming/streaming_upload.html'
+    template_name='streaming/upload.html'
 
 class streaming_main(TemplateView):
     template_name = 'streaming/streaming_main.html'
     
+class streaming_video(TemplateView): 
+    template_name = 'streaming/video.html'
+
+class streaming_video2(TemplateView): 
+    template_name = 'streaming/video2.html'
+
+
+class streaming_video_backup(TemplateView):
+    template_name = 'streaming/video_backup.html'

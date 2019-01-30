@@ -27,8 +27,15 @@
               
                 <li>Album name</li>
                 <p><a href="{% url 'photo:album_detail' object.album.id %}">
-                {{ object.album.name }}    
-                </a></p> 
+                {{ object.album.name }}</a> <br>
+                <li>업로드 날짜</li> 
+                {% if object.upload_date %} {{ object.upload_date }}     {% endif %}<br/>
+        <br/>     <li>타이틀</li> 
+                {% if object.title %} {{ object.title }}     {% endif %}
+          <br/> <br/>       <li>기획사</li>   
+                {% if object.agency %} {{object.agency}}  {% endif %}
+ 
+            </a></p> 
               
             </ul>
         </td>
@@ -37,13 +44,13 @@
 
 <br/>
 
-<section class="description">
+<table class="photo-detail">
 
         <h2>앨범 Description</h2>
         {% if object.description %}<p>{{ object.description | linebreaks }}</p>
         {% else %}<p>(blank></p> {% endif %}
 
-</section>
+</table>
 
 
 <br/>
@@ -51,9 +58,12 @@
 <section class="relate">
     <h3>관련 앨범 사진 </h3>
     <p><a href="{% url 'photo:album_detail' object.album.id %}">
-    {{ object.album.name }}
+    {{ object.album.name }} <br/>
+    <img style="max-width:15%" src="{{ object.image.url }}" />
 </a></p> 
 </section> 
+
+
 
 
 {% endblock content %}
