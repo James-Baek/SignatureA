@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> grid + Vue.js</title>
+    <title> grid + Vue.js </title>
     {% extends 'base3.html' %}
-    {% load staticfiles %}
+   
+    {% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+
+
+    {% endblock css %}
 
       
 </head>

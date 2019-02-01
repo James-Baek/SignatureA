@@ -161,3 +161,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'signaturesound@naver.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
+
+# CSRF_COOKIE_SECURE = True
