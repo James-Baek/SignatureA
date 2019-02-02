@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
+{% block title %}      <!-- 페이지별 타이틀 공간 -->
+<title>스트리밍</title>
+{% endblock title %}
 
 {% block content %}
     <!-- <div class="heading">
@@ -8,7 +11,9 @@
         <img src="{% static 'img/logo.png'%}" width="100">
     </div> -->
     
-    <div id="app">
-    {% load static %}
+    <div id="app"></div>
+    <p class='text-dark'>{{ userinfo.email }}</p>
+    <p class='text-dark'>{{ userinfo.balance }}</p>
+    <p class='text-dark'>{{ userinfo.authority }}</p>
     <script src="{% static 'js/player/build.js'%}"></script>
 {% endblock content %}

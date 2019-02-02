@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from user.models import User
 
 class MainFirstView(TemplateView):
-    template_name = 'main/base.html'
+    template_name = 'main/main.html'
     queryset = User.objects.all()
 
     def get(self, request, *args, **kwargs):

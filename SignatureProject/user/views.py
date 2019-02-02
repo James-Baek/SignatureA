@@ -15,6 +15,10 @@ from django.views.generic.base import TemplateView
 from user.mixin import VerifyEmailMixin
 
 
+# import js2py
+# from js2py.internals import seval
+
+
 # 회원가입
 class UserRegistrationView(VerifyEmailMixin, CreateView):
     model = get_user_model()
@@ -23,11 +27,38 @@ class UserRegistrationView(VerifyEmailMixin, CreateView):
     success_url = '/user/login/'
     verify_url = '/user/varify/'
 
+
     def form_valid(self, form):
+        email = form.cleaned_data['email']
+        print(email)
+
+        # f = open("D:/github/SignatureA/SignatureProject/user/createuser.js", "rt")
+        # text = f.read()
+        # print(text)
+        # f.close()
+
+        # try:
+        #     f = open("SignatureProject/user/createuser.js", "rt")
+        #     text = f.read()
+        # except FileNotFoundError:
+        #     print("파일이 없습니다.")
+        # finally:
+        #     f.close()
+
+        # chain = js2py.eval_js(text)
+        # seval.eval_js_vm(code)
+        # print(chain(email))
+        
         response = super().form_valid(form)
         if form.instance:
             self.send_verification_email(form.instance)
         return response
+
+
+
+
+        
+
 
 # 로그인
 class UserLoginView(LoginView):
@@ -37,6 +68,8 @@ class UserLoginView(LoginView):
     def form_invalid(self, form):
         messages.error(self.request, '로그인에 실패하였습니다.', extra_tags='danger')
         return super().form_invalid(form)
+
+
 
 
 # 인증뷰

@@ -8,6 +8,11 @@ from streaming.forms import MusicSearchForm
 from django.db.models import Q 
 from django.shortcuts import render #단축함수 render  
 
+
+import subprocess
+import json
+
+
 class SearchFormView(FormView): 
     form_class = MusicSearchForm 
     template_name = 'streaming/streaming_search.html'
@@ -26,6 +31,19 @@ class SearchFormView(FormView):
 
 class MusicStreaming(TemplateView):
     template_name='streaming/streaming_play.html'
+
+    def get_context_data(self, **kwargs):
+        result = subprocess.check_output(["node", "test.js"])
+        a = json.loads(result.decode('utf-8'))
+        
+        context = super(MusicStreaming, self).get_context_data(**kwargs)
+        context['userinfo'] = a
+        # context['balance'] = a['balance']
+        # context['authority'] = a['authority']
+
+        print(context)
+        return context
+    
 
 class MusicMain(TemplateView): 
     template_name='streaming/streaming.html'

@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="ko">
-    <head>
-        <title>main</title>
-    </head>
-    <body>
-    view: {{ view }} <!-- ctx['view'] -->
-    <br>
-    data: {{ data }}  <!-- ctx['data'] -->
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block title %}      <!-- 페이지별 타이틀 공간 -->
+<title>메인 페이지</title>
+{% endblock title %}
+
+{% block content %}
+    <!-- <div class="heading">
+        {% load static %}
+        <img src="{% static 'img/logo.png'%}" width="100">
+    </div> -->
+    
+<p class="text-dark">메인 페이지 입니다.</p>
+{% endblock content %}
