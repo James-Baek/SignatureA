@@ -42,6 +42,7 @@ class MusicStreaming(TemplateView):
         # context['authority'] = a['authority']
 
         print(context)
+        print(self.request.user)
         return context
     
 
