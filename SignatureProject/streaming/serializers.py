@@ -3,10 +3,11 @@ from .models import *
 
 
 class Album_Serializer(serializers.ModelSerializer): 
+   
     class Meta:
         model = Album 
         fields = ('name','playcount','mbid','url','hash')
-
+        
 
 class Artist_Serializer(serializers.ModelSerializer):
     class Meta:

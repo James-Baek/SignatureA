@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/* music list
+--------------------------------------------*/
+.no-js .toggle-button-box {vertical-align:top; height:auto; padding:5px;}
+.no-js .toggle-button-box .more {display:none;}
+.no-js .toggle-button-box .btn {vertical-align:top;}
+.no-js .toggle-button-box .list {position:static; display:inline-block; margin:0;}
+.no-js .music-list-wrap .head {position:static; margin-top:20px;}
+.no-js .music-list-wrap .head .all-check {display:none;}

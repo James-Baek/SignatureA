@@ -1,8 +1,13 @@
 
-{% block title %}album_list.html{% endblock %}
+{% extends 'base.html' %}
 
-{% load staticfiles %} 
-<link rel="stylesheet" href="../../static/css/photo.css">
+{% block title %}{% endblock %}
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/photo.css'%}">
+
+
 
 {% block content %}
 <div id="content">
@@ -19,20 +24,121 @@
 
         <td>
             <ul>
-                <li>Photo Description</li>
-                {% if object.description %}<p>{{ object.description | linebreaks }}</p>
-                {% else %}<p>(blank></p> {% endif %}
+              
                 <li>Album name</li>
                 <p><a href="{% url 'photo:album_detail' object.album.id %}">
-                {{ object.album.name }}    
-                </a></p> 
-                
+                {{ object.album.name }}</a> <br>
+                <li>업로드 날짜</li> 
+                {% if object.upload_date %} {{ object.upload_date }}     {% endif %}<br/>
+        <br/>     <li>타이틀</li> 
+                {% if object.title %} {{ object.title }}     {% endif %}
+          <br/> <br/>       <li>기획사</li>   
+                {% if object.agency %} {{object.agency}}  {% endif %}
+ 
+            </a></p> 
+              
             </ul>
         </td>
     </tr>
 </table>
 
-</div>
-{% endblock %}
+<br/>
+
+<table class="photo-detail">
+
+        <h2>앨범 Description</h2>
+        {% if object.description %}<p>{{ object.description | linebreaks }}</p>
+        {% else %}<p>(blank></p> {% endif %}
+
+</table>
+
+
+<br/>
+
+<section class="relate">
+    <h3>관련 앨범 사진 </h3>
+    <p><a href="{% url 'photo:album_detail' object.album.id %}">
+    {{ object.album.name }} <br/>
+    <img style="max-width:15%" src="{{ object.image.url }}" />
+</a></p> 
+</section> 
+
+
+
+
+{% endblock content %}
     
-    
+
+<style>
+
+/*album_list.html */
+div.album-list {
+    margin : 200px 120px; 
+}
+
+div.album-list-photo {
+    float : left; 
+    width : 150px;
+    height : 180px;
+}
+
+/* album_detail.html */
+div.album-detail {
+    margin : 30px 10px; 
+}
+
+div.album-detail-photo {
+    float : left; 
+    width : 100px;
+    height : 110px; 
+}
+
+img.thumbnail {
+    float : left; 
+    width : 300px;
+    height : 310px;
+}
+
+div.album-detail-photo > li {
+    font-size : 10px;
+    font-weight : bold;
+    font-style : italic; 
+}
+
+/* photo_detail.html */ 
+table.photo-detail {
+    margin : 30px 50px 0 50px;
+    border : 1px solid #ccc;
+    padding : 20px 20px; 
+}
+
+table.photo-detail td {
+    width : 85%; 
+}
+
+table.photo-detail ul li {
+    font-weight : bold; 
+}
+
+table.photo-detail ul p {
+    font-style : italic; 
+}
+
+/* common */ 
+img.thumbnail {
+    border :3px solid #ccc; 
+}
+
+div.clear_float {
+    clear: both;
+}
+
+section.description {
+    margin : 30px 50px 0 50px;
+
+}
+
+
+
+
+</style>

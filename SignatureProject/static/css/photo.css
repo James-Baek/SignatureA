@@ -1,6 +1,6 @@
 /*album_list.html */
 div.album-list {
-    margin : 20px 50px; 
+    margin : 200px 120px; 
 }
 
 div.album-list-photo {
@@ -40,7 +40,7 @@ table.photo-detail {
 }
 
 table.photo-detail td {
-    width : 50%: 
+    width : 30%; 
 }
 
 table.photo-detail ul li {

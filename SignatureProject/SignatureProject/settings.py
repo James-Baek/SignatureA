@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'streaming.apps.StreamingConfig',
     'photo.apps.PhotoConfig',
-    
+    # 'disqus',
     'django.contrib.sites',
     'rest_framework',
     'user.apps.UserConfig',
@@ -161,3 +161,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'signaturesound@naver.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
+
+# CSRF_COOKIE_SECURE = True

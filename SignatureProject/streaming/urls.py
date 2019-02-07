@@ -18,5 +18,11 @@ urlpatterns = [
     path('test4/',streaming_test4.as_view(),name="test4"),
     path('test5/',streaming_test5.as_view(),name="test5"),
     path('sound/',streaming_sound.as_view(),name='sound'),
-    path('upload/',streaming_upload.as_view(),name='upload'),
+    path('main/',streaming_main.as_view(),name="main"),
+    path('audio/',streaming_audio.as_view(),name="audio"),
+    path('video2/',streaming_video2.as_view(),name="video2"),
+    path('videobackup/',streaming_video_backup.as_view(),name="video_backup"),
+    # path('upload/',upload_file,name='upload'),
+    path('gene/',gene.as_view(),name="gene"),
+   
 ]

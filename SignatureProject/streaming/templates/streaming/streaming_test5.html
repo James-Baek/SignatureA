@@ -5,18 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>이미지 테스트 </title>
+
 </head>
+
 <body>
+  <!-- <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Music</th>
+                        <th scope="col">title</th>
+                        <th scope="col">곡정보</th>
+                        <th scope="col">작곡가</th>              
+                        <th scope="col">듣기</th>
+                        <th scope="col">내 음악</th>
+                        <th scope="col">가격</th>
+                      </table> -->
     <div id="app">
-       <td> ${albums} </td> <br/>
-    <td>${albums[0].hash}</td> <br/>
+      
+
+        <td><img :src="image1"></td>
+       <td> %{test[0].url1} </td> <br/>
+       <td>%{test[1].url2}</td>
+    <!-- <td>${albums[0].hash}</td> <br/> -->
     <!-- <td><img :src="image"></td> -->
-    <td><img :src="image1"></td>
-    ${Date()}
+    
+    %{Date()}
+                   
+  </div>
+
 
 
     </div>
     
+  </table>
 
 
 </body>
@@ -25,29 +48,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-
-
-
-new Vue({
-  el: '#app',
-  delimiters: ['${','}'],
-  data () {
-    return {
-      albums: null,
-      image:"../../../media/photo/2019/01/jackson.jpg",
-      image1:"https://lastfm-img2.akamaized.net/i/u/300x300/ad656836a06e4267858d105ddd13fe04.png"
-    }
-  },
-  mounted () {
-    axios
-      .get('http://127.0.0.1:8000/api/streaming/')
-      .then(response => (this.albums = response.data))
-  }
-})
-
-
-
-
-</script>
+{% load static %} 
+<script src="{% static 'js/streaming_test5.js'%}"></script>
 </html>

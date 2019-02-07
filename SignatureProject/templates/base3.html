@@ -1,0 +1,195 @@
+<!-- 배너 광고 포함된 base3.html 입니다.-->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        {% load staticfiles %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+    
+        <title>Simple Sidebar</title>
+    
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="{% static 'css/left-sidebar.css'%}">
+        <link rel="stylesheet" href="{% static 'css/style.css'%}">
+        <!-- <link rel="stylesheet" href="{% static 'css/main.css'%}"> -->
+
+       <!-- main page static script 적용시키기-->
+      
+       
+        {% block title %}      <!-- 페이지별 타이틀 공간 -->
+        <title>메인 페이지</title>
+        {% endblock title %}
+
+        {% block meta %}    <!-- 페이지별 메타 데이터 공간 -->
+        {% endblock meta %}
+
+        {% block scripts %}    <!-- 페이지별 스크립트 공간 -->
+        {% endblock scripts %}
+
+        {% block css %}        <!-- 페이지별 css -->
+        {% endblock css %}
+
+    </head>
+    <body>
+
+        
+        <div id="wrapper" class="toggled">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper" style="background-color:white;" >
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            <div class="heading">
+                                <a href="{% url 'streaming:main'%}"><img src="{% static 'img/logo2_test.png'%}" width="150"></a>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="{% static 'img/playlist-2.png'%}" width="15">&nbsp&nbsp&nbsp&nbsp My Album 
+                    </li>
+                    <li>
+                        <!-- <a href="#">Events</a> -->
+                    </li>
+                    <li>
+                        <a href="#">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp고객센터</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+    
+            <!-- Page Content -->
+            <div id="page-content-wrapper" style="margin:auto;">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible text-center" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error{% else %}{{ message.tags|title }}{% endif %}!</strong> {{ message }}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                    
+                    <!-- 상단바 -->
+                    <nav class="navbar navbar-expand-lg navbar-light rounded mr-auto ml-auto mb-3" style="background-color:#6731EF; max-width:1600px; margin-top:-17px; margin-right:30px;">
+                            <!-- <a class="navbar-brand" href="#"><img src="{% static 'img/logo2.png'%}" width="100"></a> -->
+            
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <form class="form-inline my-2 my-lg-0">
+                                    <input class="form-control mr-sm-2" type="search" placeholder="검색" aria-label="Search" style='width:450px'>
+                                    <button class="btn bg-light" type="submit"><img src="{% static 'img/search2.png'%}" width="15"></button>
+                                </form>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                <a class="nav-link text-light pl-3" href="{% url 'streaming:detail'%}">스트리밍 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link text-light pl-3" href="#">저작권 거래</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link text-light pl-3" href="#">마이크로페이먼트</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link text-light pl-3" href="#">코인거래소</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link notification pl-3" href="#">
+                                        <span><img src="{% static 'img/notify.svg'%}" width="15"></span>
+                                        <span class="badge">3</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item pl-3">
+                                    <a class="profile" href="#"><img src="{% static 'img/profile.jpg'%}" class="rounded-circle" alt="Cinque Terre" width="40" height="40"> </a>
+                                </li>
+                                <li class="nav-item text-light nav-link">
+                                    {{ user.email }}
+                                    {{ user.coin }}
+                                </li>
+                                <li class="nav-item">
+                                    {% if request.user.is_authenticated %}
+                                    <a class="nav-link" href="/user/logout/"><img src="{% static 'img/logout.svg'%}" width="15"></a>
+                                    {% else %}
+                                    <a class="nav-item text-light nav-link" href="/user/login/">로그인</a>
+                                    {% endif %}
+                                </li>
+                            </ul>
+            
+                            </div>
+                        </nav>
+                        <!-- 상단바 끝 -->
+
+                        <!-- 부트스트랩 광고 슬라이드-->
+                        <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style=margin-top:-7px; >
+                                <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{% static 'images/queen.jpg'%}" width=300px height=300p alt=첫번째 슬라이드>
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img class="d-block w-100" src="{% static 'images/queen.jpg'%}" width=300px height=300px  alt="두번째 슬라이드">
+                                  </div>
+                                  <div class="carousel-item">
+                                    <img class="d-block w-100" src="{% static 'images/queen.jpg'%}" width=300px height=300px alt="세번째 슬라이드">
+                                  </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">이전</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="sr-only">다음</span>
+                                </a>
+                              </div> -->
+
+                                <!-- <style>
+                                    .d-block w-100 {
+                                        max-width:10%;
+                                        height : auto !important
+                                    }
+                                </style> -->
+
+
+                    <!-- <div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    {% if request.user.is_authenticated %}
+                                    <span class="badge badge-pill badge-primary">계정</span> {{ user.email }}
+                                    <span class="badge badge-pill badge-primary">닉네임</span> {{ user.nname }}
+                                    <span class="badge badge-pill badge-primary">보유 코인</span>{{ user.coin  }}
+                                    {% endif %}
+                                </li>
+                            </ul>
+                    </div> -->
+
+                    {% block content %}
+    
+                    {% endblock content %}
+
+            </div>
+            <!-- /#page-content-wrapper -->
+    
+        </div>
+        <!-- /#wrapper -->
+    
+        <!-- Bootstrap core JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- <script src="{% static 'js/theme/build.js'%}"></script> -->
+        
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        </script>
+    
+
+    </body>
+</html>

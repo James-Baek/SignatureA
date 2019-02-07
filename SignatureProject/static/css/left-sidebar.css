@@ -3,7 +3,10 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
-
+ @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+ @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+ @import url("https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css");
+ 
  body {
     overflow-x: hidden;
   }
@@ -21,12 +24,12 @@
   }
   
   #sidebar-wrapper {
-    z-index: 1000;
+    z-index: 100;
     position: fixed;
     left: 250px;
-    width: 0;
+    width: 0px;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -300px;
     overflow-y: auto;
     background: #000;
     -webkit-transition: all 0.5s ease;

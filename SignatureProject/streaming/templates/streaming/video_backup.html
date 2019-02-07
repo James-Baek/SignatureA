@@ -1,0 +1,63 @@
+<html>
+  <body>
+   
+    <div>
+        <input type="radio" name="song" onclick="playsong(this)" value="QmdhhVSLYEWZM3MgU2xHyiQM3sFwzfcFNoEbUM3NJiE6Mk"/> 밤편지
+        <input type="radio" name="song" onclick="playsong(this)" value="QmW7jeszPnELWjGo1HwzuEfjQGXHndMTm4WYLMCXoKuNys"/> 음양사
+        <input type="radio" name="song" onclick="playsong(this)" value="QmcZxSN8xrh7Q3TchamHpkLtzF4RzwHABJbk1cs4bJaYJU"/> OSAKA
+        <input type="radio" name="song" onclick="playsong(this)" value="QmZL8LQ4tzcwyvtZ9tFuqu8YJpUryWaRowHT5K1zhG5ykZ"/> Arpil
+        <input type="radio" name="song" onclick="playsong(this)" value="QmYYLuYxFjRJy8VQchbu8SJfR5s2fJdsQXrur88qjXADrM"/> Lemon Tree
+    </div>
+
+    <audio id="audio" controls></video>
+    <script src="https://unpkg.com/ipfs/dist/index.js"></script>
+    <script src="https://unpkg.com/hlsjs-ipfs-loader@0.1.3/dist/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.plyr.io/3.4.8/plyr.js"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.4.8/plyr.css">
+    
+    <script>
+
+
+    function playsong(mysong) {
+        'use strict'
+
+        /* global Hls Ipfs HlsjsIpfsLoader */
+        /* eslint-env browser */
+
+        const testhash = mysong.value
+        const repoPath = 'ipfs-' + Math.random()
+        const node = new Ipfs({ repo: repoPath })
+
+        node.on('ready', () => {
+        Hls.DefaultConfig.loader = HlsjsIpfsLoader
+        Hls.DefaultConfig.debug = false
+        if (Hls.isSupported()) {
+            const audio = document.getElementById('audio')
+            const hls = new Hls()
+            hls.config.ipfs = node
+            hls.config.ipfsHash = testhash
+            hls.loadSource('master.m3u8')
+            hls.attachMedia(audio)
+            hls.on(Hls.Events.MANIFEST_PARSED, () => audio.play())
+        }
+        })
+    }
+
+    </script>
+    
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

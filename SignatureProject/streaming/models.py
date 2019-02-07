@@ -7,6 +7,8 @@ import uuid
 # from user.models import User
 # from users.models import User
 
+
+
 class Streaming(models.Model):
    
     # start_date = models.DateField('발매일',auto_now=False,auto_now_add=True,null=True)
@@ -28,7 +30,7 @@ class Streaming(models.Model):
 
 
 class Artist(models.Model):
-    streaming = models.ForeignKey('Streaming',related_name='artists',on_delete=models.CASCADE)
+    album = models.ForeignKey('Streaming',related_name='artists',on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     mbid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     url = models.URLField('아티스트 사진 설명페이지url',max_length=254)
@@ -50,4 +52,9 @@ class Album(models.Model):
         return '%d:%s' % (self.playcount, self.name)
 
 
+
+class Documnent(models.Model): 
+    description = models.CharField(max_length=255, blank=True)
+    document = models.FileField(upload_to='documents/%Y')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
