@@ -1,0 +1,291 @@
+@charset "utf-8";
+
+.music-list-wrap + .page-nav {padding-top:25px;}
+.music-list-wrap .select-check, .music-list-wrap .all-check {width:17px;height:17px}
+
+.music-list-wrap .toolbar {position:relative;height:31px;padding:7px 0 0 15px;border:1px solid #f7f9fc;background-color:#f7f9fc}
+.music-list-wrap .toolbar .all-check {margin-right:12px}
+.music-list-wrap .toolbar .btn {display:inline-block;overflow:hidden;position:relative;height:24px;margin-right:1px;padding:0 6px 0 26px;border:1px solid #a6afb6;border-radius:4px;font-size:11px;line-height:23px;color:#27282d;background-color:#fff;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;vertical-align:middle}
+.is-ie .music-list-wrap .toolbar .btn {line-height:25px}
+.music-list-wrap .toolbar .btn:hover, .music-list-wrap .toolbar .btn-album.active, .music-list-wrap .toolbar .select-button .btn {border-color:#27282d}
+.music-list-wrap .toolbar .btn:before {content:'';display:block;position:absolute;top:3px;left:7px;width:17px;height:16px;background:url('//image.genie.co.kr/imageg/web/blt/list_180122.png') no-repeat 0 0}
+.music-list-wrap .toolbar .btn-add:before {background-position:-21px 0}
+.music-list-wrap .toolbar .btn-album:before {background-position:-42px 0}
+.music-list-wrap .toolbar .btn-down:before {background-position:-63px 0}
+.music-list-wrap .toolbar .btn-share:before {background-position:-152px 0}
+.music-list-wrap .toolbar .btn-del:before {background-position:-84px 0}
+.music-list-wrap .toolbar .btn-change:before {background-position:-105px 0}
+.music-list-wrap .toolbar .btn-mv {padding-left:30px}
+.music-list-wrap .toolbar .btn-mv:before {width:19px;background-position:-127px 0}
+.music-list-wrap .toolbar .btn-more {width:94px;padding-left:6px !important;text-align:left}
+.music-list-wrap .toolbar .btn-more:before {top:9px;left:auto;right:7px;width:6px;height:4px;background-position:-127px -120px}
+.music-list-wrap .toolbar .check-length {display:inline-block;float:right;padding:5px 14px 0 0;font-size:11px;color:#27282d}
+.music-list-wrap .toolbar .check-length em {font-style:normal}
+.music-list-wrap .toolbar .btns {display:inline-block;float:right;position:relative;padding:0 14px 0 17px}
+.music-list-wrap .toolbar .btns:before {content:'';display:block;position:absolute;top:6px;left:0;width:1px;height:12px;background-color:#bcc8d0}
+.music-list-wrap .toolbar .toggle-button-box {position:relative}
+.music-list-wrap .toolbar .toggle-button-box .btn {width:118px}
+.music-list-wrap .toolbar .toggle-button-box .list {top:28px;right:0;width:118px}
+
+.music-list-wrap .toggle-button-box {position:initial;height:auto;border:0;border-radius:0;background-color:transparent}
+.music-list-wrap .info .toggle-button-box {position:relative}
+.music-list-wrap .toggle-button-box .btn, .music-list-wrap .toggle-button-box a {padding:0;letter-spacing:0}
+.music-list-wrap .toggle-button-box .list a:hover, .music-list-wrap .toggle-button-box a:focus {background-color:transparent}
+.music-list-wrap .toggle-button-box .list {overflow:hidden;top:50px;left:auto;min-width:70px;max-width:200px;padding:0;border:1px solid #a6afb6;border-radius:4px;background-color:#fff;text-align:left}
+.is-ie .music-list-wrap .toggle-button-box .list {top:29px}
+.music-list-wrap .info .toggle-button-box .list {top:24px;left:-1px;max-width:710px;white-space:normal}
+.music-list-wrap .toggle-button-box.lyr-mv .list {right:-46px}
+.is-ie .music-list-wrap .toggle-button-box.lyr-mv .list {right:-50px}
+.music-list-wrap .more .toggle-button-box .list {right:0}
+.is-ie .music-list-wrap .more .toggle-button-box .list {right:-10px}
+.music-list-wrap .list-album .toggle-button-box .list {top:29px;right:0}
+.music-list-wrap.type-mv .more .toggle-button-box .list {top:62px}
+.is-ie .music-list-wrap.type-mv .more .toggle-button-box .list {top:29px}
+.music-list-wrap .toggle-button-box .list .item {display:block;width:100%;padding:5px 9px 4px 10px;border:0;font-size:11px;background:transparent;line-height:1.5;color:#27282d;white-space:nowrap;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align:left}
+.music-list-wrap .toggle-button-box .list .item:hover, .music-list-wrap .toggle-button-box .list .item:focus {background-color:#eef1f4;text-decoration:none}
+.music-list-wrap .toggle-button-box .list .item.disabled {color:#dde3e7}
+.music-list-wrap .info .toggle-button-box dt {clear:both;float:left;width:63px;padding:4px 0 4px 10px;line-height:18px;color:#8b8b8b}
+.music-list-wrap .info .toggle-button-box dd {margin-left:73px;padding:4px 10px 4px 0}
+.music-list-wrap .info .toggle-button-box dd a {display:block;max-width:500px;height:auto;line-height:18px;color:#27282d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music-list-wrap .toggle-button-box .list-mv {width:254px;max-width:254px}
+.music-list-wrap .toggle-button-box .list-mv li {position:relative;padding:7px 11px;border-bottom:1px solid #eef1f4;font-size:11px}
+.music-list-wrap .toggle-button-box .list-mv .thumb {display:block;overflow:hidden;position:relative;width:96px;height:54px}
+.music-list-wrap .toggle-button-box .list-mv .thumb .mask {display:block;position:absolute;top:0;left:0;width:94px;height:52px;border:1px solid #000;opacity:0.1;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=10)';filter:alpha(opacity=10)}
+.music-list-wrap .toggle-button-box .list-mv .thumb img {width:100%}
+.music-list-wrap .toggle-button-box .list-mv .duration {position:absolute;bottom:0;right:0;padding:0 4px;font-size:10px;font-family:'Tahoma';font-weight:bold;line-height:16px;background-color:#000;background:rgba(0,0,0,0.5);color:#fff}
+.music-list-wrap .toggle-button-box .list-mv .mv-title {position:absolute;top:11px;left:115px;width:125px;font-weight:bold;color:#27282d}
+.music-list-wrap .toggle-button-box .list-mv .mv-title:hover, .music-list-wrap .toggle-button-box .list-mv .mv-title:focus {color:#8b8b8b}
+.music-list-wrap .toggle-button-box .list-mv .icon-type {display:inline-block;overflow:hidden;height:13px;margin:5px 8px 0 0;padding:1px 2px 0;border:1px solid #8b8b8b;border-radius:2px;color:#8b8b8b;font-weight:normal;line-height:13px;letter-spacing:-1px;vertical-align:top}
+.is-ie .music-list-wrap .toggle-button-box .list-mv .icon-type {height:12px;margin-top:4px;padding-top:2px}
+.music-list-wrap .toggle-button-box .list-mv .mv-artist {position:absolute;top:31px;left:115px;width:125px;color:#8b8b8b}
+
+.music-list-wrap .list-wrap {table-layout:fixed;width:100%;margin:4px 0 10px}
+.music-list-wrap .list-wrap .text-left {text-align:left}
+.music-list-wrap .list-wrap .disabled {cursor:default;text-decoration:none !important}
+.music-list-wrap .list-wrap th {height:28px;border-bottom:2px solid #a6afb6;font-size:11px;font-weight:normal;color:#8b8b8b}
+.music-list-wrap .list-wrap td {height:68px;border-bottom:1px solid #eef1f4}
+.music-list-wrap .list-wrap tr:hover td, .music-list-wrap .list-wrap .list-focus{background-color:#eef1f4}
+.music-list-wrap .list-wrap tr.select-list td {background-color:#dfeaf0}
+.music-list-wrap .list-wrap .hd-check {width:33px}
+.music-list-wrap .list-wrap .hd-number {width:45px}
+.music-list-wrap .list-wrap .hd-album {width:56px}
+.music-list-wrap .list-wrap .hd-artist {width:61px}
+.music-list-wrap .list-wrap .hd-mv {width:136px}
+.music-list-wrap .list-wrap .hd-link {width:21px}
+.music-list-wrap .list-wrap .hd-info {text-align:left}
+.music-list-wrap .list-wrap .hd-btns {width:33px}
+.music-list-wrap .list-wrap .hd-large-btns {width:48px}
+.music-list-wrap .list-wrap .hd-desc {width:74px}
+.music-list-wrap .list-wrap .hd-like {width:49px}
+.music-list-wrap .list-wrap .hd-limit {width:120px}
+.music-list-wrap .list-wrap .hd-more {width:46px}
+.music-list-wrap .list-wrap td.select-list {background-color:#dfeaf0 !important}
+.music-list-wrap .list-wrap .icon {display:inline-block;overflow:hidden;height:17px;margin:2px 4px 0 0;padding:0;font-size:11px;font-weight:normal;background:url('//image.genie.co.kr/imageg/web/blt/list_180122.png') transparent no-repeat -38px -111px;vertical-align:top;color:#8b8b8b;line-height:1.3;text-indent:-9999px}
+.music-list-wrap.type-tv .list-wrap .icon,
+.music-list-wrap.mv-type-1 .list-wrap .icon,
+.music-list-wrap.type-mv .list-wrap .icon,
+.music-list-wrap.type-tv-search .list-wrap .icon{float:left}
+/*.is-ie .music-list-wrap .list-wrap .icon {margin-top:1px}*/
+/*.music-list-wrap .list-wrap .icon:last-child {margin-right:6px}*/
+.music-list-wrap .list-wrap .icon-title {width:32px}
+.music-list-wrap .list-wrap .icon-hot {width:25px;background-position:-75px -111px}
+.music-list-wrap .list-wrap .icon-19 {width:17px;background-position:-105px -111px}
+.music-list-wrap .list-wrap .icon-album-title {width:11px;height:12px;margin-right:7px !important;background-position:-181px -111px;vertical-align:top}
+.is-ie .music-list-wrap .list-wrap .icon-album-title {margin-top:2px}
+.music-list-wrap .list-wrap .icon-box {overflow:hidden;height:14px;margin-top:3px;padding:0 1px 0 2px;border:1px solid #8b8b8b;border-radius:2px;background:none transparent;line-height:15px;text-indent:0}
+.is-ie .music-list-wrap .list-wrap .icon-box {line-height:17px}
+.music-list-wrap .list-wrap .ic-holdback {height:16px;margin-top:3px;background:url('//image.genie.co.kr/imageg/web/blt/list_icons_r1.png') no-repeat 0 -30px;vertical-align:top}
+.is-ie .music-list-wrap .list-wrap .ic-holdback {margin-top:2px}
+.music-list-wrap .list-wrap .check {text-align:right}
+.music-list-wrap .list-wrap .number {font-size:17px;font-family:'Arial';font-weight:bold;color:#bcc8d0;text-align:center}
+.music-list-wrap .list-wrap .rank {display:block;padding-top:1px;font-size:11px}
+.music-list-wrap .list-wrap .rank-up {display:inline-block;position:relative;padding-left:11px;color:#f43939;font-weight:normal}
+.music-list-wrap .list-wrap .rank-up:before {content:'';display:block;position:absolute;top:50%;left:0;width:8px;height:6px;margin-top:-3px;background:url('//image.genie.co.kr/imageg/web/blt/list_180122.png') no-repeat -138px -111px}
+.music-list-wrap .list-wrap .rank-down {display:inline-block;position:relative;padding-left:11px;color:#5092cb;font-weight:normal}
+.music-list-wrap .list-wrap .rank-down:before {content:'';display:block;position:absolute;top:50%;left:0;width:8px;height:6px;margin-top:-3px;background:url('//image.genie.co.kr/imageg/web/blt/list_180122.png') no-repeat -151px -111px}
+.is-ie .music-list-wrap .list-wrap .rank-up:before, .is-ie .music-list-wrap .list-wrap .rank-down:before {margin-top:-4px}
+.music-list-wrap .list-wrap .rank-none {display:inline-block;width:12px;height:2px;background:url('//image.genie.co.kr/imageg/web/blt/list_180122.png') no-repeat -164px -111px;vertical-align:middle}
+.music-list-wrap .list-wrap .rank-new {color:#0eb6e6}
+.music-list-wrap .list-wrap .cover {display:block;position:relative;width:48px;height:48px}
+.music-list-wrap .list-wrap .cover .mask {display:block;position:absolute;top:0;left:0;width:46px;height:46px;border:1px solid #000;opacity:0.1;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=10)';filter:alpha(opacity=10)}
+.music-list-wrap .list-wrap .cover img {width:100%;height:100%;vertical-align:top}
+.music-list-wrap .list-wrap .cover-mv {display:block;position:relative;width:128px;height:72px}
+.music-list-wrap .list-wrap .cover-mv .mask {display:block;position:absolute;top:0;left:0;bottom:0;right:0;border:1px solid #000;opacity:0.1;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=10)';filter:alpha(opacity=10);z-index:80}
+.music-list-wrap .list-wrap .cover-mv img {width:100%;height:100%;vertical-align:top}
+.music-list-wrap .list-wrap .cover-mv .duration {position:absolute;bottom:0;right:0;padding:2px 3px 0 3px;font-size:11px;line-height:14px;background:#000;background:rgba(0,0,0,0.5);color:#fff;}
+.music-list-wrap .list-wrap .link {vertical-align:top}
+.music-list-wrap .list-wrap .info {position:relative;width:auto;line-height:22px;}
+.music-list-wrap .list-wrap .info a {display:inline-block;color:#8b8b8b}
+.music-list-wrap .list-wrap .info a:hover {text-decoration:underline}
+.music-list-wrap .list-wrap .info .title {display:block;max-width:90%;font-weight:bold;color:#27282d}
+.music-list-wrap .list-wrap .info .title.disabled {color:#dde3e7}
+
+.music-list-wrap.type-tv .list-wrap .info .title,
+.music-list-wrap.mv-type-1 .list-wrap .info .title,
+.music-list-wrap.type-tv-search .list-wrap .info .title{font-size:0}
+.music-list-wrap .list-wrap .info .title .txt{font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:24px}
+.music-list-wrap .list-wrap .info .title .txt:first-child{padding-left:3px}
+
+.music-list-wrap .list-wrap .info .artist {width:auto !important;max-width:44%;vertical-align:middle}
+.music-list-wrap .list-wrap .info .artist .t_point{font-weight:normal}
+.music-list-wrap .list-wrap .info .artist-etc {display:inline-block;position:relative;width:6px;height:22px;padding:0 10px 0 0;border:0;font-size:0;text-indent:-9999px;background:transparent;color:#8b8b8b}
+.music-list-wrap .list-wrap .info .artist-etc:before {content:'';display:block;position:absolute;top:50%;right:0;width:6px;height:4px;margin-top:-3px;background:url('//image.genie.co.kr/imageg/web/blt/list_180122.png') no-repeat -127px -111px;}
+.ie8 .music-list-wrap .list-wrap .info .artist-etc:before {top:1px;margin-top:-3px}
+.music-list-wrap .list-wrap .info .select-button .artist-etc:before {background-position:-127px -120px}
+.music-list-wrap .list-wrap .info .albumtitle {width:auto !important;max-width:44%;vertical-align:middle}
+.music-list-wrap .list-wrap .info .albumtitle .t_point{font-weight:normal}
+.music-list-wrap .list-wrap .bar {display:inline-block;font-style:normal;color:#eff0f4;vertical-align:middle}
+.music-list-wrap .list-wrap .btns {position:relative;text-align:center;}
+.music-list-wrap .list-wrap .btn-basic {display:inline-block;overflow:hidden;position:relative;width:25px;height:25px;border:0;line-height:0;text-indent:-9999px;background:url('//image.genie.co.kr/imageg/web/blt/list_180122.png') transparent no-repeat 0 0;vertical-align:middle}
+.music-list-wrap .list-wrap .btn-listen {background-position:0 -21px}
+.music-list-wrap .list-wrap .btn-listen:hover {background-position:0 -51px}
+.music-list-wrap .list-wrap .btn-listen.disabled {background-position:0 -81px}
+.music-list-wrap .list-wrap .btn-add {background-position:-30px -21px}
+.music-list-wrap .list-wrap .btn-add:hover {background-position:-30px -51px}
+.music-list-wrap .list-wrap .btn-add.disabled {background-position:-30px -81px}
+.music-list-wrap .list-wrap .btn-album {background-position:-60px -21px}
+.music-list-wrap .list-wrap .btn-album:hover, .music-list-wrap .list-wrap .btn-album.active {background-position:-60px -51px}
+.music-list-wrap .list-wrap .btn-album.disabled {background-position:-60px -81px}
+.music-list-wrap .list-wrap .btn-down {background-position:-90px -21px}
+.music-list-wrap .list-wrap .btn-down:hover {background-position:-90px -51px}
+.music-list-wrap .list-wrap .btn-down.disabled {background-position:-90px -81px}
+.music-list-wrap .list-wrap .btn-mv {background-position:-120px -21px}
+.music-list-wrap .list-wrap .btn-mv:hover, .music-list-wrap .list-wrap .select-button .btn.btn-mv {background-position:-120px -51px}
+.music-list-wrap .list-wrap .btn-mv.disabled {background-position:-120px -81px}
+.music-list-wrap .list-wrap .btn-more {background-position:-150px -21px}
+.music-list-wrap .list-wrap .btn-more:hover, .music-list-wrap .list-wrap .select-button .btn-more {background-position:-150px -51px}
+.music-list-wrap .list-wrap .btn-more.disabled {background-position:-150px -81px}
+.music-list-wrap .list-wrap .btn-like {background-position:-180px -21px}
+.music-list-wrap .list-wrap .btn-like:hover, .music-list-wrap .list-wrap .btn-like.active {background-position:-180px -51px}
+.music-list-wrap .list-wrap .btn-like.disabled {background-position:-180px -81px}
+.music-list-wrap .list-wrap .btn-info {width:14px;height:14px;margin-top:16px;background-position:0 -111px;vertical-align:top}
+.is-ie .music-list-wrap .list-wrap .btn-info {margin-top:15px}
+.music-list-wrap .list-wrap .btn-info:hover {background-position:-19px -111px}
+.music-list-wrap .list-wrap .btn-view {width:28px;background-position:-210px -21px}
+.music-list-wrap .list-wrap .btn-view:hover, .music-list-wrap .list-wrap .select-button .btn-view {background-position:-210px -51px}
+.music-list-wrap .list-wrap .btn-view.disabled {background-position:-210px -81px}
+.music-list-wrap .list-wrap .date {color:#8b8b8b;text-align:center}
+.music-list-wrap .list-wrap .more {position:relative;text-align:center;}
+.music-list-wrap .list-wrap .lyrics {height:auto;padding-bottom:14px;color:#8b8b8b;line-height:20px;vertical-align:top}
+.music-list-wrap .list-wrap .none {height:136px;color:#8b8b8b;text-align:center}
+.music-list-wrap .list-wrap tr:hover td.none {background:none transparent}
+
+.music-list-wrap.type-album .list-wrap {position:relative;;margin:11px 0 12px;border-top:1px solid #eef1f4}
+.music-list-wrap.type-album .list-wrap:before {content:'';display:block;position:absolute;bottom:0;left:0;width:100%;height:1px;background-color:#eef1f4}
+.music-list-wrap.type-album .list-wrap .clearfix {display:block}
+.music-list-wrap.type-album .list-wrap .list-album {position:relative;width:50%;height:161px;float:left;padding:30px 40px 16px 143px;border-bottom:1px solid #eef1f4;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.music-list-wrap .list-wrap .album-cover {display:block;position:absolute;top:16px;left:0;width:128px;height:128px}
+.music-list-wrap .list-wrap .album-cover .mask {display:block;position:absolute;top:0;left:0;width:100%;height:100%;border:1px solid #000;opacity:0.1;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=10)';filter:alpha(opacity=10);-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+.music-list-wrap .list-wrap .album-cover img {width:100%;height:100%}
+.music-list-wrap .list-wrap .album-info dt {display:block;padding-bottom:6px;color:#27282d;font-weight:bold}
+.is-ie .music-list-wrap .list-wrap .album-info dt {padding-bottom:4px}
+.music-list-wrap .list-wrap .album-info dd {display:block;line-height:19px;color:#8b8b8b}
+.music-list-wrap .list-wrap .album-info a:hover {text-decoration:underline}
+.music-list-wrap .list-wrap .album-info .album-title {font-size:12px;color:#27282d}
+.music-list-wrap .list-wrap .album-info .album-artist {color:#8b8b8b}
+.music-list-wrap .list-wrap .album-info .component {position:absolute;bottom:16px;left:144px;right:16px;font-size:0}
+.music-list-wrap .list-wrap .album-info .component .btn-basic {margin-right:8px}
+.music-list-wrap .list-wrap .album-info .toggle-button-box {position:absolute;bottom:0;right:0}
+.music-list-wrap .list-wrap .album-info .toggle-button-box .btn-basic {margin:0 !important}
+.music-list-wrap .list-wrap .album-info .desc {font-size:11px;line-height:17px}
+.is-ie .music-list-wrap .list-wrap .album-info .desc {line-height:18px}
+.music-list-wrap.type-album .none {height:76px;padding-top:60px;color:#8b8b8b;text-align:center}
+
+.music-list-wrap.type-mv .list-wrap td {height:92px}
+.music-list-wrap.type-mv .list-wrap .btn-info {margin-top:28px}
+.is-ie .music-list-wrap.type-mv .list-wrap .btn-info {margin-top:27px}
+
+.music-list-wrap.type-tv .list-wrap td {height:92px}
+.music-list-wrap.type-tv .list-wrap .info{padding-left:22px}
+.music-list-wrap.type-tv .list-wrap .info .title{margin-top:6px}
+.music-list-wrap.type-tv .toggle-button-box .btn-more + .list{top:63px}
+.is-ie .music-list-wrap.type-tv .toggle-button-box .btn-more + .list{top:29px}
+
+.music-list-wrap.type-tv-search .list-wrap{margin:0;border-bottom:solid 1px #a6afb6}
+.music-list-wrap.type-tv-search .list-wrap .hd-mv {width:226px}
+.music-list-wrap.type-tv-search .list-wrap td {height:146px}
+.music-list-wrap.type-tv-search .list-wrap .info .title{margin-top:6px}
+.music-list-wrap.type-tv-search .list-wrap li{height:156px;position:relative;padding-left:245px;border-top:solid 1px #a6afb6}
+.music-list-wrap.type-tv-search .list-wrap li:first-child{border-top:0}
+.music-list-wrap.type-tv-search .list-wrap li:after{content:'';display:block;clear:both}
+.music-list-wrap.type-tv-search .list-wrap li .cover-mv{width:226px;height:127px;position:absolute;top:15px;left:0}
+
+.music-list-wrap.type-tv-search .list-wrap li .wrap_info{height:95px;line-height:95px}
+.music-list-wrap.type-tv-search .list-wrap li .wrap_info .info{padding-left:23px;position:relative;display: inline-block;vertical-align:middle;width:100%;box-sizing: border-box;}
+.music-list-wrap.type-tv-search .list-wrap li .info .btn-tv{position:absolute;top:10px;left:0;margin:0;}
+
+.type-tv-search .tag{border-top:solid 1px #eef1f4;vertical-align:middle;height:58px;line-height:64px;font-size:0}
+.type-tv-search .tag:before{content:'';display:inline-block;width:1px;height:58px;margin-left:-1px;vertical-align:middle}
+.type-tv-search .tag .tag_list{display:inline-block;vertical-align:middle;line-height:17px;max-height:46px}
+.type-tv-search .tag a{font-size:13px;display:inline-block;margin-right:14px;color:#000;font-family: 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', '나눔 고딕', dotum, sans-serif}
+.type-tv-search .tag a.selected{color:#0eb6e6}
+
+.music-list-wrap.type-lyrics .list-wrap .list td {border-bottom:0}
+.music-list-wrap.type-lyrics .list-wrap tr:hover td {background:none transparent}
+
+.music-list-wrap.mv-type-1 .list-wrap .info .title{display: inline-block;vertical-align: top}
+.music-list-wrap.mv-type-1 .list-wrap .info .artist{display: block;max-width:none}
+
+.search_magazine{margin-bottom: 28px;}
+.search_magazine .tit-box{padding-bottom:10px;}
+.search_magazine .magazine_list{border-top:1px solid #dddddd; }
+.search_magazine .magazine_list li{border-bottom:1px solid #dddddd; height:170px; padding:20px 0 0 243px; position:relative;}
+.search_magazine .magazine_list li .cover{position:absolute; left:0; top:20px; width:225px; height:150px;}
+.search_magazine .magazine_list li .cover em{position:absolute; left:0; bottom:0; background:url('//image.genie.co.kr/imageg/web/blt/img_evt.gif') no-repeat 0 0px; width:37px; height:18px; text-indent:-9999em}
+.search_magazine .magazine_list li .cover img{width:100%; height:auto;}
+.search_magazine .magazine_list li .cover .mask{display:block;position:absolute;top:0;left:0;width:223px;height:148px;border:1px solid #000;opacity:0.1;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=10)';filter:alpha(opacity=10);}
+.search_magazine .magazine_list li strong{display:block; font-size:16px; max-height:45px; overflow:hidden; padding-top:2px;}
+.search_magazine .magazine_list li .info{display:block; color:#999999; padding-top:10px}
+.search_magazine .magazine_list li .info a{color:#333333}
+.search_magazine .magazine_list li .info em{color:#f68074; font-style:normal; display:inline-block; padding-left:15px;}
+.search_magazine .magazine_list li .song_list{position:absolute; left:244px; bottom:18px;}
+.search_magazine .magazine_list li .song_list li{padding:0; border:none; height:auto; width:348px;}
+.search_magazine .magazine_list li .song_list li a{display:inline-block; line-height:17px; height:17px; width:auto;}
+.search_magazine .magazine_list li .song_list li .tit{max-width:227px; background:url('//image.genie.co.kr/imageg/web/blt/ico_play.png') no-repeat 0 0px; padding-left:18px}
+.search_magazine .magazine_list li .song_list li .team{color:#999999; font-style:normal; max-width:99px;}
+.search_magazine .magazine_list li .def-btn{position:absolute; right:0; bottom:20px}
+
+/* 지니 tv (통합검색, 지니tv 서비스 공통) */
+.tv-recommend .card-list{margin:0 -8px;width:726px!important}
+.tv-recommend .card-list li{display:block;float:left;position:relative;width:226px;margin:0 8px}
+.tv-recommend.special .card-list li{margin-bottom:20px}
+.tv-recommend .card-list .cover {height:127px;position:relative}
+.tv-recommend .card-list .cover .top {position:absolute;top:0;left:0;z-index:1;display: inline-block;padding:1px 3px 0;font-size: 11px;background-color: #ff5b62;color: #fff}
+.tv-recommend .card-list .cover a{display:block;position:relative;height:100%}
+.tv-recommend .card-list .cover a img {width:100%;height:100%}
+.tv-recommend .card-list .cover a .mask{display:block;position:absolute;top:0;left:0;width:100%;height:100%;border:1px solid #000;background:transparent none;opacity:0.1;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=10)';filter:alpha(opacity=10);box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}
+.tv-recommend .card-list .cover a:hover .mask,.tv-recommend .card-list .cover a:focus .mask,
+.music-list-wrap.type-tv-search .list-wrap .cover-mv:hover .mask,.music-list-wrap.type-tv-search .list-wrap .cover-mv:focus .mask{background:url('//image.genie.co.kr/imageg/web/tv/cover_el.png') no-repeat 0 0;opacity:1;-ms-filter:'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';filter:alpha(opacity=100);border:0}
+.lt-ie9 .tv-recommend .card-list .cover:after {z-index:10}
+.tv-recommend .card-list .info {position:relative;/*height:94px;*/padding:15px 15px 4px 15px;border-right:1px solid #e5e5e5;border-bottom:1px solid #e5e5e5;;border-left:1px solid #e5e5e5;min-height:110px;box-sizing:border-box}
+.tv-recommend .card-list .info .ic_etc {display:inline-block;overflow:hidden;height:13px;margin:0 4px 0 0;padding:1px 2px 0;border:1px solid #8b8b8b;border-radius:2px;color:#8b8b8b;font-size:11px;font-weight:normal;line-height:14px;letter-spacing:-1px;vertical-align:top;background:#fff}
+.is-ie .tv-recommend .card-list .info .ic_etc{line-height:15px}
+.tv-recommend .card-list .info .ic_etc.impt {border-color:#0eb6e6;color:#0eb6e6}
+.tv-recommend .card-list .info .detail{display:inline-block;position:absolute;top:16px;right:11px;padding-right:10px;border:0;font-size:11px;background:transparent none;color:#969697;letter-spacing:-1px;background:url('//image.genie.co.kr/imageg/web/blt/more_3.gif') no-repeat 100% 2px}
+.tv-recommend .card-list .info .main{padding:8px 0 0 0}
+.tv-recommend .card-list .info .main .title{display:block;font-size:12px;line-height:17px;font-weight:bold; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2;  -webkit-box-orient: vertical;  word-wrap:break-word;height:33px;margin-bottom:8px}
+.tv-recommend.special .card-list .info .main .title{margin-bottom:15px;margin-bottom:13px}
+.tv-recommend .card-list .info .main .artist{font-size:11px;color:#969697;display:inline-block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;box-sizing: border-box;max-width:100%}
+.tv-recommend .card-list .info .main .artist.t_point{color:#0eb6e6;font-weight:normal}
+.tv-recommend.special .card-list .info .main .artist{display:block;font-size:12px;padding-top:2px;padding-left:40px;position:relative;line-height:32px;height: 39px;}
+.tv-recommend .card-list .info .main .duration{display:inline-block;overflow:hidden;position:absolute;top:-18px;right:-1px;height:16px;padding:2px 6px 0 5px;font-size:11px;background-color:#000;background:rgba(0,0,0,0.7);color:#fff}
+
+.music-list-wrap .list-wrap .btn-tv{width:14px;height:14px;background: url(//image.genie.co.kr/imageg/web/blt/ico_tvlist.png) transparent no-repeat 0 0;vertical-align: top;position:absolute;margin:10px 0 0 -22px}
+.music-list-wrap .list-wrap .btn-tv:hover{background-position:0 -14px}
+
+.additional{line-height:20px}
+.additional span{font-size:12px;color:#999!important;vertical-align:top;font-family: dotum}
+.additional .like:after,.additional .play_count:after{background:url('//image.genie.co.kr/imageg/web/blt/list_180122.png') transparent no-repeat;}
+.additional .like{display:inline-block;overflow:hidden;height:17px;margin:3px 4px 0 5px;padding:0;font-weight:normal;line-height:14px;position:relative;padding-left:18px}
+.additional .like:after{content:'';width:12px;height:10px;position:absolute;top:2px;left:0;background-position:0 -132px;}
+.additional span.play_count{position:relative;display:inline-block;overflow:hidden;height:17px;padding-left:15px;line-height:14px;margin:3px 4px 0 3px}
+.additional span.play_count:after{content:'';width:9px;height:10px;position:absolute;top:2px;left:0;background-position:-16px -132px;}
+
+.search_mv .tv-recommend .card-list{padding:5px 0  6px 0}
+.search_mv .tv-recommend .card-list li{margin-bottom:20px}
+
+/*매거진 플래그*/
+.magazine_list .icons {position:absolute;bottom:0px;left:0}
+.magazine_list .icons {line-height:15px}
+.magazine_list .icon {display:inline-block;padding:1px 3px 0;font-size:11px;background-color:#0eb6e6;color:#fff}
+.magazine_list .icon.icon-red {background-color:#ff5b62}

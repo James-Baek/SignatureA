@@ -77,10 +77,11 @@ class streaming_audio(TemplateView):
 class streaming_video2(TemplateView): 
     template_name = 'streaming/video2.html'
 
-
 class streaming_video_backup(TemplateView):
     template_name = 'streaming/video_backup.html'
 
+class gene(TemplateView): 
+    template_name = 'streaming/gene.html'
 
 # method_decorator(csrf_protect) 
 # def streaming_upload_file(request):
@@ -102,16 +103,16 @@ class streaming_video_backup(TemplateView):
 #         context_instance=RequestContext(request)
 #     )   
 
-def upload_file(request): 
-    if request.method == 'POST':
-        form = DocumentForm(request.POST, request.FILES)
-        if form.is_valid(): 
-            form.save()
-            return HttpResponseRedirect(reverse_lazy('streaming:upload'))
+# def upload_file(request): 
+#     if request.method == 'POST':
+#         form = DocumentForm(request.POST, request.FILES)
+#         if form.is_valid(): 
+#             form.save()
+#             return HttpResponseRedirect(reverse_lazy('streaming:upload'))
 
-        else: 
-            form = DocumentForm() 
-            return render(request,'streaming/upload.html', {'form': form})
+#         else: 
+#             form = DocumentForm() 
+#             return render(request,'streaming/upload.html', {'form': form})
 
 
 # def handle_uploaded_file(f): 
