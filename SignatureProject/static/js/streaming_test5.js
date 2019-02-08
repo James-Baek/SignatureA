@@ -9,41 +9,41 @@ new Vue({
             url: "http://127.0.0.1:8000/photo/photo/2"
         },
 
-        {image2:"/media/photo/2019/01/방탄2.jpg",
+        {image:"/media/photo/2019/01/방탄2.jpg",
             url:"http://127.0.0.1:8000/photo/photo/3"
     },
-        {image3:"/media/photo/2019/01/방탄3.jpg",
+        {image:"/media/photo/2019/01/방탄3.jpg",
             url:"http://127.0.0.1:8000/photo/photo/3"
     },
-        {image4:"/media/photo/2019/01/방탄4.jpg",
+        {image:"/media/photo/2019/01/방탄4.jpg",
             url:"http://127.0.0.1:8000/photo/photo/1"
     },     
-        {image5:"/media/photo/2019/01/beatles.jpg",
+        {image:"/media/photo/2019/01/beatles.jpg",
             url:"http://127.0.0.1:8000/photo/photo/4"
     },
-        {image6:"/media/photo/2019/01/beatles2.jpg",
+        {image:"/media/photo/2019/01/beatles2.jpg",
             url:"http://127.0.0.1:8000/photo/photo/5"
     },
 
-        {image7:"/media/photo/2019/01/exid1.jpg",
+        {image:"/media/photo/2019/01/exid1.jpg",
             url:"http://127.0.0.1:8000/photo/photo/6"
     },
-        {image8:"/media/photo/2019/01/exid2.jpg",
+        {image:"/media/photo/2019/01/exid2.jpg",
             url:"http://127.0.0.1:8000/photo/photo/7"
     },
 
-        {image9:"/media/photo/2019/01/jackson.jpg",
+        {image:"/media/photo/2019/01/jackson.jpg",
             url:"http://127.0.0.1:8000/photo/photo/7"
     },
-        {image10:"/media/photo/2019/01/jackson2.jpg",
+        {image:"/media/photo/2019/01/jackson2.jpg",
             url:"http://127.0.0.1:8000/photo/photo/8"
     },
-        {image11:"/media/photo/2019/01/jackson3.jpg",
+        {image:"/media/photo/2019/01/jackson3.jpg",
             url:"http://127.0.0.1:8000/photo/photo/9"
     },
-        {image12:"/media/photo/2019/01/muse.jpg"},
-        {image13:"/media/photo/2019/01/muse1.jpg"},
-        {image14:"https://lastfm-img2.akamaized.net/i/u/300x300/ad656836a06e4267858d105ddd13fe04.png"},
+        {image:"/media/photo/2019/01/muse.jpg"},
+        {image:"/media/photo/2019/01/muse1.jpg"},
+        {image:"https://lastfm-img2.akamaized.net/i/u/300x300/ad656836a06e4267858d105ddd13fe04.png"},
        
         ],
        

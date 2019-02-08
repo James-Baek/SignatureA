@@ -254,3 +254,9 @@
     transition: opacity 0.3s ease-in;
   }
   
+
+
+
+  article a img {
+    width:100%;
+  }

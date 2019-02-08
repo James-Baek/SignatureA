@@ -21,9 +21,6 @@ from .models import *
 from .forms import * 
 
 
-
-
-
 import subprocess
 import json
 
@@ -48,7 +45,7 @@ class MusicStreaming(TemplateView):
     template_name='streaming/streaming_play.html'
 
     def get_context_data(self, **kwargs):
-        result = subprocess.check_output(["node", "test.js"])
+        result = subprocess.check_output(["node", "test.js", "queryUser", "USER5"])
         a = json.loads(result.decode('utf-8'))
         
         context = super(MusicStreaming, self).get_context_data(**kwargs)
