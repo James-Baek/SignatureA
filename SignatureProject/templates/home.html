@@ -35,7 +35,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
     <![endif]-->
-   
+   {% load staticfiles %}
 </head>
 <body id="page-top" class="index">
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -45,35 +45,43 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Signature Sound</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" id="topbar">
                     <li class="hidden">
                         <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a></a>
                     </li>
                     <li>
                         <a class="page-scroll" href="{% url 'streaming:test3'%}">스트리밍</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="{% url 'photo:index'%}">앨범</a>
+                        <a class="page-scroll" href="{% url 'photo:index'%}">저작권 거래</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">마이크로페이먼트</a>
                     </li>
+                    {% if request.user.is_authenticated %}
                     <li>
-                        <a class="page-scroll" href="/user/signup">회원가입</a>
-                    </li>
-                    <li>
-                        {% if request.user.is_authenticated %}
                         <a href="/user/logout/">로그아웃</a>
-                        {% else %}
+                    {% else %}
+                    <li>
+                            <a class="page-scroll" href="/user/signup">회원가입</a>
+                        </li>
+                    <li>
                         <a class="page-scroll" href="{% url 'user:login'%}">로그인</a>
-                        {% endif %}
+                    {% endif %}
                     </li>
-                                
                     
 
                     
@@ -89,8 +97,10 @@
         <div class="container">
                
             <div class="intro-text">
-                <div class="intro-lead-in">아티스트와 하나되는 음원스트리밍</div>
-                <div class="intro-heading">Hello World!</div>
+                <div class="intro-lead-in">&nbsp;</div>
+                <div class="intro-heading">&nbsp;</div>
+                <div class="intro-heading">&nbsp;</div>
+                <div class="intro-heading">&nbsp;</div>
                 <!-- <a href="#services" class="page-scroll btn btn-xl"></a>  노랑색 네모 -->
             </div>
         </div>
@@ -110,25 +120,24 @@
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <!-- <i class="fa fa-circle fa-stack-2x text-primary"></i> -->
-                        <i class="fa fa-music" aria-hidden="true"></i>
+                    <span>
+                        <img src="{% static 'img/streaming icon.png'%}">
                     </span>
                     
                     <h2 class="service-heading">음원스트리밍</h2>
                     <p class="text-muted">당신의 아티스트가 직접 들려주는 음원 전세계 어디서든 느껴보세요.</p>
                 </div>
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-star-half-alt"></i>
+                    <span>
+                        <img src="{% static 'img/loyalty icon.png'%}">
                     </span>
-                    <h2 class="service-heading">저작권 구매</h2>
+                    <h2 class="service-heading">저작권 거래</h2>
                     <p class="text-muted">이 세상 단 하나뿐인 음원을 가져보세요. 아티스트와 하나가 되는 기분을 느껴보세요.</p>
                 </div>
                 <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
+                    <span>
                         <!-- <i class="fa fa-circle fa-stack-2x text-primary"></i> -->
-                        <i class="fa fa-play" aria-hidden="true"></i>
+                        <img src="{% static 'img/micropayment icon.png'%}">
                     </span>
                     <h2 class="service-heading">마이크로페이먼트</h2>
                     <p class="text-muted">이제 음원의 일부분만 감상해도 괜찮습니다. 당신의 돈은 소중하니깐요.</p>
