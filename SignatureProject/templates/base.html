@@ -13,10 +13,6 @@
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="{% static 'css/left-sidebar.css'%}">
         <link rel="stylesheet" href="{% static 'css/style.css'%}">
-        <link rel="stylesheet" href="{% static 'css/photo.css'%}">
-        <link rel="stylesheet" href="{% static 'css/audio.css'%}">
-
-        
 
         {% block title %}      <!-- 페이지별 타이틀 공간 -->
         <title>메인 페이지</title>
@@ -43,15 +39,22 @@
                     <li class="sidebar-brand">
                         <a href="/main">
                             <div class="heading">
-                                <a href="{% url 'streaming:main'%}"><img src="{% static 'img/logo2_test.png'%}" width="150"></a>
+                                <img src="{% static 'img/logo2.png'%}" width="150">
                             </div>
                         </a>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a href="#"><img src="{% static 'img/headphones.png'%}" width="15"> &nbsp; MY ALBUM</a>
                     </li>
                     <li>
                         <a href="#"><img src="{% static 'img/playlist-2.png'%}" width="15"> &nbsp; 음원 등록</a>
+=======
+                        <a href="#"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="{% static 'img/headphones.png'%}" width="15"> &nbsp; MY ALBUM</a>
+                    </li>
+                    <li>
+                        <a href="#"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="{% static 'img/playlist-2.png'%}" width="15"> &nbsp; 음원 등록</a>
+>>>>>>> 5c3c0432b8009655fb9590d5072ce334fae539b9
                     </li>
                     <!-- <li>
                         <a href="#">차트</a>
@@ -78,7 +81,7 @@
                     {% endif %}
                     
                     <!-- 상단바 -->
-                    <nav class="navbar navbar-expand-lg navbar-light rounded mr-auto ml-auto mb-3" style="background-color:#6731EF; max-width:1600px">
+                    <nav class="navbar navbar-expand-lg navbar-light rounded mr-auto ml-auto mb-3" style="background-color:#6731EF; max-width:1300px">
                             <!-- <a class="navbar-brand" href="#"><img src="{% static 'img/logo2.png'%}" width="100"></a> -->
             
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -109,10 +112,8 @@
                                     <a class="profile" href="#"><img src="{% static 'img/profile.jpg'%}" class="rounded-circle" alt="Cinque Terre" width="40" height="40"> </a>
                                 </li>
                                 <li class="nav-item text-light nav-link">
-                                    {% if request.user.is_authenticated %}
                                     {{ user.email }}
                                     {{ userinfo.balance }}
-                                    {% endif %}
                                 </li>
                                 <li class="nav-item">
                                     {% if request.user.is_authenticated %}
@@ -150,9 +151,9 @@
         <!-- /#wrapper -->
     
         <!-- Bootstrap core JavaScript -->
-        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- <script src="{% static 'js/theme/build.js'%}"></script> -->
         
@@ -167,9 +168,3 @@
 
     </body>
 </html>
-
-<style>
-body {
-    background-color:black;
-}
-</style>

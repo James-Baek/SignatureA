@@ -1,3 +1,4 @@
+
 'use strict';
 /*
 * SPDX-License-Identifier: Apache-2.0
@@ -7,6 +8,9 @@ Hyperledger Fabric Sample Query Program for tuna-app: Chaincode Invoke
 This code is based on code written by the Hyperledger Fabric community.
 Original code can be found here: https://github.com/hyperledger/fabric-samples/blob/release/fabcar/query.js
  */
+
+const args = process.argv;
+// console.log(args);
 
 var Fabric_Client = require('fabric-client');
 var path = require('path');
@@ -54,8 +58,8 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
     const request = {
         chaincodeId: 'test',
         txId: tx_id,
-        fcn: 'queryUser',
-        args: ['USER5']
+        fcn: args[2],
+        args: [args[3]]
     };
 
     // send the query proposal to the peer
