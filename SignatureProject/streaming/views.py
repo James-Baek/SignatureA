@@ -121,6 +121,25 @@ class gene(TemplateView):
 #             destination.write(chunk)
 
 
+def streaming_upload_file(request): 
+    if request.method == 'POST':
+        form = DocumentForm(request.POST,request.FILES)
+        if form.is_valid():
+            newdoc = Documnent(docfile= request.FILES['docfile'])
+            newdoc.save() 
+
+            return HttpResponseRedirect('/')
+
+        else: 
+            form = DocumentForm()
+
+        documents = Document.objects.all() 
+
+        return render_to_response(
+            'streaming/upload.html',
+            {'documnets':documents,'form':form},
+            context_instance = RequestContext(request)
+        )
 
 
 

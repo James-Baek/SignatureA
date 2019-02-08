@@ -22,7 +22,7 @@ urlpatterns = [
     path('audio/',streaming_audio.as_view(),name="audio"),
     path('video2/',streaming_video2.as_view(),name="video2"),
     path('videobackup/',streaming_video_backup.as_view(),name="video_backup"),
-    # path('upload/',upload_file,name='upload'),
+    path('upload/',streaming_upload_file,name='file_upload'),
     path('gene/',gene.as_view(),name="gene"),
    
 ]

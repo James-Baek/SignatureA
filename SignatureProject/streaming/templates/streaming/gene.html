@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,7 +12,7 @@
 <!--[if (gte IE 10)|!(IE)]><!--><html dir="ltr" class="no-js" lang="ko"><!--<![endif]-->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi" />
-<title>지니 : 음악, 그리고 설레임</title>
+<!-- <title>시그니처</title> -->
 
 {% block css %}
 {% load static %}
@@ -155,7 +147,7 @@ lteIE8 = true;
 <div id="music-player" class="music-player">
 	<div class="gnb-player">
 		<div class="mode-wrap">
-			<h1><a href="#" class="logo" onclick="fnViewPagePop('/'); return false;">genie</a></h1>
+			<h1><img src="../../../static/img/logo.png" width="10px" height="10px">SSound Music</a></h1>
 			<div class="mode">
 				<h2>뮤직<span class="hide">플레이어</span></h2>
 				<a href="/mvPlayer/popMoviePlayerV2">영상 플레이어</a>
@@ -163,7 +155,7 @@ lteIE8 = true;
 		</div>
 			
 				<div class="menu">
-					<a href="#" class="btn-login" title="새창 열림"onclick="loginPopup(); return false;">로그인<span>하세요 &gt;</span></a>
+					<a href="/user/login/" class="btn-login" title="새창 열림"  return false;">로그인<span>하세요 &gt;</span></a>
 					<a href="#" class="btn-wide" title="새창 열림" onclick="fnPlayerFAQ(); return false;">FAQ</a>
 					<a href="#" class="btn-wide" title="새창 열림" onclick="fnViewUseGuidePop(); return false;">이용안내</a>
 					<div class="toggle-button-box btn-narrow">
@@ -244,7 +236,7 @@ lteIE8 = true;
 						<p class="txt ellipsis">로그인 후, 전곡 스트리밍을 이용해 보세요.</p>
 					
 				
-				<a href="#" class="btn-payment" title="새창 열림" onclick="fnViewProduct(); return false;">이용권 구매</a>
+				<a href="#" class="btn-payment" title="새창 열림" onclick="fnViewProduct(); return false;">코인 충전</a>
 			</div>
 		</div>
 	</div>

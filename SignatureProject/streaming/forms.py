@@ -11,11 +11,6 @@ class MusicSearchForm(forms.Form):
 #         help_text = 'max. 42 megabytes'
 #         )
 
-class DocumentForm(forms.ModelForm): 
-    class Meta: 
-        model = Documnent 
-        fields = ('description','document')
-
-
-
-
+class UploadFileForm(forms.Form):
+    title = forms.CharField(max_length=50)
+    file = forms.FileField()
