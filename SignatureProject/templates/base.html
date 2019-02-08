@@ -106,7 +106,7 @@
                                 </li>
                                 <li class="nav-item text-light nav-link">
                                     {{ user.email }}
-                                    {{ userinfo.balance }}
+                                    <!-- {{ userinfo.balance }} -->
                                 </li>
                                 <li class="nav-item">
                                     {% if request.user.is_authenticated %}
@@ -122,7 +122,7 @@
                         <!-- 상단바 끝 -->
 
                     <div>
-                            <ul class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav navbar-right text-dark">
                                 <li>
                                     {% if request.user.is_authenticated %}
                                     <span class="badge badge-pill badge-primary">계정</span> {{ user.email }}

@@ -14,6 +14,20 @@
 {% load static %}
   <link rel="stylesheet" href="{% static 'css/streaming_detail.css'%}">
  
+  {% block css %}        <!-- 페이지별 css -->
+  
+<script src="https://unpkg.com/ipfs/dist/index.js"></script>
+<script src="https://unpkg.com/hlsjs-ipfs-loader@0.1.3/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.plyr.io/3.4.8/plyr.js"></script>
+<script src="{% static 'js/audio.js'%}"></script>
+
+<link rel="stylesheet" href="https://cdn.plyr.io/3.4.8/plyr.css">
+<!-- <link rel="stylesheet" href="{% static 'css/audio.css'%}"> -->
+
+
+{% endblock css %}
   {% block content %}
   <body>
     <div id="app">
@@ -25,7 +39,7 @@
             <input class="form-control mr-sm-2" type="text" placeholder="Music  Enter" v-model="search_term" aria-label="Search"> 
             <button class="btn btn-outline-success my-2 my-sm-0" v-on:click.prevent="getMusics()">Music Search</button> 
           </div> -->
-          <table class="table">
+          <table class="table text-dark">
             <thead>
               <tr>
                 <th scope="col">Music</th>
@@ -38,7 +52,7 @@
                 <th scope="col">가격</th>
                 <!-- <th>%{albums[0].url}</th> -->
                 <!-- <p v-bind=%{albums.image}></p> -->
-              </thead>
+            </thead>
                 <!-- <th scope="col">이미지</th> -->
                 <!-- <th scope="col">해쉬값</th> -->
                 <tbody
@@ -56,11 +70,43 @@
                  <td><i class="fa fa-download"></i></td>
                  <td>${}</td>
                   
-          </tbody>
+                </tbody>
             </table>
                    
         </div>
       </div>
+      <div class="container">
+          <div class="column add-bottom">
+              <div id="mainwrap">
+                  <div id="nowPlay">
+                      <span id="npAction">Paused...</span><span id="npTitle"></span>
+                  </div>
+                  <div id="audiowrap">
+                      <div id="audio0">
+                          <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
+                  
+                      
+                      </div>
+                      <div id="tracks" class="text-dark">
+                          <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
+                      </div>
+                  </div>
+                  <div id="plwrap" class="text-dark">
+                      <ul id="plList"></ul>
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="column add-bottom center">
+              <a href="{% url 'main:home'%}"> SSound Music </a> 
+     </a></p>
+              <!-- <p>Download: <a href="https://archive.org/ownload/mythium/mythium_vbr_mp3.zip">zip</a> / <a href="https://archive.org/download/mythium/mythium_archive.torrent">torrent</a></p> --> 
+          </div>
+      </div>
+  
+  
+  
+    
     </div>
 
  

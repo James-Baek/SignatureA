@@ -3,16 +3,33 @@ from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from user.models import User
 
+import subprocess
+import json
+
 class MainFirstView(TemplateView):
     template_name = 'main/main.html'
-    queryset = User.objects.all()
+    def get_context_data(self, **kwargs):
+        result = subprocess.check_output(["node", "test.js", "queryUser", "USER5"])
+        a = json.loads(result.decode('utf-8'))
+        
+        context = super(MainFirstView, self).get_context_data(**kwargs)
+        context['userinfo'] = a
+        # context['balance'] = a['balance']
+        # context['authority'] = a['authority']
 
-    def get(self, request, *args, **kwargs):
-        ctx = {
-            'view': self.__class__.__name__,
-            'data': self.queryset
-        }
-        return self.render_to_response(ctx)
+        print(context)
+        print(self.request.user)
+        return context
+
+    # 뭔지 잘 모르는데 중요한 것 같음...
+    # queryset = User.objects.all()
+
+    # def get(self, request, *args, **kwargs):
+    #     ctx = {
+    #         'view': self.__class__.__name__,
+    #         'data': self.queryset
+    #     }
+    #     return self.render_to_response(ctx)
 
 
 class MainDetailView(LoginRequiredMixin, TemplateView):

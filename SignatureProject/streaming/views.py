@@ -61,24 +61,8 @@ class MusicStreaming(TemplateView):
 class MusicMain(TemplateView): 
     template_name='streaming/streaming.html'
 
-
 class StreamingDetail(TemplateView): 
     template_name='streaming/streaming_detail.html'
-    
-class streaming_test2(TemplateView):
-    template_name='streaming/streaming_test2.html'
-    
-class streaming_test3(TemplateView): 
-    template_name='streaming/streaming_test3.html'
-
-class streaming_test4(TemplateView):
-    template_name='streaming/streaming_test4.html'
-
-class streaming_test5(TemplateView):
-    template_name='streaming/streaming_test5.html'
-
-class streaming_sound(TemplateView): 
-    template_name='streaming/streaming_sound.html'
 
 class streaming_upload(TemplateView): 
     template_name='streaming/upload.html'
@@ -86,15 +70,8 @@ class streaming_upload(TemplateView):
 class streaming_main(TemplateView):
     template_name = 'streaming/streaming_main.html'
     
-
 class streaming_audio(TemplateView): 
     template_name = 'streaming/audio.html'
-
-class streaming_video2(TemplateView): 
-    template_name = 'streaming/video2.html'
-
-class streaming_video_backup(TemplateView):
-    template_name = 'streaming/video_backup.html'
 
 class gene(TemplateView): 
     template_name = 'streaming/gene.html'
