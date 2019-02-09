@@ -16,6 +16,7 @@ urlpatterns = [
     path('main/',streaming_main.as_view(),name="main"),
     path('audio/',streaming_audio.as_view(),name="audio"),
     # path('upload/',upload_file,name='upload'),
-    path('gene/',gene.as_view(),name="gene"),
+    path('myalbum/',gene.as_view(),name="myalbum"),
+    path('todo/',todo.as_view(),name='todo'),
    
 ]

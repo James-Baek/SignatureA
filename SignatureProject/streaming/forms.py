@@ -1,5 +1,6 @@
 from django import forms 
 from .models import *
+from django.forms.models import inlineformset_factory
 
 class MusicSearchForm(forms.Form): 
     search_word = forms.CharField(label='Search Word')
@@ -9,13 +10,9 @@ class MusicSearchForm(forms.Form):
 #     docfile = forms.FileField(
 #         label = 'Select a file',
 #         help_text = 'max. 42 megabytes'
-#         )
 
-class DocumentForm(forms.ModelForm): 
-    class Meta: 
-        model = Documnent 
-        fields = ('description','document')
+StreamingUpload = inlineformset_factory(Stremaing)
+    fields = ['music_w','music_m','agency','music_img','music_price'],
+    extra = 2)
 
-
-
-
+    

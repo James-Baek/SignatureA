@@ -74,9 +74,11 @@ class streaming_audio(TemplateView):
     template_name = 'streaming/audio.html'
 
 class gene(TemplateView): 
-    template_name = 'streaming/gene.html'
+    template_name = 'streaming/myalbum.html'
 
-# method_decorator(csrf_protect) 
+class todo(TemplateView): 
+    template_name = 'streaming/todo.html'
+    
 # def streaming_upload_file(request):
 #     if request.method == 'POST':
 #         form = DocumentForm(request.POST, request.FILES)
@@ -94,26 +96,8 @@ class gene(TemplateView):
 #         'streaming/upload.html',
 #         {'documents': documents, 'form': form},
 #         context_instance=RequestContext(request)
-#     )   
 
-# def upload_file(request): 
-#     if request.method == 'POST':
-#         form = DocumentForm(request.POST, request.FILES)
-#         if form.is_valid(): 
-#             form.save()
-#             return HttpResponseRedirect(reverse_lazy('streaming:upload'))
-
-#         else: 
-#             form = DocumentForm() 
-#             return render(request,'streaming/upload.html', {'form': form})
-
-
-# def handle_uploaded_file(f): 
-#     with open('some/file/name.txt', 'wb+') as destination: 
-#         for chunk in f.chunks(): 
-#             destination.write(chunk)
-
-
+class Stre  
 
 
 
