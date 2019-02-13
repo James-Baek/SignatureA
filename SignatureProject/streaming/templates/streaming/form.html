@@ -1,0 +1,137 @@
+
+
+
+{% block css %}
+
+{% load static %}
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<script src="{% static 'js/upload.js'%}"></script>
+<link rel="stylesheet" href="{% static 'css/upload.css'%}">
+
+{% endblock css %}
+
+<html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="http://www.expertphp.in/js/jquery.form.js"></script>
+<script>
+function preview_images() 
+{
+ var total_file=document.getElementById("images").files.length;
+ for(var i=0;i<total_file;i++)
+ {
+  $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
+ }
+}
+</script>
+</head>
+<body>
+
+ <div class="container">
+    <div class="col-md-12">
+      <div class="panel with-nav-tabs panel-primary">
+      
+        <div class="panel-heading">
+          <ul class="nav nav-tabs">
+            <!-- <li><a href="#Tabs-Kesatu" data-toggle="tab" class="btn-9">Tabs Percobaan</a></a></li> -->
+            <li><a href="#Tabs-Kedua" data-toggle="tab" class="btn-9"><i class="fa fa-camera" aria-hidden="true"></i> Media Picture</a></li>
+            <!-- <li><a href="#Tabs-Ketiga" data-toggle="tab" class="btn-9"><i class="fa fa-headphones" aria-hidden="true"></i> Media Audio</a></li> -->
+            <li class="active"><a href="#Tabs-Keempat" data-toggle="tab" class="btn-9"><i class="fa fa-file-text" aria-hidden="true"></i> Media File</a></li>
+          </ul>
+        </div>
+
+        <div class="panel-body">
+          <div class="tab-content">
+            <div class="tab-pane fade" id="Tabs-Kesatu">
+              <div>
+                Tabs Percobaan
+              </div> 
+            </div>
+
+            <div class="tab-pane fade" id="Tabs-Kedua">
+              <div class="row">
+                <form action="multiupload.php" method="post" enctype="multipart/form-data">
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" id="images" name="images[]" onchange="preview_images();" multiple/>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="submit" class="btn btn-primary" name='submit_image' value="Upload Multiple Image"/>
+                    </div>
+                </form>
+              </div><br><br>
+              <div class="row" id="image_preview"></div><br><br>
+            </div>
+
+            <div class="tab-pane fade" id="Tabs-Ketiga">
+              <div class="col-md-12">
+                <!-- untuk backend actionnya ditunjukan ke mana -->
+                <form method="POST" action="#">
+                  <div class="form-group files">
+                    <label>Upload Your File </label>
+                    <input type="file" class="form-control" multiple="">
+                  </div>
+                  <div class="col-md-12">
+                    <button type="button" class="btn btn-labeled btn-success pull-right">
+                      <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Save
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="tab-pane fade in active" id="Tabs-Keempat">
+              <!-- disini maksudnya in active yaitu mengaktifkan file yg ditampilkan untuk pertamakali -->
+              <div class="col-md-12">
+                <form method="post" action="../upload/" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group files color">
+                    <label>Upload Your File </label>
+                    <input type="file" class="form-control" name="files" multiple="">
+                  </div>
+                 
+                        &nbsp &nbsp &nbsp &nbsp &nbsp      
+                <div class="form-group">
+                        <label for="exampleInputEmail1">이메일 주소</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일 형식">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+
+                <div class="form-group">
+                    <label for="inputAritist">아티스트 </label>
+                    <input type="text" class="form-control" id="inputArtist" placeholder="아티스트 명">
+                </div>
+                    
+                <div class="form-group">
+                        <label for="inputcompo">작곡가 </label>
+                        <input type="text" class="form-control" id="inputArtist" placeholder="작곡가">
+                    </div>
+                
+                <div class="form-group">
+                        <label for="inputprice">가격</label>
+                        <input type="number" class="form-control" id="inputprice" placeholder="가격">
+                    </div>
+            <span class="textfield__label"> Description</span>  
+                    <div class="col-md-12">
+                            <button type="button" class="btn btn-labeled btn-white pull-right">
+                                <input type="submit" value="Upload">
+                            </button>
+                        </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

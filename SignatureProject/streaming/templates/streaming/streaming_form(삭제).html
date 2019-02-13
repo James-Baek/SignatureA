@@ -1,0 +1,50 @@
+{% block title %} streaming_form.html {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div id="content">
+
+    <h3>Streaming Create / Update - {{user}} </h3>
+    {% if form.is_multipart %}
+    <form enctype="multipart/form-data" method="post" action=".">
+    {% else %}
+    <form method="post" action=".">
+        {% endif %}
+        {% csrf_token %}
+
+        {% if form.errors %}
+        <p class="errornote">오류입니다.</p>
+        {% endif %}
+        
+        <p> 음원 등록하는 페이지</p>
+
+        <fieldset class="aligned">
+            <div class="form-row">
+                {{ form.image.label_tag }} {{form.image}}
+            </div>
+
+            <div class="form-row">
+                {{ form.streaming.label_tag}}  {{form.streaming}}
+                <button type="button"><a href="{% url 'streaming:upload'%}">Add Music</a></button>
+
+            </div>
+
+            <div class = "form-row">
+                {{ form.title.label_tag }} {{form.description}}
+            </div>
+        </fieldset>
+
+        <div class="submit-row">
+            <input type="submit" value="Submit" />
+        </div>
+
+        <script type="text/javascript">document.getElementById('id_Streaming').focus();</script>
+
+    </form>
+    </form>
+
+</div>
+
+{% endblock %}
+

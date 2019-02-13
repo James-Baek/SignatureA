@@ -1,0 +1,56 @@
+x
+{% block title %} album_form.html {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div id="content"> 
+    <h1>Album - Streaming InlineFormSet </h1>
+
+    {% if form.is_multipart or formset.is_multipart %}
+    <form enctype="multipart/form-data" method="post" action="."> 
+        {% else %}
+        <form method="post" action=".">
+            {% endif %}
+            {% csrf_token %}
+
+            {% if form.errors %}
+            <p class="errornote">Wrong! </p>
+            {% endif %}
+
+         
+            <h4>Create Album contents</h4>
+
+            <fieldset class="aligned">
+                <div class="form-row">
+                    {{ form.name.label_tag }} {{ form.name }}
+                </div>
+
+                <div class="form-row">
+                        {{ form.description.label_tag }} {{form.description}}
+                </div>
+            </fieldset>
+
+            <h4>Create Streaming Content </h4>
+
+            {{ formset.management_form }}
+            {% for form in formset %}
+                {{ form.id }}
+
+            <fieldset class="aligned">
+                <div class="form-row">
+                    {{ form.image.label_tag }} {{ form.image }}
+                </div>
+
+                <div class="form-row">
+                    {{ form.title.label_tag }} {{ form.title }}
+                </div>
+
+                {% endfor %}
+
+
+            </fieldset>
+
+        </form>
+
+        {% endblock %}

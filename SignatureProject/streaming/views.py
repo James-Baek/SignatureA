@@ -6,19 +6,26 @@ from django.views.generic import FormView #클래스형 제네릭뷰
 from django.views.generic.edit import FormView
 from streaming.forms import *
 from django.db.models import Q 
-from django.shortcuts import render, render_to_response #단축함수 render  
+from django.shortcuts import render_to_response #단축함수 render  
+from django.shortcuts import render
 
 #파일 업로드 기능 구현 
 from django.template import RequestContext
-from django.urls import reverse 
+from django.urls import reverse, reverse_lazy
 # from django.views.decorators.csrf import csrf_protect
 # from django.utils.decorators import method_decorator
 from django.conf import settings 
 from django.core.files.storage import FileSystemStorage
 
+from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .models import *
 from .forms import * 
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from main.views import LoginRequiredMixin
+
+from photo.views import * 
 
 
 import subprocess
@@ -96,8 +103,31 @@ class todo(TemplateView):
 #         'streaming/upload.html',
 #         {'documents': documents, 'form': form},
 #         context_instance=RequestContext(request)
+def Form(request):
+    return render(request,"streaming/form.html",{})
+    
 
-class Stre  
+# class Form(request):
+#     return render(request,"streaming/form.html",{})
+
+
+def Upload(request): 
+    for count, x in enumerate(request.FILES.getlist("files")):
+        def process(f):
+            with open('/Users/a/Desktop/projects/media/files' + str(count) + '.mp3','wb+') as destination:
+                for chunk in f.chunks():
+                    destination.write(chunk)
+
+        process(x)
+    # return HttpResponse("File(s) uploaded!")
+    return render(request,"streaming/form_upload.html",{})
+
+
+
+class Player(TemplateView): 
+    template_name = 'streaming/player.html'
+
+
 
 
 

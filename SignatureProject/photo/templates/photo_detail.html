@@ -10,11 +10,11 @@
 
 
 {% block content %}
-<div id="content">
-    <h2>{{ object.title }} </h2>
+<div id="content text-info">
+    <h2 class="text-info">{{ object.title }} </h2>
 </div>
 
-<table class="photo-detail">
+<table class="photo-detail text-dark">
     <tr>
         <td>
             <a href="{{ object.image.url }}">
@@ -24,7 +24,7 @@
 
         <td>
             <ul>
-              
+             
                 <li>Album name</li>
                 <p><a href="{% url 'photo:album_detail' object.album.id %}">
                 {{ object.album.name }}</a> <br>
@@ -34,7 +34,7 @@
                 {% if object.title %} {{ object.title }}     {% endif %}
           <br/> <br/>       <li>기획사</li>   
                 {% if object.agency %} {{object.agency}}  {% endif %}
- 
+                    </p>
             </a></p> 
               
             </ul>
@@ -44,10 +44,11 @@
 
 <br/>
 
-<table class="photo-detail">
 
-        <h2>앨범 Description</h2>
-        {% if object.description %}<p>{{ object.description | linebreaks }}</p>
+<table class="photo-detail text-dark">
+
+        <h2 class="text-info">앨범 Description</h2>
+        {% if object.description %}<p class="text-dark">{{ object.description | linebreaks }}</p>
         {% else %}<p>(blank></p> {% endif %}
 
 </table>
@@ -56,7 +57,7 @@
 <br/>
 
 <section class="relate">
-    <h3>관련 앨범 사진 </h3>
+    <h3 class="text-info">관련 앨범 사진 </h3>
     <p><a href="{% url 'photo:album_detail' object.album.id %}">
     {{ object.album.name }} <br/>
     <img style="max-width:15%" src="{{ object.image.url }}" />
