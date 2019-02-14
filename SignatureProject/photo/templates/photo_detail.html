@@ -3,10 +3,27 @@
 
 {% block title %}{% endblock %}
 
-
+{% block css %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/photo.css'%}">
+<!-- bootstap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!--awesome icon-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- 구글 우분투 폰트-->
+<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/streaming_detail.css'%}">
+ 
+<!-- ipfs loader-->
+<script src="https://unpkg.com/ipfs/dist/index.js"></script>
+<script src="https://unpkg.com/hlsjs-ipfs-loader@0.1.3/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.plyr.io/3.4.8/plyr.js"></script>
+<script src="{% static 'js/audio.js'%}"></script>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.4.8/plyr.css">
 
+{% endblock css %}
 
 
 {% block content %}
@@ -48,15 +65,17 @@
 
 <br/>
 
-<fieldset style="border:1 solid #3E3E3E; width:400; height:50; padding:15 text-dark"><legend align="left"></legend>
+<fieldset style=width:1110px; text-dark">
    
 <table class="photo-detail text-dark">
 
+        <legend></legend>
         <h2 class="text-info">앨범 Description</h2>
         {% if object.description %}<div class="text-dark">{{ object.description | linebreaks }}</div>
         {% else %}<p>(blank></p> {% endif %}
 
 </table>
+
 
 </fieldset>
 
@@ -71,11 +90,113 @@
 </a></p> 
 </section> 
 
-
-
-
 {% endblock content %}
     
+{% block audio %}
+
+<body>
+    <div id="app">
+      <div class="container">
+        <div class="row">
+      
+          &emsp; &emsp; &emsp; &emsp; &emsp;
+          <!-- <div class="form-inline my-2 my-lg-0" style="margin-left: 71%;">
+            <input class="form-control mr-sm-2" type="text" placeholder="Music  Enter" v-model="search_term" aria-label="Search"> 
+            <button class="btn btn-outline-success my-2 my-sm-0" v-on:click.prevent="getMusics()">Music Search</button> 
+          </div> -->
+          <table class="table text-dark">
+            <thead>
+              <tr>
+                <th scope="col">Music</th>
+                <th scope="col">title</th>
+                <th scope="col">곡정보</th>
+                <!-- <th scope="col">genre</th> -->
+                <th scope="col">작곡가</th>
+                <th scope="col">듣기</th>
+                <th scope="col">내 음악</th>
+                <th scope="col">가격</th>
+                <!-- <th>%{albums[0].url}</th> -->
+                <!-- <p v-bind=%{albums.image}></p> -->
+            </thead>
+                <!-- <th scope="col">이미지</th> -->
+                <!-- <th scope="col">해쉬값</th> -->
+                <tbody
+                v-for="album in albums"
+                >
+                <td>test</td>
+                 <th scope="row">%{album.name}</th>
+                 <td><a v-bind:href=album.url>아이유 포토</a></td>
+              
+                 <td>${music.music_w}</td>
+                 <td>
+                 <a href="{% url 'streaming:play'%}"> <i class="fa fa-play">
+                 </i>
+                 </td>
+                 <td><i class="fa fa-download"></i></td>
+                 <td>${}</td>
+                  
+                </tbody>
+            </table>
+                   
+        </div>
+      </div>
+      <div class="container">
+          <div class="column add-bottom">
+              <div id="mainwrap">
+                  <div id="nowPlay">
+                      <span id="npAction">Paused...</span><span id="npTitle"></span>
+                  </div>
+                  <div id="audiowrap">
+                      <div id="audio0">
+                          <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
+                  
+                      
+                      </div>
+                      <div id="tracks" class="text-dark">
+                          <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
+                      </div>
+                  </div>
+                  <div id="plwrap" class="text-dark">
+                      <ul id="plList"></ul>
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="column add-bottom center">
+              <a href="{% url 'main:home'%}"> SSound Music </a> 
+     </a></p>
+              <!-- <p>Download: <a href="https://archive.org/ownload/mythium/mythium_vbr_mp3.zip">zip</a> / <a href="https://archive.org/download/mythium/mythium_archive.torrent">torrent</a></p> --> 
+          </div>
+      </div>  
+    </div>
+
+{% load static %}
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+<script src="{% static 'js/streaming_detail.js'%}"></script>
+
+{% endblock audio %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]
+
+
 
 <style>
 
