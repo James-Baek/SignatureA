@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import * 
+from .models import *
 
 
 class Album_Serializer(serializers.ModelSerializer): 
@@ -20,7 +20,7 @@ class Streaming_Serializer(serializers.ModelSerializer):
     artists = serializers.StringRelatedField
     class Meta: 
         model = Streaming
-        fields = ('id','music_w','music_m','agency','music_img','music_price','albums','artists')
+        fields = ('music_w','music_m','agency','music_img','music_price','albums','artists')
         depth=1
 
 
@@ -33,34 +33,6 @@ class Streaming_Serializer(serializers.ModelSerializer):
 #         model = Image 
 #         fields = '__all__'
         
-
-
-
-
-
-# class TMusic_Stake_Serializer(serializers.ModelSerializer):
-#     class Meta: 
-#         fields = '__all__'
-
-
-# class TMusic_StakePer_Serializer(serializers.ModelSerializer): 
-#     class Meta: 
-#         model = TMusic_StakePer
-#         fields = '__all__'
-
-
-# class TMusic_Coin_Serializer(serializers.ModelSerializer):
-#     class Meta: 
-#         model = TMusic_Coin
-#         fields = '__all__'
-
-
-# class TMusic_SourceRank_Serializer(serializers.ModelSerializer):
-#     class Meta: 
-#         model = TMusic_SourceRank
-#         fields = '__all__'
-   
-
 
 
 

@@ -10,23 +10,16 @@ class Streaming_Serializer_ViewSet(viewsets.ModelViewSet):
 
     # filter_fields = ('music_title','music_img','music_w')
 
-# class Artist_Serializer_ViewSet(viewsets.ModelViewSet): 
-#     queryset = Artist.objects.all() 
-#     serializers_class = Artist_Serializer
-#     filter_backends = (filters.SearchFilter,) 
+class Artist_Serializer_ViewSet(viewsets.ModelViewSet): 
+    queryset = Artist.objects.all() 
+    serializers_class = Artist_Serializer
+    filter_backends = (filters.SearchFilter,) 
 
 
-# class Artist_Serializer_ViewSet(viewsets.ModelViewSet): 
-#     queryset = Artist.objects.all() 
-#     serializers_class = Artist_Serializer
-#     filter_backends = (filters.SearchFilter,)
-
-
-
-# class Album_Searializer_ViewSet(viewsets.ModelViewSet): 
-#     queryset = Album.objects.all() 
-#     serializers_class= Album_Serializer
-#     filter_backends = (filters.SearchFilter,)
+class Album_Searializer_ViewSet(viewsets.ModelViewSet): 
+    queryset = Album.objects.all() 
+    serializers_class= Album_Serializer
+    filter_backends = (filters.SearchFilter,)
 
 
 

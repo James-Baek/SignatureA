@@ -14,6 +14,8 @@
     <h2 class="text-info">{{ object.title }} </h2>
 </div>
 
+<fieldset>
+    <legend></legend>
 <table class="photo-detail text-dark">
     <tr>
         <td>
@@ -41,17 +43,22 @@
         </td>
     </tr>
 </table>
+</fieldset>
+
 
 <br/>
 
-
+<fieldset style="border:1 solid #3E3E3E; width:400; height:50; padding:15 text-dark"><legend align="left"></legend>
+   
 <table class="photo-detail text-dark">
 
         <h2 class="text-info">앨범 Description</h2>
-        {% if object.description %}<p class="text-dark">{{ object.description | linebreaks }}</p>
+        {% if object.description %}<div class="text-dark">{{ object.description | linebreaks }}</div>
         {% else %}<p>(blank></p> {% endif %}
 
 </table>
+
+</fieldset>
 
 
 <br/>

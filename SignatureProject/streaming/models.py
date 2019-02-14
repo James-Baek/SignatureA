@@ -7,12 +7,9 @@ import uuid
 # from user.models import User
 # from users.models import User
 
-
-
 class Streaming(models.Model):
-   
     # start_date = models.DateField('발매일',auto_now=False,auto_now_add=True,null=True)
-    id = models.IntegerField(primary_key=True)
+    # id = models.IntegerField(primary_key=True)
     music_w = models.CharField('작사가',max_length=30)  
     music_m = models.CharField('작곡가',max_length=30,blank=True,null=True)      
     agency = models.CharField('기획사',max_length=30) 
@@ -28,13 +25,13 @@ class Streaming(models.Model):
     # thumbnail = models.URLField('썸네일 이미지',max_length=200,null=True,blank=True)
     # music_genre = models.IntegerField('음악장르') 
 
-
 class Artist(models.Model):
     album = models.ForeignKey('Streaming',related_name='artists',on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     mbid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     url = models.URLField('아티스트 사진 설명페이지url',max_length=254)
     
+
 
 class Album(models.Model):
     streaming = models.ForeignKey('Streaming',related_name='albums',on_delete=models.CASCADE)
@@ -45,16 +42,11 @@ class Album(models.Model):
     hash = models.URLField('해쉬값',max_length=254)
             
     class Meta: 
-        unique_together =('streaming','name')
+        unique_together =('url','name')
         ordering = ['name']
 
     def __unicode__(self):
         return '%d:%s' % (self.playcount, self.name)
 
 
-
-# class Documnent(models.Model): 
-#     description = models.CharField(max_length=255, blank=True)
-#     document = models.FileField(upload_to='documents/%Y')
-#     uploaded_at = models.DateTimeField(auto_now_add=True)
 
