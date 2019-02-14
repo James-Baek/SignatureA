@@ -44,20 +44,21 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="{% static 'img/headphones.png'%}" width="15"> &nbsp; MY ALBUM</a>
+                        <a href="{% url 'streaming:myalbum'%}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="{% static 'img/headphones.png'%}" width="15"> &nbsp; MY ALBUM</a>
                     </li>
                     <li>
-                        <a href="{% url 'streaming:myalbum'%}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="{% static 'img/playlist-2.png'%}" width="15"> &nbsp; 음원 등록</a>
+                        <a href="{% url 'streaming:form'%}"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="{% static 'img/playlist-2.png'%}" width="15"> &nbsp; 음원 등록</a>
+                    </li>
+                    
+                    <li>
+                        <a href="{% url 'streaming:player'%}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search</a>
                     </li>
                     <!-- <li>
-                        <a href="#">차트</a>
-                    </li>
-                    <li>
                         <a href="#">Events</a>
                     </li>
                     <li>
                         <a href="#">고객센터</a>
-                    </li> -->
+                    </li>  -->
                 </ul>
             </div>
             <!-- /#sidebar-wrapper -->

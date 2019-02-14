@@ -1,6 +1,14 @@
 from rest_framework import serializers
 from .models import *
 
+class Streaming_Serializer(serializers.ModelSerializer):
+    albums = serializers.StringRelatedField
+    artists = serializers.StringRelatedField
+    class Meta: 
+        model = Streaming
+        fields = ('music_w','music_m','agency','music_img','music_price','albums','artists')
+        depth=1
+
 
 class Album_Serializer(serializers.ModelSerializer): 
    
@@ -15,13 +23,6 @@ class Artist_Serializer(serializers.ModelSerializer):
         fields = ('name','mbid','url')
 
 
-class Streaming_Serializer(serializers.ModelSerializer):
-    albums = serializers.StringRelatedField
-    artists = serializers.StringRelatedField
-    class Meta: 
-        model = Streaming
-        fields = ('music_w','music_m','agency','music_img','music_price','albums','artists')
-        depth=1
 
 
 

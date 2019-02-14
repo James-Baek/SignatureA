@@ -23,7 +23,7 @@ class Streaming(models.Model):
      # total_income = models.IntegerField('총 음원수입',null=True,blank=True)
     # music_r = models.CharField('편곡가',max_length=30,blank=True,null=True)
     # thumbnail = models.URLField('썸네일 이미지',max_length=200,null=True,blank=True)
-    # music_genre = models.IntegerField('음악장르') 
+    music_genre = models.IntegerField('음악장르',null=True) 
 
 class Artist(models.Model):
     album = models.ForeignKey('Streaming',related_name='artists',on_delete=models.CASCADE)
