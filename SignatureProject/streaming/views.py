@@ -114,7 +114,7 @@ def Form(request):
 def Upload(request): 
     for count, x in enumerate(request.FILES.getlist("files")):
         def process(f):
-            with open('/Users/a/Desktop/projects/media/files' + str(count) + '.mp3','wb+') as destination:
+            with open('/Users/a/Desktop/projects/media/{{files}}' + str(count) + '.mp3','wb+') as destination:
                 for chunk in f.chunks():
                     destination.write(chunk)
 
