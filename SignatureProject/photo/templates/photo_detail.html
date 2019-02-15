@@ -82,24 +82,34 @@
 
 <br/>
 
-<section class="relate">
+<div class="box">
+
     <h3 class="text-info">관련 앨범 사진 </h3>
     <p><a href="{% url 'photo:album_detail' object.album.id %}">
     {{ object.album.name }} <br/>
     <img style="max-width:15%" src="{{ object.image.url }}" />
 </a></p> 
-</section> 
 
-{% endblock content %}
-    
-{% block audio %}
 
-<body>
+<h3 class="text-info">관련 앨범 비디오 </h3> 
+{% if object.videourl %} 
+<a href="{{ object.videourl }}"> 
+<img style="max-width:15%" src="{{object.image.url}}" />
+{% else %}  {% endif %}
+</a>
+
+
+</div> 
+
+
+
+
+&emsp; &emsp; &emsp; &emsp; &emsp;   
     <div id="app">
       <div class="container">
         <div class="row">
       
-          &emsp; &emsp; &emsp; &emsp; &emsp;
+     
           <!-- <div class="form-inline my-2 my-lg-0" style="margin-left: 71%;">
             <input class="form-control mr-sm-2" type="text" placeholder="Music  Enter" v-model="search_term" aria-label="Search"> 
             <button class="btn btn-outline-success my-2 my-sm-0" v-on:click.prevent="getMusics()">Music Search</button> 
@@ -107,13 +117,13 @@
           <table class="table text-dark">
             <thead>
               <tr>
-                <th scope="col">Music</th>
-                <th scope="col">title</th>
+                <th scope="col">번호</th>
                 <th scope="col">곡정보</th>
+                <!-- <th scope="col">곡정보</th> -->
                 <!-- <th scope="col">genre</th> -->
                 <th scope="col">작곡가</th>
                 <th scope="col">듣기</th>
-                <th scope="col">내 음악</th>
+                <th scope="col">나의 앨범</th>
                 <th scope="col">가격</th>
                 <!-- <th>%{albums[0].url}</th> -->
                 <!-- <p v-bind=%{albums.image}></p> -->
@@ -123,17 +133,17 @@
                 <tbody
                 v-for="album in albums"
                 >
-                <td>test</td>
+                <td></td>
                  <th scope="row">%{album.name}</th>
-                 <td><a v-bind:href=album.url>아이유 포토</a></td>
+                 <!-- <td><a v-bind:href=album.url>아이유 포토</a></td> -->
               
-                 <td>${music.music_w}</td>
+                 <td>%{album.playcount}</td>
                  <td>
                  <a href="{% url 'streaming:play'%}"> <i class="fa fa-play">
                  </i>
                  </td>
-                 <td><i class="fa fa-download"></i></td>
-                 <td>${}</td>
+                 <td><a href="{% url 'streaming:myalbum'%}"><i class="fa fa-download"></i></a></td>
+                 <td>%{album.playcount}</td>
                   
                 </tbody>
             </table>
@@ -175,7 +185,10 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
 <script src="{% static 'js/streaming_detail.js'%}"></script>
 
-{% endblock audio %}
+
+
+{% endblock content %}
+    
 
 
 
@@ -187,14 +200,6 @@
 
 
 
-
-
-
-
-
-
-
-]
 
 
 
@@ -266,6 +271,22 @@ section.description {
     margin : 30px 50px 0 50px;
 
 }
+
+div.box {
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    margin: 1em;
+}
+
+
+/* img {
+    display : inline-block !important;
+    float : left; 
+    margin-right :auto;
+
+} */
+
 
 
 

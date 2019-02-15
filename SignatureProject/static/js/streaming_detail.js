@@ -13,7 +13,8 @@ new Vue({
   mounted () {
     axios
       .get('http://127.0.0.1:8000/api/streaming/')
-      .then(response => (this.albums = response.data[0].albums))
+      .then(response => (this.albums = response.data))
+      
       
   }
   // mounted() {

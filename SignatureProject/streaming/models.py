@@ -10,11 +10,9 @@ import uuid
 class Streaming(models.Model):
     # start_date = models.DateField('발매일',auto_now=False,auto_now_add=True,null=True)
     # id = models.IntegerField(primary_key=True)
-    music_w = models.CharField('작사가',max_length=30)  
-    music_m = models.CharField('작곡가',max_length=30,blank=True,null=True)      
-    agency = models.CharField('기획사',max_length=30) 
+   
     music_img = models.URLField('음원 이미지 경로',max_length=200,null=True,blank=True) 
-    music_price = models.IntegerField('음원가격',null=True,blank=True)
+   
     # album_ph = models.ImageField('앨범사진',max_length=30,null=True,blank=True,upload_to=None)
     # playcount = models.IntegerField('총 재생수',null=True,blank=True)
     # music_len = models.IntegerField('음원총길이',null=True,blank=True)
@@ -30,16 +28,21 @@ class Artist(models.Model):
     name = models.CharField(max_length=100)
     mbid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     url = models.URLField('아티스트 사진 설명페이지url',max_length=254)
+   
     
-
 
 class Album(models.Model):
     streaming = models.ForeignKey('Streaming',related_name='albums',on_delete=models.CASCADE)
+    id = models.IntegerField(primary_key=True)
     name = models.CharField('앨범이름',max_length=100)
-    playcount = models.IntegerField('플레이카운트')
-    mbid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    music_w = models.CharField('작사가',max_length=30,null=True)  
+    music_m = models.CharField('작곡가',max_length=30,blank=True,null=True)      
+    agency = models.CharField('기획사',max_length=30,null=True) 
+    price = models.IntegerField('음원가격',null=True)
+    # mbid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     url = models.URLField('photo및 상세앨범',max_length=254)  
     hash = models.URLField('해쉬값',max_length=254)
+   
             
     class Meta: 
         unique_together =('url','name')

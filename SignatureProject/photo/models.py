@@ -33,6 +33,8 @@ class Photo(models.Model):
     description = models.TextField('photo Description',blank=True)
     upload_date = models.DateTimeField('Upload Date',auto_now_add=True)
     agency = models.CharField('기획사',max_length=30,null=True) 
+    videourl = models.URLField('유튜브',max_length=50,null=True)
+
 
     class Meta: 
         ordering = ['title']
