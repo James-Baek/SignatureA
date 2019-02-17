@@ -10,9 +10,9 @@ import uuid
 class Streaming(models.Model):
     # start_date = models.DateField('발매일',auto_now=False,auto_now_add=True,null=True)
     # id = models.IntegerField(primary_key=True)
-   
+    music_w = models.CharField('작사가',max_length=30,null=True)  
     music_img = models.URLField('음원 이미지 경로',max_length=200,null=True,blank=True) 
-   
+    music_genre = models.IntegerField('음악장르',null=True) 
     # album_ph = models.ImageField('앨범사진',max_length=30,null=True,blank=True,upload_to=None)
     # playcount = models.IntegerField('총 재생수',null=True,blank=True)
     # music_len = models.IntegerField('음원총길이',null=True,blank=True)
@@ -21,7 +21,7 @@ class Streaming(models.Model):
      # total_income = models.IntegerField('총 음원수입',null=True,blank=True)
     # music_r = models.CharField('편곡가',max_length=30,blank=True,null=True)
     # thumbnail = models.URLField('썸네일 이미지',max_length=200,null=True,blank=True)
-    music_genre = models.IntegerField('음악장르',null=True) 
+   
 
 class Artist(models.Model):
     album = models.ForeignKey('Streaming',related_name='artists',on_delete=models.CASCADE)
@@ -49,7 +49,7 @@ class Album(models.Model):
         ordering = ['name']
 
     def __unicode__(self):
-        return '%d:%s' % (self.playcount, self.name)
+        return '%d:%s' % (self.id, self.name)
 
 
 

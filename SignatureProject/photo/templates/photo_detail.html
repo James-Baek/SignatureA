@@ -75,8 +75,6 @@
         {% else %}<p>(blank></p> {% endif %}
 
 </table>
-
-
 </fieldset>
 
 
@@ -119,8 +117,7 @@
               <tr>
                 <th scope="col">번호</th>
                 <th scope="col">곡정보</th>
-                <!-- <th scope="col">곡정보</th> -->
-                <!-- <th scope="col">genre</th> -->
+                <th scope="col">작사가</th>
                 <th scope="col">작곡가</th>
                 <th scope="col">듣기</th>
                 <th scope="col">나의 앨범</th>
@@ -133,18 +130,15 @@
                 <tbody
                 v-for="album in albums"
                 >
-                <td></td>
+               
+                <th scope="row">%{album.id}</th>
                  <th scope="row">%{album.name}</th>
-                 <!-- <td><a v-bind:href=album.url>아이유 포토</a></td> -->
-              
-                 <td>%{album.playcount}</td>
-                 <td>
-                 <a href="{% url 'streaming:play'%}"> <i class="fa fa-play">
-                 </i>
-                 </td>
+                 <th scope="row">%{album.music_w}</th>
+                 <th scope="row">%{album.music_m}</th>
+                 <td>><a href="{% url 'streaming:play'%}"> <i class="fa fa-play"></i></a></td>
                  <td><a href="{% url 'streaming:myalbum'%}"><i class="fa fa-download"></i></a></td>
-                 <td>%{album.playcount}</td>
-                  
+                 <td>%{album.price}</td>
+        <!-- <td><a v-bind:href=album.url>아이유 포토</a></td> -->             
                 </tbody>
             </table>
                    
