@@ -53,3 +53,12 @@ class Album(models.Model):
 
 
 
+class InsertUpload(models.Model):
+    email = models.EmailField(primary_key=True)
+    artist = models.IntegerField('아티스트')
+    music_m = models.IntegerField('작곡가')
+    price = models.BigIntegerField('가격') 
+
+    def __str__(self):
+        return self.email 
+

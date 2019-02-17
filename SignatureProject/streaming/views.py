@@ -103,9 +103,7 @@ class todo(TemplateView):
 #         'streaming/upload.html',
 #         {'documents': documents, 'form': form},
 #         context_instance=RequestContext(request)
-def Form(request):
-    return render(request,"streaming/form.html",{})
-    
+
 
 # class Form(request):
 #     return render(request,"streaming/form.html",{})
@@ -121,6 +119,19 @@ def Upload(request):
         process(x)
     # return HttpResponse("File(s) uploaded!")
     return render(request,"streaming/form_upload.html",{})
+
+
+def Form(request):
+    return render(request,"streaming/form.html",{})
+
+
+
+def DbUpload(requset, email, artist, music_m,price):
+    InsertUpload(email=email, artist=artist, music_m=music_m,price=price).save()
+    return render(request,'streaming/form_upload.html',
+        {'welcome_text':'Insert:' + email })
+
+
 
 
 

@@ -72,6 +72,7 @@ function preview_images()
                 <!-- untuk backend actionnya ditunjukan ke mana -->
                 <form method="POST" action="#">
                   <div class="form-group files">
+                    {% csrf_token %}  <!-- csrf token 오류 html 확인-->
                     <label>Upload Your File </label>
                     <input type="file" class="form-control" multiple="">
                   </div>
