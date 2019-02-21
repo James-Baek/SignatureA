@@ -4,7 +4,7 @@ from django.views.generic.dates import DayArchiveView, TodayArchiveView
 from django.views.generic import FormView #클래스형 제네릭뷰
 # Create your views here.
 from django.views.generic.edit import FormView
-from streaming.forms import *
+# from streaming.forms import *
 from django.db.models import Q 
 from django.shortcuts import render_to_response #단축함수 render  
 from django.shortcuts import render
@@ -24,7 +24,6 @@ from .forms import *
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from main.views import LoginRequiredMixin
-
 from photo.views import * 
 
 
@@ -109,37 +108,123 @@ class todo(TemplateView):
 #     return render(request,"streaming/form.html",{})
 
 
-def Upload(request): 
-    for count, x in enumerate(request.FILES.getlist("files")):
-        def process(f):
-            with open('/Users/a/Desktop/projects/media/{{files}}' + str(count) + '.mp3','wb+') as destination:
-                for chunk in f.chunks():
-                    destination.write(chunk)
-
-        process(x)
-    # return HttpResponse("File(s) uploaded!")
-    return render(request,"streaming/form_upload.html",{})
-
+from .models import InsertUpload
 
 def Form(request):
     return render(request,"streaming/form.html",{})
 
 
 
-def DbUpload(requset, email, artist, music_m,price):
-    InsertUpload(email=email, artist=artist, music_m=music_m,price=price).save()
-    return render(request,'streaming/form_upload.html',
-        {'welcome_text':'Insert:' + email })
+# def DbUpload(request,email,artist,music_m,price):
 
+#     InsertUpload(email=email, artist=artist, music_m=music_m,price=price).save()
+#     context = {'email' : email, 
+#     'artist' :  artist, 
+#     'music_m' : music_m,
+#     'price' : price
+#     }
 
+#     return render(request,'streaming/form_upload.html', context)
+   
+   
 
-
+  
 
 class Player(TemplateView): 
     template_name = 'streaming/player.html'
 
 
 
+
+# def DisplayUpload(request,email): 
+#     result = InsertUpload.objects.filter(email=email)[0]
+#     uploadInfo = "EMAIL:{0}; ARTIST:{1}; MUSIC_M :{2}; PRICE:{3}".format(result.email,result.artist,result.music_m,result.price)
+#     return render(request,'streaming/form_upload.html',{ 'welcome' : uploadInfo })
+
+
+
+
+
+
+def UploadAlbum(request):
+    if request.method == "POST":
+        form = UploadForm(request.POST, request.FILES)
+
+        if form.is_valid():
+
+            album = InsertUpload()
+            album.email = form.cleaned_data['email']
+            album.artist = form.cleaned_data['artist']
+            album.music_m = form.cleaned_data['music_m']
+            album.price = form.cleaned_data['price']
+            album.genre = form.cleaned_data['genre']
+            album.description = form.cleaned_data['description']
+            album.document = form.cleaned_data['document']
+
+            album.save()
+            return render(request, 'streaming/form_upload.html', {
+                    'form':form,
+            })
+
+    else: 
+        form = UploadForm()
+       
+        # else:
+        #     return render(request,'streaming/form_upload_fail.html', {})
+
+        return render(request, 'streaming/form_upload.html', {
+            'form':form,
+    })
+
+
+
+# def Upload(request): 
+#     for count, x in enumerate(request.FILES.getlist("files")):
+#         def process(f):
+#             with open('/Users/a/Desktop/projects/media/{{files}}' + str(count) + '.mp3','wb+') as destination:
+#                 for chunk in f.chunks():
+#                     destination.write(chunk)
+
+#         process(x)
+#     # return HttpResponse("File(s) uploaded!")
+#     return render(request,"streaming/form_upload.html",{})
+
+
+
+
+# def model_form_upload(request):
+#     if request.method == 'POST':
+#         form = DocumentForm(request.POST, request.FILES)
+#         if form.is_valid():
+
+#             forms = Document() 
+#             forms.description = form.cleaned_data['description']
+#             forms.document = form.cleanded_data['document']
+#             forms.save()
+
+#             return render(request, 'streaming/form_upload.html', {
+#         'form': form,
+#     })
+#     else:
+#         form = DocumentForm()
+#     return render(request, 'streaming/form_upload.html', {
+#         'form': form
+#     })
+
+
+
+
+
+
+
+
+
+from django.views.generic import CreateView 
+
+class UploadGenericCreateView(CreateView):
+    model = InsertUpload
+    fields = ['email','artist','music_m','price']
+    success_url = reverse_lazy('upload_generic:list')
 
 
 

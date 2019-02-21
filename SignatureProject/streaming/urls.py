@@ -20,9 +20,11 @@ urlpatterns = [
     path('myalbum/',gene.as_view(),name="myalbum"),
     # path('todo/',todo.as_view(),name='todo'),
     path('form/',views.Form,name="form"),
-    path('upload/',views.Upload,name='upload'),
+    path('upload/',views.UploadAlbum, name='albumupload'),
+    # path('upload/<str:email>/<str:artist>/<str:music_m>/<int:price>/',views.DbUpload,name='upload'),
     path('player',Player.as_view(),name="player"),
+
    
 ]
 
-
+# (?P<email>\d+)/(?P<artist>\d+)/(?P<music_m>\d+)/(?P<price>\d+)/$'

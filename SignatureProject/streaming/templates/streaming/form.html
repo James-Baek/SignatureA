@@ -70,9 +70,9 @@ function preview_images()
             <div class="tab-pane fade" id="Tabs-Ketiga">
               <div class="col-md-12">
                 <!-- untuk backend actionnya ditunjukan ke mana -->
-                <form method="POST" action="#">
+                <!-- <form method="POST" action="#">
                   <div class="form-group files">
-                    {% csrf_token %}  <!-- csrf token 오류 html 확인-->
+                    {% csrf_token %}  csrf token 오류 html 확인
                     <label>Upload Your File </label>
                     <input type="file" class="form-control" multiple="">
                   </div>
@@ -81,14 +81,14 @@ function preview_images()
                       <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span>Save
                     </button>
                   </div>
-                </form>
+                </form> -->
               </div>
             </div>
 
             <div class="tab-pane fade in active" id="Tabs-Keempat">
               <!-- disini maksudnya in active yaitu mengaktifkan file yg ditampilkan untuk pertamakali -->
               <div class="col-md-12">
-                <form method="post" action="../upload/" enctype="multipart/form-data">
+                <form method="PUT" action="../upload" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="form-group files color">
                     <label>Upload Your File </label>
@@ -98,23 +98,23 @@ function preview_images()
                         &nbsp &nbsp &nbsp &nbsp &nbsp      
                 <div class="form-group">
                         <label for="exampleInputEmail1">이메일 주소</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일 형식">
+                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일 형식">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
 
                 <div class="form-group">
                     <label for="inputAritist">아티스트 </label>
-                    <input type="text" class="form-control" id="inputArtist" placeholder="아티스트 명">
+                    <input name="artist" type="text" class="form-control" id="inputArtist" placeholder="아티스트 명">
                 </div>
                     
                 <div class="form-group">
                         <label for="inputcompo">작곡가 </label>
-                        <input type="text" class="form-control" id="inputwriter" placeholder="작곡가">
+                        <input name="music_m" type="text" class="form-control" id="inputwriter" placeholder="작곡가">
                     </div>
                 
                 <div class="form-group">
                         <label for="inputprice">가격</label>
-                        <input type="number" class="form-control" id="inputprice" placeholder="가격">
+                        <input name="price" type="number" class="form-control" id="inputprice" placeholder="가격">
                     </div>
             <span class="textfield__label"> Description</span>  
                     <div class="col-md-12">

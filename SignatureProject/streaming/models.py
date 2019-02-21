@@ -1,7 +1,9 @@
 from django.db import models
 from django import forms 
+from django.urls import reverse
 # from django.contrib.auth.models import User  
 from datetime import date,datetime,time
+from django.utils.timezone import *
 # Create your models here.
 import uuid 
 # from user.models import User
@@ -21,7 +23,7 @@ class Streaming(models.Model):
      # total_income = models.IntegerField('총 음원수입',null=True,blank=True)
     # music_r = models.CharField('편곡가',max_length=30,blank=True,null=True)
     # thumbnail = models.URLField('썸네일 이미지',max_length=200,null=True,blank=True)
-   
+    
 
 class Artist(models.Model):
     album = models.ForeignKey('Streaming',related_name='artists',on_delete=models.CASCADE)
@@ -54,11 +56,41 @@ class Album(models.Model):
 
 
 class InsertUpload(models.Model):
-    email = models.EmailField(primary_key=True)
-    artist = models.IntegerField('아티스트')
-    music_m = models.IntegerField('작곡가')
-    price = models.BigIntegerField('가격') 
+    email = models.EmailField(max_length=30)
+    artist = models.CharField('아티스트',max_length=32)
+    music_m = models.CharField('작곡가',max_length=32)
+    price = models.BigIntegerField('가격')
+    genre = models.CharField('장르',max_length=20,null=True)
+    description = models.CharField('설명',max_length=150,null=True)
+    document = models.FileField(upload_to='documents/%Y',null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True,null=True)
 
     def __str__(self):
-        return self.email 
+        return self.email
+
+    def get_absolute_url(self): #redirect 활용시 
+        return reverse('streaming:albumupload')
+# , args=[self.id,]
+
+
+# def min_length_3_validator(value): 
+#     if len(value)<30:
+#         raise forms.ValidationError('30글자 이상 입력해주세요')
+
+# InsertUpload 랑 통합 
+# class Document(models.Model):
+#     description = models.CharField(max_length=255, blank=True)
+#     document = models.FileField(upload_to='documents/%Y')
+#     uploaded_at = models.DateTimeField(auto_now_add=True)
+
+
+   
+# def user_directory_path(instance, filename):
+#     # file will be uploaded to MEDIA_ROOT/user_<id>/<filename>
+#     return 'user_{0}/{1}'.format(instance.user.id, filename)
+
+# class MyModel(models.Model):
+#     upload = models.FileField(upload_to=user_directory_path)
+
+
 

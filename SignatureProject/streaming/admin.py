@@ -34,4 +34,7 @@ from user.models import *
 admin.site.register(Streaming)
 admin.site.register(Album)
 admin.site.register(Artist)
-admin.site.register(InsertUpload)
+admin.site.register(InsertUpload) 
+# admin.site.register(Document)
+
+
