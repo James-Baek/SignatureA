@@ -45,12 +45,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'user.apps.UserConfig',
     'main.apps.MainConfig',
+    'crispy_forms'
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
 
+# form + bootstrap 적용하기 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

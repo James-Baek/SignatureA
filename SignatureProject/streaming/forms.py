@@ -20,12 +20,13 @@ class MusicSearchForm(forms.Form):
 class UploadForm(forms.Form):
     email = forms.CharField()
     artist = forms.CharField()
-    music_m = forms.CharField() 
+    songwriter = forms.CharField()
+    songname = forms.CharField()
     price = forms.IntegerField()
     genre = forms.CharField() 
     description = forms.CharField()
-    document = forms.FileField()
-    uploaded_at = forms.DateTimeField()
+    music_file = forms.FileField()
+    # uploaded_at = forms.DateTimeField()
 
     #ModelForm 비슷하게 구현 
     def save(self, commit=True): 

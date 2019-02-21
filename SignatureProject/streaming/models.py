@@ -58,11 +58,12 @@ class Album(models.Model):
 class InsertUpload(models.Model):
     email = models.EmailField(max_length=30)
     artist = models.CharField('아티스트',max_length=32)
-    music_m = models.CharField('작곡가',max_length=32)
+    songwriter= models.CharField('작곡가',max_length=32)
+    song_name = models.CharField('노래 이름',max_length=32,null=True)
     price = models.BigIntegerField('가격')
     genre = models.CharField('장르',max_length=20,null=True)
     description = models.CharField('설명',max_length=150,null=True)
-    document = models.FileField(upload_to='documents/%Y',null=True)
+    music_file = models.FileField(upload_to='documents/%Y',null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True,null=True)
 
     def __str__(self):

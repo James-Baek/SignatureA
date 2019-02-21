@@ -155,14 +155,15 @@ def UploadAlbum(request):
             album = InsertUpload()
             album.email = form.cleaned_data['email']
             album.artist = form.cleaned_data['artist']
-            album.music_m = form.cleaned_data['music_m']
+            album.songwriter = form.cleaned_data['songwriter']
+            album.songname = form.cleaned_data['songname']
             album.price = form.cleaned_data['price']
             album.genre = form.cleaned_data['genre']
             album.description = form.cleaned_data['description']
-            album.document = form.cleaned_data['document']
+            album.music_file = form.cleaned_data['music_file']
 
             album.save()
-            return render(request, 'streaming/form_upload.html', {
+            return render(request, 'streaming/form_upload_success.html', {
                     'form':form,
             })
 
