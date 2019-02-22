@@ -45,12 +45,26 @@ INSTALLED_APPS = [
     'rest_framework',
     'user.apps.UserConfig',
     'main.apps.MainConfig',
-    'crispy_forms'
+    'crispy_forms',
+    # 'haystack',
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
 }
+
+# WHOOSH 를 사용할 경우.
+
+# WHOOSH_INDEX=os.path.join(BASE_DIR, 'whoosh_index')
+
+# HAYSTACK_CONNECTIONS = {
+#     'default': {
+#         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+#         'PATH': WHOOSH_INDEX,
+#     },
+# }
+
+
 
 # form + bootstrap 적용하기 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
