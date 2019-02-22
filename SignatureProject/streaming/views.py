@@ -214,8 +214,8 @@ def UploadAlbum(request):
 
 
 def uploadsuccess(request): 
-	insertupload = InsertUpload.objects.all() 
-	context = { 'insertupload' : insertupload } 
+	insertuploads = InsertUpload.objects.all() 
+	context = { 'insertuploads' : insertuploads } 
 		# context에 모든 정보를 저장 
 	return render(request, 'streaming/form_upload_success.html', context) 
 		# context 안에 있는 정보를 html에 전달하기 
@@ -225,12 +225,12 @@ def uploadsuccess(request):
 
 
 
-from django.views.generic import CreateView 
+# from django.views.generic import CreateView 
 
-class UploadGenericCreateView(CreateView):
-    model = InsertUpload
-    fields = ['email','artist','music_m','price']
-    success_url = reverse_lazy('upload_generic:list')
+# class UploadGenericCreateView(CreateView):
+#     model = InsertUpload
+#     fields = ['email','artist','music_m','price']
+#     success_url = reverse_lazy('upload_generic:list')
 
 
 

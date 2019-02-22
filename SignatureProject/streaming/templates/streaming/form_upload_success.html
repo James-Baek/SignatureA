@@ -1,6 +1,36 @@
 
-<div class="text-info">
-    <h2>파일업로드 성공하였습니다dddd.</h2>
-    {{ object.insertupload.email }}
+{% load static %}
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-</div> 
+  
+{% block content %}
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td><B>이메일</B></td>
+            <td><B>아티스트</B></td>
+            <td><B>작곡가</B></td>
+            <td><B>가격</B></td>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- {% if insertuploads %}
+        {% for insertupload in insertuploads %} -->
+        <tr>
+
+            <td> {{ uploadForm.artist }} </td>
+            
+            <!-- <td>{{ insertupload.artist }}</td> -->
+            <!-- <td>{{ insertupload.songwriter }}</td> -->
+            <!-- <td>{{ insertupload.price }}</td> -->
+        
+        </tr>
+        <!-- {% endfor %} -->
+        <tbody>
+            <!-- {% endif %} -->
+    </table>
+
+{% endblock content %}
