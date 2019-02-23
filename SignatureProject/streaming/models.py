@@ -74,13 +74,13 @@ class InsertUpload(models.Model):
 # , args=[self.id,]
 
 
-class Hash(model.Model):
+class Hash(models.Model):
     hash = models.CharField('해쉬',max_length=75)
 
     def __str__(self):
         return self.hash 
 
-      
+
 
 # def min_length_3_validator(value): 
 #     if len(value)<30:
