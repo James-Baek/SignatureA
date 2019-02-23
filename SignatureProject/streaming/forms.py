@@ -15,8 +15,6 @@ class MusicSearchForm(forms.Form):
 #         label = 'Select a file',
 #         help_text = 'max. 42 megabytes'
 
-
-
 class UploadForm(forms.Form):
     email = forms.CharField()
     artist = forms.CharField()
@@ -35,6 +33,18 @@ class UploadForm(forms.Form):
             uploadForm.save() 
 
         return uploadForm 
+
+
+class HashForm(forms.Form):
+    hash = forms.CharField()
+
+    def save(self, commit=True):
+        hashForm = HashForm(**self.cleaned_data)
+        if commit:
+            hashForm.save()
+        
+        return hashForm 
+
 
 
 
