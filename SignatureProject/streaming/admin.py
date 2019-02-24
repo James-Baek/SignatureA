@@ -35,6 +35,8 @@ admin.site.register(Streaming)
 admin.site.register(Album)
 admin.site.register(Artist)
 admin.site.register(InsertUpload) 
+admin.site.register(Hash)
+
 # admin.site.register(Document)
 
 

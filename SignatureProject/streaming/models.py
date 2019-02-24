@@ -65,6 +65,7 @@ class InsertUpload(models.Model):
     description = models.CharField('설명',max_length=150,null=True)
     music_file = models.FileField(upload_to='documents/%Y',null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True,null=True)
+    hash = models.CharField('hash', max_length=128, null=True)
 
     def __str__(self):
         return self.email

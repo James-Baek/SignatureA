@@ -23,8 +23,8 @@ urlpatterns = [
     path('upload/',views.UploadAlbum, name='albumupload'),
     # path('upload/<str:email>/<str:artist>/<str:music_m>/<int:price>/',views.DbUpload,name='upload'),
     path('player',Player.as_view(),name="player"),
+    # path('upload/update',UploadAlbumUpdateView.as_view(),name="uploadupdate"),
 
-   
 ]
 
 # (?P<email>\d+)/(?P<artist>\d+)/(?P<music_m>\d+)/(?P<price>\d+)/$'

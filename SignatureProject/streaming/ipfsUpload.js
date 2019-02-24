@@ -39,3 +39,6 @@ function uploadToIpfs(outputDirectory, name) {
       })
     })
   }
+
+
+  

@@ -31,6 +31,8 @@ import subprocess
 import json
 
 
+
+
 class SearchFormView(FormView): 
     form_class = MusicSearchForm 
     template_name = 'streaming/streaming_search.html'
@@ -114,7 +116,6 @@ def Form(request):
     return render(request,"streaming/form.html",{})
 
 
-
 # def DbUpload(request,email,artist,music_m,price):
 
 #     InsertUpload(email=email, artist=artist, music_m=music_m,price=price).save()
@@ -125,10 +126,7 @@ def Form(request):
 #     }
 
 #     return render(request,'streaming/form_upload.html', context)
-   
-   
 
-  
 
 class Player(TemplateView): 
     template_name = 'streaming/player.html'
@@ -141,16 +139,17 @@ class Player(TemplateView):
 #     uploadInfo = "EMAIL:{0}; ARTIST:{1}; MUSIC_M :{2}; PRICE:{3}".format(result.email,result.artist,result.music_m,result.price)
 #     return render(request,'streaming/form_upload.html',{ 'welcome' : uploadInfo })
 
+def getHash():
+    result = subprocess.check_output(["python", "ipfsUpload.py"]).decode('utf-8')
 
-
-
-
+    return result
 
 def UploadAlbum(request):
     if request.method == "POST":
         form = UploadForm(request.POST, request.FILES)
 
         if form.is_valid():
+
 
             album = InsertUpload()
             album.email = form.cleaned_data['email']
@@ -163,20 +162,23 @@ def UploadAlbum(request):
             album.music_file = form.cleaned_data['music_file']
 
             album.save()
+
+            album_instance = InsertUpload.objects.get(id=album.id)
+            album_instance.hash = getHash()
+            album_instance.save()
+
             return render(request, 'streaming/form_upload_success.html', {
-                    'form':form,
+                    'hash':album_instance.hash,
             })
 
-    else: 
+    else:
         form = UploadForm()
-       
         # else:
         #     return render(request,'streaming/form_upload_fail.html', {})
 
         return render(request, 'streaming/form_upload.html', {
             'form':form,
     })
-
 
 
 # def Upload(request): 
@@ -222,9 +224,6 @@ def uploadsuccess(request):
 
 
 
-
-
-
 # from django.views.generic import CreateView 
 
 # class UploadGenericCreateView(CreateView):
@@ -246,4 +245,15 @@ def uploadsuccess(request):
 #     hash = result[a:b]
 # print(result[a:b])
 
+# def UpdateHash(request): 
+#     if request.method == "POST":
+#         form = HashForm(request.POST, request.FILES)
+        
+#         if form is_valid(): 
+#             hash = Hash()
+#             hash.
 
+
+
+    
+    

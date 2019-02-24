@@ -55,12 +55,17 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
     }
 
     // queryTuna - requires 1 argument, ex: args: ['4'],
+    // 'UserCC'  'SongCC'
     const request = {
-        chaincodeId: 'test',
+        chaincodeId: 'test',   
         txId: tx_id,
         fcn: args[2],
         args: [args[3]]
     };
+
+
+
+    
 
     // send the query proposal to the peer
     return channel.queryByChaincode(request);
