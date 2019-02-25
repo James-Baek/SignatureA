@@ -170,13 +170,13 @@ LOGIN_URL = '/user/login/'
 AUTH_USER_MODEL = 'user.User'
 
 
-# 세션 유지 시간 15초
+# 세션 유지 시간 30초
 SESSION_COOKIE_AGE = 300
 
 EMAIL_HOST = 'smtp.naver.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'signaturesound@naver.com'
-EMAIL_HOST_PASSWORD = '멀캠123'
+EMAIL_HOST_PASSWORD = 'ajfzoa123'  #멀캠 123 
 EMAIL_USE_TLS = True
 
 # CSRF_COOKIE_SECURE = True

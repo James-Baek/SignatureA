@@ -41,9 +41,31 @@ jQuery(function ($) {
             }, {
                 "track": 4,
                 "name": "lemon tree",
-                "duration": "2:31",
+                "duration": "2:37",
                 "hash": "QmYYLuYxFjRJy8VQchbu8SJfR5s2fJdsQXrur88qjXADrM"
-            }],
+            }, {
+                
+                "track": 5,
+                "name": "피땀 눈물",
+                "duration": "4:31",
+                "hash": "QmYYLuYxFjRJy8VQchbu8SJfR5s2fJdsQXrur88qjXADrM"
+                
+            }, {
+                "track": 6,
+                "name": "Life is race",
+                "duration": "3:34",
+                "hash": "QmYYLuYxFjRJy8VQchbu8SJfR5s2fJdsQXrur88qjXADrM"
+            }, {
+                "track": 7,
+                "name": "We will rock you",
+                "duration": "3:38",
+                "hash": "QmYYLuYxFjRJy8VQchbu8SJfR5s2fJdsQXrur88qjXADrM"
+            },
+
+    
+        
+        
+        ],
             buildPlaylist = $(tracks).each(function(key, value) {
                 var trackNumber = value.track,
                     trackName = value.name,
