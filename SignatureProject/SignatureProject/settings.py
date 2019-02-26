@@ -171,7 +171,7 @@ AUTH_USER_MODEL = 'user.User'
 
 
 # 세션 유지 시간 30초
-SESSION_COOKIE_AGE = 300
+SESSION_COOKIE_AGE = 3000
 
 EMAIL_HOST = 'smtp.naver.com'
 EMAIL_PORT = 587

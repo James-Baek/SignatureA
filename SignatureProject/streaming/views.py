@@ -52,8 +52,8 @@ class SearchFormView(FormView):
 class MusicStreaming(TemplateView):
     template_name='streaming/streaming_play.html'
 
-    def get_context_data(self, **kwargs):
-        result = subprocess.check_output(["node", "test.js", "queryUser", "USER5"])
+    def get_context_data(self, **kwargs):                  #user.email
+        result = subprocess.check_output(["node", "UserQuery.js", "queryUser",self.request.user.email])
         a = json.loads(result.decode('utf-8'))
         
         context = super(MusicStreaming, self).get_context_data(**kwargs)
@@ -63,7 +63,11 @@ class MusicStreaming(TemplateView):
 
         print(context)
         print(self.request.user)
+        print(self.request.user.coin)
+        print(a['balance'])
         return context
+
+    
     
 
 class MusicMain(TemplateView): 

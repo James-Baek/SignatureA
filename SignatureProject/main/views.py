@@ -9,7 +9,7 @@ import json
 class MainFirstView(TemplateView):
     template_name = 'main/main.html'
     def get_context_data(self, **kwargs):
-        result = subprocess.check_output(["node", "test.js", "queryUser", "USER5"])
+        result = subprocess.check_output(["node", "UserQuery.js", "queryUser", "Admin@SignatureSound.com"])
         a = json.loads(result.decode('utf-8'))
         
         context = super(MainFirstView, self).get_context_data(**kwargs)
@@ -21,6 +21,13 @@ class MainFirstView(TemplateView):
         print(self.request.user)
         return context
 
+
+    def get_context_data2(self, **kwargs): 
+        result = subprocess.check_output(["node","test.js","changeAuthority","Admin@SignatureSound.com"])
+        b= json.loads(result.decode('utf-8'))
+
+        context = super(MainFirstView,self).get_context_data(**kwargs)
+        context['changeauth'] = b
     # 뭔지 잘 모르는데 중요한 것 같음...
     # queryset = User.objects.all()
 

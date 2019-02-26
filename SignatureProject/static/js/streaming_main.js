@@ -6,64 +6,69 @@ new Vue({
       return {
         artists: [
         {image:"/media/photo/2019/01/방탄.jpg",
+            name:"방탄소년단",
             url: "http://127.0.0.1:8000/photo/photo/2"
         },
 
         {image:"/media/photo/2019/01/방탄2.jpg",
+            name:"방탄소년단",
             url:"http://127.0.0.1:8000/photo/photo/3"
-    },
+        },
         {image:"/media/photo/2019/01/방탄3.jpg",
+            name:"방탄소년단",
             url:"http://127.0.0.1:8000/photo/photo/3"
-    },
+        },
         {image:"/media/photo/2019/01/방탄4.jpg",
+            name:"방탄소년단",
             url:"http://127.0.0.1:8000/photo/photo/1"
-    },     
+        },     
         {image:"/media/photo/2019/01/beatles.jpg",
+            name:"비틀즈",
             url:"http://127.0.0.1:8000/photo/photo/4"
-    },
-        {image:"/media/photo/2019/01/beatles2.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/5"
-    },
+        },
+        // {image:"/media/photo/2019/01/beatles2.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/5"
+        // },
 
-        {image:"/media/photo/2019/01/exid1.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/6"
-    },
-        {image:"/media/photo/2019/01/exid2.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/7"
-    },
+        // {image:"/media/photo/2019/01/exid1.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/6"
+        // },
+        // {image:"/media/photo/2019/01/exid2.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/7"
+        // },
 
-        {image:"/media/photo/2019/01/jackson.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/7"
-    },
-        {image:"/media/photo/2019/01/jackson2.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/8"
-    },
-        {image:"/media/photo/2019/01/jackson3.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/9"
-    },
-        {image:"/media/photo/2019/01/muse.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/10"
-    },  
+        // {image:"/media/photo/2019/01/jackson.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/7"
+        // },
+        // {image:"/media/photo/2019/01/jackson2.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/8"
+        // },
+        // {image:"/media/photo/2019/01/jackson3.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/9"
+        // },
+        // {image:"/media/photo/2019/01/muse.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/10"
+        // },  
 
-        {image:"/media/photo/2019/00/muse1.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/11"
-    },
+        // {image:"/media/photo/2019/00/muse1.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/11"
+        // },
     
-        {image:"/media/photo/2019/01/image20.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/12"
-    },
-        {image:"/media/photo/2019/01/image21.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/13"
-    },
+        // {image:"/media/photo/2019/01/image20.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/12"
+        // },
+        // {image:"/media/photo/2019/01/image21.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/13"
+        // },
 
-        {image:"/media/photo/2019/20/image23.jpg",
-            url:"http://127.0.0.1:8000/photo/photo/14"
-    },
+        // {image:"/media/photo/2019/20/image23.jpg",
+        //     url:"http://127.0.0.1:8000/photo/photo/14"
+        // },
 
-        {image:"/media/photo/2019/20/image24.jpg",
-        url:"http://127.0.0.1:8000/photo/photo/14"
+        // {image:"/media/photo/2019/20/image24.jpg",
+        // url:"http://127.0.0.1:8000/photo/photo/14"
+        // },
         
-    },
     //     {image:"/media/photo/2019/20/image25.jpg",
     //     url:"http://127.0.0.1:8000/photo/photo/14"
         
