@@ -26,6 +26,8 @@ class UploadForm(forms.Form):
     music_file = forms.FileField()
     # uploaded_at = forms.DateTimeField()
 
+
+
     #ModelForm 비슷하게 구현 
     def save(self, commit=True): 
         uploadForm = UploadForm(**self.cleaned_data)

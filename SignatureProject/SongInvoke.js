@@ -87,7 +87,7 @@ Fabric_Client.newDefaultKeyValueStore({ path: store_path
     
     // recordTuna - requires 5 args, ID, vessel, location, timestamp,holder - ex: args: ['10', 'Hound', '-12.021, 28.012', '1504054225', 'Hansel'], 
     // send proposal to endorser
-    
+  
 
     console.log(args)
     // send the transaction proposal to the peers

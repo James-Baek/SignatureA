@@ -154,7 +154,6 @@ def UploadAlbum(request):
 
         if form.is_valid():
 
-
             album = InsertUpload()
             album.email = form.cleaned_data['email']
             album.artist = form.cleaned_data['artist']
@@ -171,6 +170,7 @@ def UploadAlbum(request):
             album_instance.hash = getHash()
             album_instance.save()
 
+    
             return render(request, 'streaming/form_upload_success.html', {
                     'hash':album_instance.hash,
             })
