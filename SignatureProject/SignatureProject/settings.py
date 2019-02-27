@@ -176,7 +176,7 @@ SESSION_COOKIE_AGE = 3000
 EMAIL_HOST = 'smtp.naver.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'signaturesound@naver.com'
-EMAIL_HOST_PASSWORD = 'ajfzoa123'  #멀캠 123 
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
 # CSRF_COOKIE_SECURE = True
